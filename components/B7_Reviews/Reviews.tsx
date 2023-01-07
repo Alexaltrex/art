@@ -9,12 +9,18 @@ import {svgIcons} from "../../assets/svgIcons";
 import {Zoom} from "@mui/material";
 
 const items = [
-    <p>I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and
-        his team were always in touch, made all the changes...</p>,
-    <p>I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and
-        his team were always in touch, made all the changes...</p>,
-    <p>I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and
-        his team were always in touch, made all the changes...</p>,
+    {
+        el: <p>I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and his team were always in touch, made all the changes...</p>,
+        id: 0,
+    },
+    {
+        el: <p>I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and his team were always in touch, made all the changes...</p>,
+        id: 1,
+    },
+    {
+        el: <p>I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and his team were always in touch, made all the changes...</p>,
+        id: 2,
+    },
 ];
 
 // const makeArray = (n: number): number[] => {
@@ -80,15 +86,15 @@ export const Reviews = () => {
                         onTouchStart={() => setClick(true)}
                 >
                     {
-                            items.map((item, index) => (
-                                <SwiperSlide key={index}
-                                             className={style.slide}
-                                >
-                                    <div className={style.inner}>
-                                        {item}
-                                    </div>
-                                </SwiperSlide>
-                            ))
+                        items.map(({el, id}, index) => (
+                            <SwiperSlide key={id}
+                                         className={style.slide}
+                            >
+                                <div className={style.inner}>
+                                    {el}
+                                </div>
+                            </SwiperSlide>
+                        ))
                     }
                 </Swiper>
             </div>
