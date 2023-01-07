@@ -23,13 +23,13 @@ const items = [
     },
 ];
 
-// const makeArray = (n: number): number[] => {
-//     const result = [] as number[];
-//     for (let i = 0; i < n; i ++) {
-//         result.push(i)
-//     }
-//     return result
-// }
+const makeArray = (n: number): number[] => {
+    const result = [] as number[];
+    for (let i = 0; i < n; i ++) {
+        result.push(i)
+    }
+    return result
+}
 
 export const Reviews = () => {
     const [swiper, setSwiper] = useState<SwiperClass | null>(null);
@@ -86,7 +86,7 @@ export const Reviews = () => {
                         onTouchStart={() => setClick(true)}
                 >
                     {
-                        items.map(({el, id}, index) => (
+                        items.map(({el, id}) => (
                             <SwiperSlide key={id}
                                          className={style.slide}
                             >
@@ -131,30 +131,30 @@ export const Reviews = () => {
                 </div>
             </div>
 
-            {/*<div className={style.blocks}>*/}
-            {/*    <div className={style.row}>*/}
-            {/*        {*/}
-            {/*            makeArray(20).map((el, index) => (*/}
-            {/*                    <div className={style[`block${(index + 1) % 4}`]}*/}
-            {/*                         key={index}*/}
-            {/*                    >*/}
-            {/*                        {svgIcons.jigen}*/}
-            {/*                    </div>*/}
-            {/*                ))*/}
-            {/*        }*/}
-            {/*    </div>*/}
-            {/*    <div className={style.row}>*/}
-            {/*        {*/}
-            {/*            makeArray(20).map((el, index) => (*/}
-            {/*                    <div className={style[`block${(index + 1) % 4}`]}*/}
-            {/*                         key={index}*/}
-            {/*                    >*/}
-            {/*                        {svgIcons.jigen}*/}
-            {/*                    </div>*/}
-            {/*                ))*/}
-            {/*        }*/}
-            {/*    </div>*/}
-            {/*</div>*/}
+            <div className={style.blocks}>
+                <div className={style.row}>
+                    {
+                        makeArray(20).map((el, index) => (
+                                <div className={style[`block${(index + 1) % 4}`]}
+                                     key={index}
+                                >
+                                    {svgIcons.jigen}
+                                </div>
+                            ))
+                    }
+                </div>
+                <div className={style.row}>
+                    {
+                        makeArray(20).map((el, index) => (
+                                <div className={style[`block${(index + 1) % 4}`]}
+                                     key={index}
+                                >
+                                    {svgIcons.jigen}
+                                </div>
+                            ))
+                    }
+                </div>
+            </div>
         </div>
     )
 }
