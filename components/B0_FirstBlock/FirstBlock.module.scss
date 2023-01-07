@@ -1,0 +1,105 @@
+@import "./assets/style/app";
+
+.firstBlock {
+  @include container;
+  position: relative;
+  background: #000;
+
+  .inner {
+    @include inner;
+    background-image: url('/firstBlock.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    padding-bottom: 45px;
+
+    .content {
+      width: 100%;
+      position: relative;
+      z-index: 2;
+      height: 730px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      @include desktop {
+        height: 800px;
+      }
+
+      .titleBlock {
+
+        @include desktop {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .title {
+          @include h2;
+          color: #FFF;
+
+          @include desktop {
+            width: 720px;
+          }
+        }
+
+        .right {
+          @include onlyDesktop(flex);
+          flex-direction: column;
+          justify-content: space-between;
+
+
+          div {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            p {
+              font-weight: 500;
+              font-size: 18px;
+              line-height: 140%;
+              color: #FFF;
+            }
+          }
+
+        }
+
+      }
+
+      .items {
+        margin-top: 24px;
+        display: flex;
+        flex-wrap: wrap;
+
+        .item {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 140%;
+          color: #FFF;
+          padding: 10px 20px;
+          border: 1px solid #FFF;
+          border-radius: 999px;
+          margin: 2px;
+
+          @include desktop {
+            margin: 0;
+          }
+        }
+
+      }
+
+
+    }
+
+    .bottom {
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      height: 245px;
+      background: linear-gradient(0deg, #090909 0%, rgba(9, 9, 9, 0) 104.18%);
+    }
+  }
+
+
+}

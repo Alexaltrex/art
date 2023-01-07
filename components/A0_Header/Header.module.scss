@@ -1,0 +1,161 @@
+@import "./assets/style/app";
+
+.header {
+  @include container;
+  background-color: $color_green;
+
+  .inner {
+    @include inner;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+
+    @include desktop {
+      height: 100px;
+    }
+
+    .leftBlock {
+      display: flex;
+      align-items: center;
+
+      .logo {
+        width: 48px;
+        height: 48px;
+
+        svg {
+          width: 48px;
+          height: 48px;
+
+          @include desktop {
+            width: 54px;
+            height: 54px;
+          }
+        }
+
+        @include desktop {
+          width: 54px;
+          height: 54px;
+        }
+      }
+
+      .links {
+        @include onlyDesktop(flex);
+        margin-left: 45px;
+        align-items: center;
+
+        .link {
+          position: relative;
+          text-decoration: none;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 140%;
+
+          &:not(:first-child) {
+            margin-left: 20px;
+          }
+
+          &::after {
+            display: block;
+            height: 2px;
+            background: #000;
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            transition: 0.3s;
+          }
+
+          &:hover {
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+    }
+
+    .rightBlock {
+      display: flex;
+      align-items: center;
+
+      @include desktop {
+        flex-direction: row-reverse;
+      }
+
+      .talkBtn {
+        @include button;
+        @include centerRow;
+        @include rounded;
+        width: 114px;
+        height: 50px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 140%;
+
+        @include desktop {
+          width: 159px;
+          height: 54px;
+        }
+      }
+
+      .soundBtn {
+        @include button;
+        @include centerRow;
+        @include rounded;
+        width: 50px;
+        height: 50px;
+
+        @include desktop {
+          width: 54px;
+          height: 54px;
+        }
+
+        svg {
+          width: 24px;
+          height: 24px;
+
+          @include desktop {
+            width: 26px;
+            height: 26px;
+          }
+        }
+      }
+
+      .burgerBtn {
+        @include button;
+        @include onlyMobile(flex);
+        @include centerRow;
+        @include rounded;
+        width: 50px;
+        height: 50px;
+      }
+
+      .stopBtn {
+        @include onlyDesktop(flex);
+        @include button;
+        @include rounded;
+        justify-content: space-between;
+        align-items: center;
+        width: 160px;
+        height: 54px;
+        padding-left: 8px;
+        padding-right: 30px;
+
+        svg {
+          width: 38px;
+          height: 38px;
+        }
+
+        p {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 140%;
+        }
+
+      }
+    }
+  }
+}

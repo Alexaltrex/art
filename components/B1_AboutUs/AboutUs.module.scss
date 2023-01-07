@@ -1,0 +1,156 @@
+@import "./assets/style/app";
+
+.aboutUs {
+  background: #FFF;
+  transition: $time;
+
+  .first {
+    @include container;
+
+    .inner {
+      @include inner;
+      padding-top: 80px;
+      padding-bottom: 32px;
+
+      @include desktop {
+        padding-top: 100px;
+        padding-bottom: 80px;
+      }
+
+      .text {
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 100%;
+        margin-top: 40px;
+        transition: $time;
+
+        @include desktop {
+          font-size: 80px;
+          margin-top: 80px;
+        }
+
+        span {
+          color: $color_green;
+          transition: $time;
+
+          &:last-child {
+            color: #a0a0a0;
+          }
+        }
+      }
+    }
+  }
+
+  .second {
+    @include container;
+    transition: $time;
+
+    @include desktop {
+      border-top: 1px solid #000;
+    }
+
+    .inner {
+      @include inner;
+      padding-left: 0;
+      padding-right: 0;
+
+      @include desktop {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 106px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+
+      .item {
+        padding: 32px 24px;
+        border-top: 1px solid #000;
+        position: relative;
+
+        @include desktop {
+          padding: 0;
+          border-top: none;
+        }
+
+        .value {
+          font-weight: 400;
+          font-size: 64px;
+          line-height: 100%;
+          transition: $time;
+
+          @include desktop {
+            font-size: 128px;
+          }
+        }
+
+        .text {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 140%;
+          margin-top: 8px;
+          transition: $time;
+
+          @include desktop {
+            margin-top: 30px;
+          }
+        }
+
+        &:not(:first-child) {
+          &::before {
+            @include onlyDesktop();
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: -70px;
+            transform: translateY(-50%) rotate(-15deg);
+            width: 1px;
+            height: 200px;
+            background: #000;
+            transition: $time;
+          }
+        }
+      }
+    }
+  }
+
+  &_dark {
+    background: #000;
+
+    .first .inner {
+      .text {
+        color: #FFF;
+        transition: $time;
+      }
+    }
+
+    .second {
+
+      @include desktop {
+        border-top: 1px solid #FFF;
+
+      }
+
+      .inner {
+
+        .item {
+
+          border-top: 1px solid #FFF;
+
+          .value {
+            color: #FFF;
+          }
+
+          .text {
+            color: #FFF;
+          }
+
+          &:not(:first-child) {
+            &::before {
+              background: #FFF;
+            }
+          }
+        }
+      }
+    }
+  }
+}

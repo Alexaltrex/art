@@ -1,0 +1,110 @@
+//========= FONTS ===========//
+@mixin h2 {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 100%;
+
+  @include desktop {
+    font-size: 80px;
+  }
+
+  span {
+    color: $color_green;
+  }
+}
+
+@mixin Almarai {
+  font-family: 'Almarai', sans-serif;
+  font-style: normal;
+}
+
+
+//========= BREAK POINTS ===========//
+@mixin desktop {
+  @media all and (min-width: 1400px) {
+    @content;
+  }
+}
+
+@mixin onlyMobile($displayType: block) {
+  display: $displayType;
+  @content;
+
+  @include desktop() {
+    display: none;
+  }
+}
+
+@mixin onlyDesktop($displayType: block) {
+  display: none;
+
+  @include desktop {
+    display: $displayType;
+    @content;
+  }
+}
+
+//========= OTHER ===========//
+@mixin container {
+  box-sizing: border-box;
+
+
+  @include desktop {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@mixin inner {
+  box-sizing: border-box;
+  padding-left: 24px;
+  padding-right: 24px;
+
+  @include desktop {
+    width: 1160px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@mixin centerColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin centerRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin button() {
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+@mixin absoluteCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin absoluteStart {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@mixin rounded {
+  border: 1px solid #000;
+  border-radius: 999px;
+}

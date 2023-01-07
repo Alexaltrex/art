@@ -1,0 +1,234 @@
+@import "./assets/style/app";
+
+.letsTalk {
+  @include container;
+  background: #FFF;
+  transition: $time;
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  @include desktop {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  &_dark {
+    background: #7B8195;
+  }
+
+  .inner {
+    @include inner;
+
+    .title {
+      @include h2;
+      margin-top: 40px;
+
+      @include desktop {
+        margin-top: 60px;
+      }
+    }
+
+    .form {
+      margin-top: 40px;
+
+      @include desktop {
+        margin-top: 60px;
+      }
+
+      .twoFields {
+
+        @include desktop {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-column-gap: 16px;
+        }
+
+        .fieldWrapper {
+
+          @include desktop {
+            display: flex;
+            align-items: flex-end;
+          }
+
+          &:not(:first-child) {
+            margin-top: 32px;
+
+            @include desktop {
+              margin-top: 0;
+            }
+          }
+
+          .label {
+            white-space: nowrap;
+            font-weight: 500;
+            font-size: 22px;
+            line-height: 100%;
+
+            @include desktop {
+              font-size: 36px;
+            }
+          }
+
+          .field {
+            width: 100%;
+            margin-top: 16px;
+
+            @include desktop {
+              margin-top: 0;
+              margin-left: 24px;
+
+
+            }
+
+          }
+
+        }
+      }
+
+      .ideaField {
+        width: 100%;
+        margin-top: 16px;
+
+        @include desktop {
+          margin-top: 40px;
+        }
+      }
+
+      .budgetWrapper {
+        margin-top: 32px;
+
+        @include desktop {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 40px;
+        }
+
+        .label {
+          font-weight: 500;
+          font-size: 22px;
+          line-height: 100%;
+
+          @include desktop {
+            font-size: 36px;
+          }
+        }
+
+        .buttons {
+          margin-top: 16px;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(2, 1fr);
+          grid-gap: 4px;
+
+          @include desktop {
+            margin-top: 0;
+            display: flex;
+            grid-gap: 0;
+          }
+
+          .btn {
+            @include button;
+            @include centerRow;
+            @include Almarai;
+            background: transparent;
+            border: 1px solid #000;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 16px;
+            height: 42px;
+            color: rgba(0, 0, 0, 1);
+            transition: 0.3s;
+
+            @include desktop {
+              width: 150px;
+            }
+
+            &:not(:first-child) {
+              @include desktop {
+                margin-left: 8px;
+              }
+            }
+
+            &:hover {
+              //background: rgba(0, 0, 0, 0.5);
+              //color: rgba(255, 255, 255, 0.5);
+            }
+
+            &_selected {
+              background: rgba(0, 0, 0, 1);
+              color: rgba(255, 255, 255, 1);
+
+              &:hover {
+                background: rgba(0, 0, 0, 1);
+                color: rgba(255, 255, 255, 1);
+              }
+            }
+
+          }
+        }
+
+      }
+
+      .submitBtn {
+        @include button;
+        @include centerRow;
+        border-radius: 999px;
+        background: #000;
+        height: 60px;
+        width: 100%;
+        margin-top: 40px;
+
+        @include desktop {
+          height: 80px;
+          margin-top: 60px;
+        }
+
+        p {
+          @include Almarai;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 18px;
+          color: #FFF;
+        }
+
+      }
+
+      .emailWrapper {
+        margin-top: 32px;
+
+        @include desktop {
+          margin-top: 40px;
+          display: flex;
+          align-items: flex-end;
+        }
+
+        .label {
+          white-space: nowrap;
+          font-weight: 500;
+          font-size: 22px;
+          line-height: 100%;
+
+          @include desktop {
+            font-size: 36px;
+          }
+        }
+
+        .field {
+          width: 100%;
+          margin-top: 16px;
+
+          @include desktop {
+            margin-top: 0;
+            margin-left: 24px;
+          }
+        }
+      }
+
+
+    }
+
+  }
+}

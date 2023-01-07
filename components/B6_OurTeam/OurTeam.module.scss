@@ -1,0 +1,180 @@
+@import "./assets/style/app";
+
+.ourTeam {
+  background: #000;
+  padding-bottom: 80px;
+
+  @include desktop {
+    padding-bottom: 100px;
+  }
+
+  .top {
+    @include container;
+
+    .inner {
+      @include inner;
+      padding-top: 80px;
+      padding-bottom: 32px;
+
+      @include desktop {
+        padding-top: 100px;
+        padding-bottom: 60px;
+      }
+
+      .title {
+        @include h2;
+        color: #FFF;
+        margin-top: 32px;
+
+        @include desktop {
+          margin-top: 60px;
+          width: 680px;
+        }
+      }
+    }
+  }
+
+  .swiperWrapper {
+    @include onlyMobile();
+    .swiper {
+
+
+      .slideWrapper {
+         display: flex;
+        justify-content: center;
+      }
+    }
+  }
+
+  .slidesDesktop {
+    @include onlyDesktop(flex);
+    @include container;
+
+    .inner {
+      @include inner;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-gap: 4px;
+
+
+    }
+  }
+
+  .navigate {
+    margin-top: 32px;
+    @include onlyMobile(flex);
+    align-items: center;
+    justify-content: center;
+
+    .prevBtn, .nextBtn  {
+      @include button;
+      @include centerColumn;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 1px solid #FFF;
+      box-sizing: border-box;
+    }
+
+    .nextBtn {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+
+    .center {
+      width: 192px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+
+      p:nth-child(1) {
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 100%;
+        color: #FFF;
+      }
+
+      p:nth-child(1) {
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 100%;
+        color: #FFF;
+      }
+
+      p:nth-child(2) {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 100%;
+        color: grey;
+      }
+    }
+  }
+
+  .slide {
+    width: 312px;
+    height: 417px;
+    position: relative;
+    overflow: hidden;
+    background: #FFF;
+    border-radius: 32px;
+    padding-top: 30px;
+    padding-left: 24px;
+    box-sizing: border-box;
+
+    @include desktop {
+      width: auto;
+      height: 417px;
+      padding-top: 30px;
+      padding-left: 30px;
+    }
+
+    .back {
+      display: block;
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .avatar {
+      display: block;
+      position: absolute;
+      z-index: 2;
+      width: 346px;
+      height: 334px;
+      left: 24px;
+      top: 90px;
+
+      @include desktop {
+        width: 428px;
+        height: 413px;
+        left: 35px;
+        top: 45px;
+      }
+    }
+
+    .position {
+      @include Almarai;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 16px;
+    }
+
+    .name {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 100%;
+      margin-top: 8px;
+
+      @include desktop {
+        width: 280px;
+      }
+    }
+
+  }
+}

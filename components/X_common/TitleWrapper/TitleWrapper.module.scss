@@ -1,0 +1,48 @@
+@import "./assets/style/app";
+
+.titleWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .left {
+    display: flex;
+
+    p {
+      @include Almarai;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 18px;
+      color: #000;
+      transition: $time;
+
+      &:last-child {
+        margin-left: 32px;
+
+        @include desktop {
+          margin-left: 84px;
+        }
+      }
+    }
+
+  }
+
+  .right {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #000;
+    transition: $time;
+  }
+
+  &_white {
+    .left p {
+      color: #FFF;
+    }
+
+    .right {
+      background: #FFF;
+    }
+  }
+
+}

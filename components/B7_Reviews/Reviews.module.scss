@@ -1,0 +1,295 @@
+@import "./assets/style/app";
+
+.reviews {
+  background: #000;
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  @include desktop {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  .popup {
+    @include onlyDesktop();
+    pointer-events: none;
+    position: fixed;
+    z-index: 10;
+
+    .popupInner {
+      @include centerRow;
+      width: 120px;
+      height: 120px;
+      background: #FFF;
+      border: 1px solid #000;
+      border-radius: 50%;
+
+      p {
+        @include Almarai;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 18px;
+        margin: 0 6px;
+      }
+
+      svg {
+        path {
+          fill: #000;
+        }
+
+        &:last-child {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+
+
+  }
+
+  .top {
+    @include container;
+
+    .inner {
+      @include inner;
+    }
+  }
+
+  .swiperWrapper {
+    position: relative;
+    cursor: pointer;
+    margin-top: 40px;
+
+    @include desktop {
+      margin-top: 60px;
+    }
+
+    .swiper {
+
+      .slide {
+        @include container;
+
+        .inner {
+          @include inner;
+
+          p {
+            @include h2;
+            color: #FFF;
+          }
+        }
+      }
+    }
+  }
+
+
+  .bottom {
+    @include container;
+    margin-top: 20px;
+
+    @include desktop {
+      margin-top: 60px;
+    }
+
+    .inner {
+      @include inner;
+
+      @include desktop {
+        display: flex;
+      }
+
+      .texts {
+        p:nth-child(1) {
+          @include Almarai;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 16px;
+          color: rgba(255, 255, 255, 0.4);
+        }
+
+        p:nth-child(2) {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 140%;
+          margin-top: 4px;
+          color: #FFF;
+
+          @include desktop {
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 100%;
+            margin-top: 8px;
+          }
+        }
+      }
+
+      .control {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 42px;
+
+        @include desktop {
+          flex-grow: 1;
+          margin-top: 0;
+          margin-left: 40px;
+        }
+
+        .workBtn {
+          @include button;
+          display: flex;
+          align-items: center;
+          border: 1px solid #FFF;
+          border-radius: 999px;
+          padding: 8px 8px 8px 20px;
+
+          p {
+            @include Almarai;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 18px;
+            color: #FFF;
+          }
+
+          .icon {
+            margin-left: 20px;
+            @include centerColumn;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #FFF;
+
+            svg {
+              width: 18px;
+              height: 18px;
+              transition: 0.3s;
+            }
+
+          }
+
+          &:hover {
+            .icon svg {
+              transform: rotate(45deg);
+            }
+          }
+        }
+
+        .navigate {
+          display: flex;
+
+          .prevBtn, .nextBtn {
+            @include button;
+            @include centerColumn;
+            border: 1px solid #FFF;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+          }
+
+          .nextBtn {
+            margin-left: 4px;
+
+            svg {
+              transform: rotate(180deg);
+            }
+          }
+        }
+
+      }
+
+    }
+  }
+
+  .blocks {
+    position: relative;
+    margin-top: 80px;
+    height: 208px;
+    width: 100%;
+    overflow: hidden;
+
+    @include desktop {
+      margin-top: 100px;
+      height: 340px;
+    }
+
+    .row {
+      display: flex;
+      position: absolute;
+
+      &:nth-child(1) {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      &:nth-child(2) {
+        bottom: 0;
+        left: calc(50% + 164px);
+        transform: translateX(-50%);
+
+        @include desktop {
+          left: calc(50% + 500px);
+        }
+      }
+
+      .block0, .block1, .block2, .block3 {
+        @include centerColumn;
+        flex-shrink: 0;
+
+        &:not(:first-child) {
+          margin-left: 8px;
+
+          @include desktop {
+            margin-left: 20px;
+          }
+        }
+      }
+
+      .block0, .block1, .block2 {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+
+        svg {
+          width: 52px;
+
+          @include desktop {
+            width: 81px;
+          }
+        }
+
+        @include desktop {
+          width: 160px;
+          height: 160px;
+        }
+      }
+
+      .block0 {
+        background: linear-gradient(0deg, #CBD6CD, #CBD6CD), #000000;
+      }
+
+      .block1 {
+        background: linear-gradient(0deg, #B4B2BE, #B4B2BE), linear-gradient(0deg, #CBD6CD, #CBD6CD), #000000;
+      }
+
+      .block2 {
+        background: linear-gradient(0deg, #90BB99, #90BB99), linear-gradient(0deg, #CBD6CD, #CBD6CD), #000000;
+      }
+
+      .block3 {
+        background: #C8BCC2;
+        border-radius: 30px;
+        width: 160px;
+        height: 100px;
+
+        @include desktop {
+          width: 300px;
+          height: 160px;
+        }
+      }
+
+
+    }
+  }
+}
+
+
