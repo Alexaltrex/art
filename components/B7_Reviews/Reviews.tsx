@@ -71,33 +71,36 @@ export const Reviews = () => {
                 </div>
             </div>
 
-            {/*<div className={style.swiperWrapper}*/}
-            {/*     onMouseMove={onMouseMoveHandler}*/}
-            {/*     onMouseEnter={() => setEnter(true)}*/}
-            {/*     onMouseLeave={() => setEnter(false)}*/}
+            <div className={style.swiperWrapper}
+                 onMouseMove={onMouseMoveHandler}
+                 onMouseEnter={() => setEnter(true)}
+                 onMouseLeave={() => setEnter(false)}
 
-            {/*>*/}
-            {/*    <Swiper className={style.swiper}*/}
-            {/*            slidesPerView={1}*/}
-            {/*            spaceBetween={0}*/}
-            {/*            onSwiper={(swiper) => {*/}
-            {/*                setSwiper(swiper);*/}
-            {/*            }}*/}
-            {/*            onTouchStart={() => setClick(true)}*/}
-            {/*    >*/}
-            {/*        {*/}
-            {/*            items.map((item, index) => (*/}
-            {/*                <SwiperSlide key={index}*/}
-            {/*                             className={style.slide}*/}
-            {/*                >*/}
-            {/*                    <div className={style.inner}>*/}
-            {/*                        {item}*/}
-            {/*                    </div>*/}
-            {/*                </SwiperSlide>*/}
-            {/*            ))*/}
-            {/*        }*/}
-            {/*    </Swiper>*/}
-            {/*</div>*/}
+            >
+                <Swiper className={style.swiper}
+                        slidesPerView={1}
+                        spaceBetween={0}
+                        onSwiper={(swiper) => {
+                            setSwiper(swiper);
+                        }}
+                        onTouchStart={() => setClick(true)}
+                >
+                    {
+                        [0,1,2]
+                        //items
+                            .map((item, index) => (
+                            <SwiperSlide key={index}
+                                         className={style.slide}
+                            >
+                                <p>{item}</p>
+                                {/*<div className={style.inner}>*/}
+                                {/*    {item}*/}
+                                {/*</div>*/}
+                            </SwiperSlide>
+                        ))
+                    }
+                </Swiper>
+            </div>
 
 
             <div className={style.bottom}>
