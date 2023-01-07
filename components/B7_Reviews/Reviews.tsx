@@ -23,6 +23,14 @@ const items = [
     </p>,
 ]
 
+const makeArray = (n: number): number[] => {
+    const result = [] as number[];
+    for (let i = 0; i < n; i ++) {
+        result.push(i)
+    }
+    return result
+}
+
 export const Reviews = () => {
     const [swiper, setSwiper] = useState<SwiperClass | null>(null);
     const [x, setX] = useState(0);
@@ -126,7 +134,7 @@ export const Reviews = () => {
             <div className={style.blocks}>
                 <div className={style.row}>
                     {
-                        (new Array(20).fill(0))
+                        (makeArray(20))
                             .map((el, key) => (
                                 <div className={style[`block${(key + 1) % 4}`]}
                                      key={key}
@@ -138,7 +146,7 @@ export const Reviews = () => {
                 </div>
                 <div className={style.row}>
                     {
-                        (new Array(20).fill(0))
+                        (makeArray(20))
                             .map((el, key) => (
                                 <div className={style[`block${(key + 1) % 4}`]}
                                      key={key}
