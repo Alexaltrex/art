@@ -8,28 +8,28 @@ import * as React from "react";
 import {svgIcons} from "../../assets/svgIcons";
 import {Zoom} from "@mui/material";
 
-const items = [
-    <p>
-        I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and
-        his team were always in touch, made all the changes...
-    </p>,
-    <p>
-        I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and
-        his team were always in touch, made all the changes...
-    </p>,
-    <p>
-        I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and
-        his team were always in touch, made all the changes...
-    </p>,
-]
+// const items = [
+//     <p>
+//         I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and
+//         his team were always in touch, made all the changes...
+//     </p>,
+//     <p>
+//         I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and
+//         his team were always in touch, made all the changes...
+//     </p>,
+//     <p>
+//         I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and
+//         his team were always in touch, made all the changes...
+//     </p>,
+// ];
 
-const makeArray = (n: number): number[] => {
-    const result = [] as number[];
-    for (let i = 0; i < n; i ++) {
-        result.push(i)
-    }
-    return result
-}
+// const makeArray = (n: number): number[] => {
+//     const result = [] as number[];
+//     for (let i = 0; i < n; i ++) {
+//         result.push(i)
+//     }
+//     return result
+// }
 
 export const Reviews = () => {
     const [swiper, setSwiper] = useState<SwiperClass | null>(null);
@@ -71,33 +71,33 @@ export const Reviews = () => {
                 </div>
             </div>
 
-            <div className={style.swiperWrapper}
-                 onMouseMove={onMouseMoveHandler}
-                 onMouseEnter={() => setEnter(true)}
-                 onMouseLeave={() => setEnter(false)}
+            {/*<div className={style.swiperWrapper}*/}
+            {/*     onMouseMove={onMouseMoveHandler}*/}
+            {/*     onMouseEnter={() => setEnter(true)}*/}
+            {/*     onMouseLeave={() => setEnter(false)}*/}
 
-            >
-                <Swiper className={style.swiper}
-                        slidesPerView={1}
-                        spaceBetween={0}
-                        onSwiper={(swiper) => {
-                            setSwiper(swiper);
-                        }}
-                        onTouchStart={() => setClick(true)}
-                >
-                    {
-                        items.map((item, index) => (
-                            <SwiperSlide key={index}
-                                         className={style.slide}
-                            >
-                                <div className={style.inner}>
-                                    {item}
-                                </div>
-                            </SwiperSlide>
-                        ))
-                    }
-                </Swiper>
-            </div>
+            {/*>*/}
+            {/*    <Swiper className={style.swiper}*/}
+            {/*            slidesPerView={1}*/}
+            {/*            spaceBetween={0}*/}
+            {/*            onSwiper={(swiper) => {*/}
+            {/*                setSwiper(swiper);*/}
+            {/*            }}*/}
+            {/*            onTouchStart={() => setClick(true)}*/}
+            {/*    >*/}
+            {/*        {*/}
+            {/*            items.map((item, index) => (*/}
+            {/*                <SwiperSlide key={index}*/}
+            {/*                             className={style.slide}*/}
+            {/*                >*/}
+            {/*                    <div className={style.inner}>*/}
+            {/*                        {item}*/}
+            {/*                    </div>*/}
+            {/*                </SwiperSlide>*/}
+            {/*            ))*/}
+            {/*        }*/}
+            {/*    </Swiper>*/}
+            {/*</div>*/}
 
 
             <div className={style.bottom}>
