@@ -86,8 +86,8 @@ export const Reviews = () => {
                         onTouchStart={() => setClick(true)}
                 >
                     {
-                        items.map((item, key) => (
-                            <SwiperSlide key={key}
+                        items.map((item, index) => (
+                            <SwiperSlide key={index}
                                          className={style.slide}
                             >
                                 <div className={style.inner}>
@@ -135,9 +135,9 @@ export const Reviews = () => {
                 <div className={style.row}>
                     {
                         (makeArray(20))
-                            .map((el, key) => (
-                                <div className={style[`block${(key + 1) % 4}`]}
-                                     key={key}
+                            .map((el, index) => (
+                                <div className={style[`block${(index + 1) % 4}`]}
+                                     key={index}
                                 >
                                     {svgIcons.jigen}
                                 </div>
@@ -147,9 +147,9 @@ export const Reviews = () => {
                 <div className={style.row}>
                     {
                         (makeArray(20))
-                            .map((el, key) => (
-                                <div className={style[`block${(key + 1) % 4}`]}
-                                     key={key}
+                            .map((el, index) => (
+                                <div className={style[`block${(index + 1) % 4}`]}
+                                     key={index}
                                 >
                                     {svgIcons.jigen}
                                 </div>
