@@ -19,7 +19,7 @@ const HomePage = () => {
         <Feedback/>
         <OtherWorks/>
         <OurTeam/>
-        {/*<Reviews/>*/}
+        <Reviews/>
         <LetsTalk/>
     </MainLayout>
   )

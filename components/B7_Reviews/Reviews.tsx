@@ -8,20 +8,16 @@ import * as React from "react";
 import {svgIcons} from "../../assets/svgIcons";
 import {Zoom} from "@mui/material";
 
-// const items = [
-//     <p>
-//         I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and
-//         his team were always in touch, made all the changes...
-//     </p>,
-//     <p>
-//         I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and
-//         his team were always in touch, made all the changes...
-//     </p>,
-//     <p>
-//         I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and
-//         his team were always in touch, made all the changes...
-//     </p>,
-// ];
+const items = [
+    `I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and
+        his team were always in touch, made all the changes...`,
+
+    `I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and
+        his team were always in touch, made all the changes...`,
+
+    `I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and
+        his team were always in touch, made all the changes...`,
+];
 
 // const makeArray = (n: number): number[] => {
 //     const result = [] as number[];
@@ -86,18 +82,18 @@ export const Reviews = () => {
                         onTouchStart={() => setClick(true)}
                 >
                     {
-                        [0,1,2]
-                        //items
+                        //[0, 1, 2]
+                            items
                             .map((item, index) => (
-                            <SwiperSlide key={index}
-                                         className={style.slide}
-                            >
-                                <p>{item}</p>
-                                {/*<div className={style.inner}>*/}
-                                {/*    {item}*/}
-                                {/*</div>*/}
-                            </SwiperSlide>
-                        ))
+                                <SwiperSlide key={index}
+                                             className={style.slide}
+                                >
+
+                                    <div className={style.inner}>
+                                        <p>{item}</p>
+                                    </div>
+                                </SwiperSlide>
+                            ))
                     }
                 </Swiper>
             </div>
