@@ -149,8 +149,6 @@ export const Reviews = () => {
                     }
                 </div>
             </div>
-
-
         </div>
     )
 }
