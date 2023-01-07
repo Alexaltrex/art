@@ -131,32 +131,30 @@ export const Reviews = () => {
                 </div>
             </div>
 
-            <div className={style.blocks}>
-                <div className={style.row}>
-                    {
-                        (makeArray(20))
-                            .map((el, index) => (
-                                <div className={style[`block${(index + 1) % 4}`]}
-                                     key={index}
-                                >
-                                    {svgIcons.jigen}
-                                </div>
-                            ))
-                    }
-                </div>
-                <div className={style.row}>
-                    {
-                        (makeArray(20))
-                            .map((el, index) => (
-                                <div className={style[`block${(index + 1) % 4}`]}
-                                     key={index}
-                                >
-                                    {svgIcons.jigen}
-                                </div>
-                            ))
-                    }
-                </div>
-            </div>
+            {/*<div className={style.blocks}>*/}
+            {/*    <div className={style.row}>*/}
+            {/*        {*/}
+            {/*            makeArray(20).map((el, index) => (*/}
+            {/*                    <div className={style[`block${(index + 1) % 4}`]}*/}
+            {/*                         key={index}*/}
+            {/*                    >*/}
+            {/*                        {svgIcons.jigen}*/}
+            {/*                    </div>*/}
+            {/*                ))*/}
+            {/*        }*/}
+            {/*    </div>*/}
+            {/*    <div className={style.row}>*/}
+            {/*        {*/}
+            {/*            makeArray(20).map((el, index) => (*/}
+            {/*                    <div className={style[`block${(index + 1) % 4}`]}*/}
+            {/*                         key={index}*/}
+            {/*                    >*/}
+            {/*                        {svgIcons.jigen}*/}
+            {/*                    </div>*/}
+            {/*                ))*/}
+            {/*        }*/}
+            {/*    </div>*/}
+            {/*</div>*/}
         </div>
     )
 }
