@@ -9,14 +9,12 @@ import {svgIcons} from "../../assets/svgIcons";
 import {Zoom} from "@mui/material";
 
 const items = [
-    `I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and
-        his team were always in touch, made all the changes...`,
-
-    `I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and
-        his team were always in touch, made all the changes...`,
-
-    `I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and
-        his team were always in touch, made all the changes...`,
+    <p>I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and
+        his team were always in touch, made all the changes...</p>,
+    <p>I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and
+        his team were always in touch, made all the changes...</p>,
+    <p>I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and
+        his team were always in touch, made all the changes...</p>,
 ];
 
 // const makeArray = (n: number): number[] => {
@@ -82,15 +80,12 @@ export const Reviews = () => {
                         onTouchStart={() => setClick(true)}
                 >
                     {
-                        //[0, 1, 2]
-                            items
-                            .map((item, index) => (
+                            items.map((item, index) => (
                                 <SwiperSlide key={index}
                                              className={style.slide}
                                 >
-
                                     <div className={style.inner}>
-                                        <p>{item}</p>
+                                        {item}
                                     </div>
                                 </SwiperSlide>
                             ))
