@@ -73,7 +73,7 @@ export const AboutUs = () => {
                     setDark(true);
                 }
                 // showMask
-                if (rect.top < 0.5 * window.innerHeight - 200) {
+                if (rect.top < 0.5 * window.innerHeight - 150) {
                     setShowMask(true);
                 } else {
                     setShowMask(false);
