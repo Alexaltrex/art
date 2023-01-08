@@ -13,7 +13,7 @@ import {Preloader} from "../components/A3_Preloader/Preloader";
 const HomePage = () => {
   return (
     <MainLayout>
-        {/*<Preloader/>*/}
+        <Preloader/>
         <FirstBlock/>
         <AboutUs/>
         <WhatWeWorkWith/>
