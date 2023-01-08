@@ -71,7 +71,7 @@
 
           .field {
             width: 100%;
-            margin-top: 16px;
+            margin-top: 4px;
 
             @include desktop {
               margin-top: 0;
@@ -82,6 +82,43 @@
 
           }
 
+        }
+      }
+
+      .briefWrapper {
+        margin-top: 32px;
+
+        @include desktop {
+          margin-top: 40px;
+          display: flex;
+          align-items: center;
+        }
+
+        .textMobile {
+          @include onlyMobile();
+          font-weight: 500;
+          font-size: 22px;
+          line-height: 100%;
+        }
+
+        .textDesktop {
+          @include onlyDesktop();
+          font-weight: 500;
+          font-size: 36px;
+          line-height: 100%;
+        }
+
+        .field {
+          margin-top: 16px;
+          width: 100%;
+
+          @include desktop {
+            margin-top: 0;
+            margin-left: 40px;
+            margin-right: 40px;
+            width: 215px;
+
+          }
         }
       }
 

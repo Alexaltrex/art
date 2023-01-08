@@ -2,9 +2,31 @@
 
 .feedback {
   @include container;
+  overflow: hidden;
+  position: relative;
   background: #B4B2BE;
 
+  .ring_mobile {
+    @include onlyMobile();
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    right: 0;
+    mix-blend-mode: lighten;
+  }
+
+
+  .ring_desktop {
+    @include onlyDesktop();
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    mix-blend-mode: lighten;
+  }
+
   .inner {
+    position: relative;
+    z-index: 2;
     @include inner;
     padding-top: 80px;
     padding-bottom: 60px;

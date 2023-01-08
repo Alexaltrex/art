@@ -16,6 +16,8 @@ export const Feedback = () => {
                     Submit
                 </button>
             </div>
+            <img src="/png/ring_mobile.png" alt="" className={style.ring_mobile}/>
+            <img src="/png/ring_desktop.png" alt="" className={style.ring_desktop}/>
         </div>
     )
 }

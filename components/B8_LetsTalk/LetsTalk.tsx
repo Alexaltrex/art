@@ -6,11 +6,14 @@ import {FormikErrors, useFormik} from "formik";
 import {TextField, ThemeProvider} from "@mui/material";
 import clsx from "clsx";
 import {theme} from "../../theme/theme";
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
 
 interface IValues {
     name: string
     from: string
     idea?: string
+    brief: string
     email: string
 }
 
@@ -25,6 +28,7 @@ const initialValues = {
     name: "",
     from: "",
     idea: "",
+    brief: "Software to cloud",
     email: "",
 }
 
@@ -41,8 +45,8 @@ const fieldSx = {
         color: "#000!important",
     },
     "& .MuiInputBase-root.Mui-focused": {
-        "&::before": {
-            borderBottom: "1px solid #000",
+        "&::after": {
+            borderBottom: "2px solid #000",
         }
     },
     "& .MuiInputBase-input": {
@@ -50,13 +54,12 @@ const fieldSx = {
         fontWeight: "500",
         fontSize: "18px",
         lineHeight: "140%",
-
         "&::placeholder": {
             fontFamily: "Syne",
             fontWeight: "500",
             fontSize: "18px",
             lineHeight: "140%",
-        }
+        },
     }
 }
 
@@ -102,7 +105,7 @@ export const LetsTalk = () => {
                 const rect = ref.current.getBoundingClientRect();
                 // console.log(rect.top)
                 // console.log(window.innerHeight)
-                //console.log("---")
+                // console.log("---")
                 if (rect.top < window.innerHeight / 2) {
                     setDark(true);
                 } else {
@@ -116,7 +119,6 @@ export const LetsTalk = () => {
 
 
     return (
-
         <div className={clsx({
             [style.letsTalk]: true,
             [style.letsTalk_dark]: dark,
@@ -144,7 +146,6 @@ export const LetsTalk = () => {
                                        helperText={formik.touched.name && formik.errors.name}
                                        className={style.field}
                                        sx={fieldSx}
-                                       color="info"
                             />
                         </div>
                         <div className={style.fieldWrapper}>
@@ -159,6 +160,51 @@ export const LetsTalk = () => {
                                        sx={fieldSx}
                             />
                         </div>
+                    </div>
+
+                    <div className={style.briefWrapper}>
+                        <p className={style.textMobile}>I’d like to discuss project idea & design brief.</p>
+                        <p className={style.textDesktop}>I’d like to discuss</p>
+                        <Select label="Brief"
+                                variant="standard"
+                                {...formik.getFieldProps('brief')}
+                                className={style.field}
+                                sx={{
+                                    "& .MuiSelect-select": {
+                                        fontFamily: "Syne",
+                                        fontWeight: "500",
+                                        fontSize: "18px",
+                                        lineHeight: "140%",
+                                    },
+                                    "&.Mui-focused": {
+                                        "&::after": {
+                                            borderBottom: "2px solid #000",
+                                        }
+                                    },
+                                }}
+                        >
+                            {
+                                [
+                                    {value: "Software to cloud", label: "Software to cloud"},
+                                    {value: "Option 1", label: "Option 1"},
+                                    {value: "Option 2", label: "Option 2"},
+                                    {value: "Option 3", label: "Option 3"},
+                                ].map(({value, label}, key) => (
+                                    <MenuItem key={key}
+                                              value={value}
+                                              sx={{
+                                                  fontFamily: "Syne",
+                                                  fontWeight: "500",
+                                                  fontSize: "18px",
+                                                  lineHeight: "140%",
+                                              }}
+                                    >
+                                        {label}
+                                    </MenuItem>
+                                ))
+                            }
+                        </Select>
+                        <p className={style.textDesktop}>project idea & design brief.</p>
                     </div>
 
                     <TextField label="Project idea"
