@@ -100,39 +100,37 @@ export const AboutUs = () => {
                     <div className={style.textMobile}>
                         {
                             [
-                                <p>For more than <span>3</span></p>,
-                                <p><span>years</span> our team has</p>,
-                                <p>been making unique</p>,
-                                <p>and reliable <span>crypto</span></p>,
-                                <p><span>and fintech</span></p>,
-                                <p>products. <span>10+ people</span></p>,
-                                <p>in the design team,</p>,
-                                <p>20+ person</p>,
-                                <p>development team.</p>,
-                                <p>And all this allows us</p>,
-                                <p>to be one of the best</p>,
-                                <p>in our niche</p>
-                            ].map((row, key) => (
-                                <RowAnimated key={key} row={row} showMask={showMask}/>
+                                {item: <p>For more than <span>3</span></p>},
+                                {item: <p><span>years</span> our team has</p>},
+                                {item: <p>been making unique</p>},
+                                {item: <p>and reliable <span>crypto</span></p>},
+                                {item: <p><span>and fintech</span></p>},
+                                {item: <p>products. <span>10+ people</span></p>},
+                                {item: <p>in the design team,</p>},
+                                {item: <p>20+ person</p>},
+                                {item: <p>development team.</p>},
+                                {item: <p>And all this allows us</p>},
+                                {item: <p>to be one of the best</p>},
+                                {item: <p>in our niche</p>}
+                            ].map(({item}, key) => (
+                                <RowAnimated key={key} row={item} showMask={showMask}/>
                             ))
                         }
                     </div>
 
-
-
                     <div className={style.textDesktop}>
                         {
                             [
-                                <p>For more than <span>3 years</span> our</p>,
-                                <p>team has been making unique</p>,
-                                <p>and reliable <span>crypto and fintech</span></p>,
-                                <p>products. <span>10+ people</span> in the</p>,
-                                <p>design team, 20+ person</p>,
-                                <p>development team. And all</p>,
-                                <p>this allows us to be one of the</p>,
-                                <p>best in our niche</p>,
-                            ].map((row, key) => (
-                                <RowAnimated key={key} row={row} showMask={showMask}/>
+                                {item: <p>For more than <span>3 years</span> our</p>},
+                                {item: <p>team has been making unique</p>},
+                                {item: <p>and reliable <span>crypto and fintech</span></p>},
+                                {item: <p>products. <span>10+ people</span> in the</p>},
+                                {item: <p>design team, 20+ person</p>},
+                                {item: <p>development team. And all</p>},
+                                {item: <p>this allows us to be one of the</p>},
+                                {item: <p>best in our niche</p>},
+                            ].map(({item}, key) => (
+                                <RowAnimated key={key} row={item} showMask={showMask}/>
                             ))
                         }
                     </div>
