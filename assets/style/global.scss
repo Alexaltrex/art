@@ -47,7 +47,7 @@ body {
   }
 }
 
-//========= preloader =========//
+//========= PRELOADER =========//
 .preloader {
   animation-name: preloader;
   animation-iteration-count: infinite;
@@ -67,7 +67,7 @@ body {
   }
 }
 
-//========= AnimatedLink =========//
+//========= ANIMATED LINK =========//
 .mouseEnter {
   @include desktop() {
     &::before {

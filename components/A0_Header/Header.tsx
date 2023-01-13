@@ -4,6 +4,7 @@ import Link from "next/link";
 import ReactAudioPlayer from "react-audio-player";
 import {useEffect, useRef, useState} from "react";
 import clsx from "clsx";
+import {AnimatedLink} from "../X_common/AnimatedLink/AnimatedLink";
 
 export const links = [
     {href: "behance", label: "Behance"},
@@ -45,7 +46,6 @@ export const Header = () => {
     //     }
     // }, [buttonRef])
 
-
     return (
         <header className={style.header}>
             <div className={style.inner}>
@@ -68,12 +68,14 @@ export const Header = () => {
                     <nav className={style.links}>
                         {
                             links.map(({href, label}, key) => (
-                                <Link key={key}
-                                      href={href}
-                                      className={style.link}
-                                >
-                                    {label}
-                                </Link>
+                                <AnimatedLink className={style.linkWrapper} key={key}>
+                                    <Link href={href}
+                                          className={style.link}
+                                    >
+                                        {label}
+                                    </Link>
+                                </AnimatedLink>
+
                             ))
                         }
                     </nav>

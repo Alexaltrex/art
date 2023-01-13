@@ -1,7 +1,8 @@
 @import "./assets/style/app";
 
 .ourTeam {
-  background: #000;
+  background: #FFF;
+  transition: $time;
   padding-bottom: 80px;
 
   @include desktop {
@@ -23,7 +24,8 @@
 
       .title {
         @include h2;
-        color: #FFF;
+        color: #000;
+        transition: $time;
         margin-top: 32px;
 
         @include desktop {
@@ -175,6 +177,17 @@
         width: 280px;
       }
     }
+  }
 
+  &_dark {
+    background: #000;
+
+    .top {
+      .inner {
+        .title {
+          color: #FFF;
+        }
+      }
+    }
   }
 }

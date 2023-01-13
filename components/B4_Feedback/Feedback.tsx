@@ -1,11 +1,20 @@
 import style from "./Feedback.module.scss"
 import {TitleWrapper} from "../X_common/TitleWrapper/TitleWrapper";
+import {useScroll} from "../../hooks/useScroll";
+import clsx from "clsx";
 
 export const Feedback = () => {
+    const {ref, dark} = useScroll();
+
     return (
-        <div className={style.feedback}>
+        <div className={clsx({
+            [style.feedback]: true,
+            [style.feedback_white]: !dark,
+        })}
+             ref={ref}
+        >
             <div className={style.inner}>
-                <TitleWrapper step="04" label="Feedback"/>
+                <TitleWrapper step="04" label="Feedback" black={!dark}/>
                 <p className={style.title}>
                     A headline that is two lines long, <span>feedback</span>
                 </p>

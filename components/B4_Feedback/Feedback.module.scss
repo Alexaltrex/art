@@ -4,7 +4,8 @@
   @include container;
   overflow: hidden;
   position: relative;
-  background: #B4B2BE;
+  background: #000;
+  transition: $time;
 
   .ring_mobile {
     @include onlyMobile();
@@ -14,7 +15,6 @@
     right: 0;
     mix-blend-mode: lighten;
   }
-
 
   .ring_desktop {
     @include onlyDesktop();
@@ -38,6 +38,8 @@
 
     .title {
       @include h2;
+      color: #FFF;
+      transition: $time;
       margin-top: 40px;
 
       @include desktop {
@@ -52,6 +54,8 @@
       font-weight: 400;
       font-size: 14px;
       line-height: 16px;
+      color: #FFF;
+      transition: $time;
 
       @include desktop {
         margin-top: 24px;
@@ -62,7 +66,7 @@
     .submitBtn {
       @include button;
       @include centerRow;
-      background: #000;
+      background: #FFF;
       border-radius: 999px;
       height: 60px;
       width: 100%;
@@ -71,10 +75,31 @@
       font-size: 16px;
       line-height: 19px;
       color: #7B8195;
+      transition: $time;
 
       @include desktop {
         width: 255px;
       }
     }
   }
+
+  &_white {
+    background: #7B8195;
+
+    .inner {
+      .title {
+        color: #000;
+      }
+
+      .description {
+        color: #000;
+      }
+
+      .submitBtn {
+        background: #000;
+      }
+    }
+  }
+
+
 }

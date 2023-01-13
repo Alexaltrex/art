@@ -7,17 +7,26 @@ import "swiper/css";
 import SwiperClass from 'swiper/types/swiper-class';
 import {useState} from "react";
 import {svgIcons} from "../../assets/svgIcons";
+import {useScroll} from "../../hooks/useScroll";
+import clsx from "clsx";
 
 export const OurTeam = () => {
     const [swiper, setSwiper] = useState<SwiperClass | null>(null);
     const [index, setIndex] = useState(0);
 
+    const {ref, dark} = useScroll();
+
     return (
-        <div className={style.ourTeam}>
+        <div className={clsx({
+            [style.ourTeam]: true,
+            [style.ourTeam_dark]: !dark,
+        })}
+             ref={ref}
+        >
 
             <div className={style.top}>
                 <div className={style.inner}>
-                    <TitleWrapper step="03" label="Our team" black={false}/>
+                    <TitleWrapper step="03" label="Our team" black={dark}/>
                     <p className={style.title}>
                         I know them, <span>they can be trusted</span>
                     </p>

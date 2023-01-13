@@ -30,9 +30,9 @@ export const AnimatedLink:FC<IAnimatedLink> = ({
     return (
         <div className={clsx(
             style.animatedLink,
-            Boolean(className) && className,
             enter && mouseEvent && "mouseEnter",
-            leave && mouseEvent && "mouseLeave"
+            leave && mouseEvent && "mouseLeave",
+            Boolean(className) && className,
         )}
              onMouseEnter={() => {
                  setHover(true);

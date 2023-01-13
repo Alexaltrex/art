@@ -3,6 +3,7 @@ import {action, makeObservable, observable} from "mobx";
 export class Store {
     burgerMenu = false
     preloader: boolean = true
+    bottom: number = 0
 
     //popupForm = false
 
@@ -10,10 +11,12 @@ export class Store {
         makeObservable(this, {
             burgerMenu: observable,
             preloader: observable,
+            bottom: observable,
             //popupForm: observable,
 
             setBurgerMenu: action.bound,
             setPreloader: action.bound,
+            setBottom: action.bound,
             //setPopupForm: action.bound,
         })
     }
@@ -24,6 +27,10 @@ export class Store {
 
     setPreloader(preloader: boolean) {
         this.preloader = preloader;
+    }
+
+    setBottom(bottom: number) {
+        this.bottom = bottom;
     }
 
     // setPopupForm(popupForm: boolean) {

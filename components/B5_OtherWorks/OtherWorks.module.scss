@@ -1,6 +1,8 @@
 @import "./assets/style/app";
 
 .otherWorks {
+  background: #7B8195;
+  transition: $time;
 
   .top {
     @include container;
@@ -60,19 +62,6 @@
       border-bottom: 1px solid #000;
       position: relative;
 
-
-      //&::after {
-      //  content: "";
-      //  position: absolute;
-      //  display: block;
-      //  left: 0;
-      //  bottom: 0;
-      //  height: 4px;
-      //  width: 0;
-      //  background: #000;
-      //  transition: 0.5s;
-      //}
-
       .inner {
         @include inner;
         padding-top: 32px;
@@ -116,17 +105,6 @@
       }
 
       &:hover {
-        //&::after {
-        //  position: absolute;
-        //  display: block;
-        //  left: 0;
-        //  bottom: -2px;
-        //  height: 4px;
-        //  width: 100%;
-        //  background: #000;
-        //  transition: 0.3s;
-        //}
-
         .inner {
           svg {
             transform: rotate(45deg);
@@ -184,6 +162,10 @@
       }
 
     }
+  }
+
+  &_dark {
+    background: #FFF;
   }
 
 }

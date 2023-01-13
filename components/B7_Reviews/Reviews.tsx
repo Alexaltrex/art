@@ -8,6 +8,7 @@ import * as React from "react";
 import {svgIcons} from "../../assets/svgIcons";
 import {Zoom} from "@mui/material";
 import clsx from "clsx";
+import {useScroll} from "../../hooks/useScroll";
 
 const items = [
     {
@@ -29,7 +30,7 @@ const makeArray = (n: number): number[] => {
     for (let i = 0; i < n; i ++) {
         result.push(i)
     }
-    return result
+    return result;
 }
 
 export const Reviews = () => {
@@ -38,9 +39,6 @@ export const Reviews = () => {
     const [y, setY] = useState(0);
 
     const onMouseMoveHandler = (e: any) => {
-        //console.log("e.clientX", e.clientX);
-        // console.log("e.clientY", e.clientY);
-        // console.log("---")
         setX(e.clientX);
         setY(e.clientY);
     }

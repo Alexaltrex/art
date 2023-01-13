@@ -1,12 +1,21 @@
 @import "./assets/style/app";
 
 .mainLayout {
-  padding-bottom: 75vh;
   box-sizing: border-box;
+  padding-bottom: 660px;
+  position: relative;
 
+  @include desktop {
+    padding-bottom: 893px;
+  }
 
   &_preloader {
     height: 100vh;
     overflow: hidden;
+  }
+
+  .main {
+    position: relative;
+    z-index: 2;
   }
 }

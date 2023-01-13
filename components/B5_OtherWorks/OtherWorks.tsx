@@ -5,12 +5,20 @@ import clsx from "clsx";
 import {buttons, socialIcons, works} from "./constant";
 import {svgIcons} from "../../assets/svgIcons";
 import {AnimatedLink} from "../X_common/AnimatedLink/AnimatedLink";
+import {useScroll} from "../../hooks/useScroll";
 
 export const OtherWorks = () => {
     const [selected, setSelected] = useState("All work");
 
+    const {ref, dark} = useScroll();
+
     return (
-        <div className={style.otherWorks}>
+        <div className={clsx({
+            [style.otherWorks]: true,
+            [style.otherWorks_dark]: !dark,
+        })}
+             ref={ref}
+        >
             <div className={style.top}>
                 <div className={style.inner}>
                     <TitleWrapper step="01" label="Other works"/>

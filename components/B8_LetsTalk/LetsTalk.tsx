@@ -104,7 +104,6 @@ export const LetsTalk = () => {
         // "blue"
     ]
 
-
     const [color, setColor] = useState("#FFF");
     const ref = useRef<HTMLDivElement>(null!);
     const [dark, setDark] = useState(false);

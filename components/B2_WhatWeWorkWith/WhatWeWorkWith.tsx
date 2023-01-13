@@ -42,7 +42,8 @@ export const WhatWeWorkWith = () => {
 
                 {
                     [1, 2].map(index => (
-                        <div className={clsx(style.row, style[`row_${index}`])} key={index}>
+                        <div className={clsx(style.row, style[`row_${index}`])} key={index}
+                        >
                             {
                                 row.map((el, key) => (
                                     <div key={key}
