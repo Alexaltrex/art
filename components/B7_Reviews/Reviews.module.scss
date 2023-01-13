@@ -45,7 +45,6 @@
     }
 
 
-
   }
 
   .top {
@@ -214,21 +213,15 @@
     .row {
       display: flex;
       position: absolute;
+      left: 50%;
 
       &:nth-child(1) {
         top: 0;
-        left: 50%;
-        transform: translateX(-50%);
+        //transform: translateX(-50%);
       }
 
       &:nth-child(2) {
         bottom: 0;
-        left: calc(50% + 164px);
-        transform: translateX(-50%);
-
-        @include desktop {
-          left: calc(50% + 500px);
-        }
       }
 
       .block0, .block1, .block2, .block3 {

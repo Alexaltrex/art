@@ -95,22 +95,42 @@ export const LetsTalk = () => {
         onSubmit
     });
 
-    const [color, setColor] = useState("#FFF");
+    const colors = [
+        "#C6D1D0",
+        "#FCEDEB",
+        "#DEDDE3",
+        // "red",
+        // "green",
+        // "blue"
+    ]
 
+
+    const [color, setColor] = useState("#FFF");
     const ref = useRef<HTMLDivElement>(null!);
     const [dark, setDark] = useState(false);
     useEffect(() => {
         const onScroll = () => {
             if (ref && ref.current) {
                 const rect = ref.current.getBoundingClientRect();
-                // console.log(rect.top)
-                // console.log(window.innerHeight)
-                // console.log("---")
                 if (rect.top < window.innerHeight / 2) {
                     setDark(true);
                 } else {
                     setDark(false);
                 }
+
+                if (rect.top < 0.25 * window.innerHeight) {
+                    setColor(colors[0]);
+                }
+                if (rect.top > 0.25 * window.innerHeight && rect.top < 0.5 * window.innerHeight) {
+                    setColor(colors[1]);
+                }
+                if (rect.top > 0.5 * window.innerHeight && rect.top < 0.75 * window.innerHeight) {
+                    setColor(colors[2]);
+                }
+                if (rect.top > 0.75 * window.innerHeight) {
+                    setColor("#FFF");
+                }
+
             }
 
         };
@@ -121,9 +141,12 @@ export const LetsTalk = () => {
     return (
         <div className={clsx({
             [style.letsTalk]: true,
-            [style.letsTalk_dark]: dark,
+            //[style.letsTalk_dark]: dark,
         })}
              ref={ref}
+             style={{
+                 backgroundColor: color
+             }}
         >
             <div className={style.inner}>
                 <TitleWrapper step="07" label="Let's talk!"/>

@@ -7,6 +7,12 @@ export const buttons = [
     {label: "Branding"},
 ];
 
+export interface IWork {
+    year: string
+    name: string
+    label: string
+}
+
 export const works = [
     {
         year: 2022,

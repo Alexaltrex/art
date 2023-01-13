@@ -2,5 +2,11 @@
 
 .mainLayout {
   padding-bottom: 75vh;
+  box-sizing: border-box;
 
+
+  &_preloader {
+    height: 100vh;
+    overflow: hidden;
+  }
 }

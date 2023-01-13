@@ -7,6 +7,7 @@ import {useState} from "react";
 import * as React from "react";
 import {svgIcons} from "../../assets/svgIcons";
 import {Zoom} from "@mui/material";
+import clsx from "clsx";
 
 const items = [
     {
@@ -132,9 +133,9 @@ export const Reviews = () => {
             </div>
 
             <div className={style.blocks}>
-                <div className={style.row}>
+                <div className={clsx(style.row, "line-to-left")}>
                     {
-                        makeArray(20).map((el, index) => (
+                        makeArray(100).map((el, index) => (
                                 <div className={style[`block${(index + 1) % 4}`]}
                                      key={index}
                                 >
@@ -143,9 +144,9 @@ export const Reviews = () => {
                             ))
                     }
                 </div>
-                <div className={style.row}>
+                <div className={clsx(style.row, "line-to-right")}>
                     {
-                        makeArray(20).map((el, index) => (
+                        makeArray(100).map((el, index) => (
                                 <div className={style[`block${(index + 1) % 4}`]}
                                      key={index}
                                 >

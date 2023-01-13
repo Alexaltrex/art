@@ -4,6 +4,7 @@ import {useState} from "react";
 import clsx from "clsx";
 import {buttons, socialIcons, works} from "./constant";
 import {svgIcons} from "../../assets/svgIcons";
+import {AnimatedLink} from "../X_common/AnimatedLink/AnimatedLink";
 
 export const OtherWorks = () => {
     const [selected, setSelected] = useState("All work");
@@ -35,24 +36,25 @@ export const OtherWorks = () => {
             <div className={style.works}>
                 {
                     works.map(({year, name, label}, key) => (
-                        <div key={key}
-                             className={style.work}
-                        >
-                            <div className={style.inner}>
-                                <div className={style.left}>
-                                    <p className={style.year}>{year}</p>
-                                    <p className={style.name}>{name}</p>
-                                    <p className={style.label}>{label}</p>
+                        <AnimatedLink key={key}>
+                            <div className={style.work}
+                            >
+                                <div className={style.inner}>
+                                    <div className={style.left}>
+                                        <p className={style.year}>{year}</p>
+                                        <p className={style.name}>{name}</p>
+                                        <p className={style.label}>{label}</p>
+                                    </div>
+
+                                    {svgIcons.arrow_up_right}
                                 </div>
 
-                                {svgIcons.arrow_up_right}
                             </div>
+                        </AnimatedLink>
 
-                        </div>
                     ))
                 }
             </div>
-
 
             <div className={style.bottom}>
                 <div className={style.inner}>

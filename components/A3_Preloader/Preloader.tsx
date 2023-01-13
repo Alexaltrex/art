@@ -1,6 +1,8 @@
 import style from "./Preloader.module.scss"
 import clsx from "clsx";
 import {useEffect, useState} from "react";
+import {observer} from "mobx-react-lite";
+import {useStore} from "../../store/useStore";
 
 const labels = [
     "Demyanchuk",
@@ -12,7 +14,9 @@ const labels = [
     "Production",
 ]
 
-export const Preloader = () => {
+export const Preloader = observer(() => {
+    const {setPreloader} = useStore();
+
     const [value1, setValue1] = useState(1);
     const [value2, setValue2] = useState(2);
 
@@ -50,6 +54,10 @@ export const Preloader = () => {
         if (tik % 2 === 0 && tik !== 0) {
             setValue2(value2 + 2)
         }
+        if (tik === 6) {
+            setPreloader(false);
+        }
+
     }, [tik]);
 
     return (
@@ -70,4 +78,4 @@ export const Preloader = () => {
             </div>
         </div>
     )
-}
+})

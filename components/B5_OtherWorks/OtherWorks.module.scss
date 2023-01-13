@@ -61,17 +61,17 @@
       position: relative;
 
 
-      &::after {
-        content: "";
-        position: absolute;
-        display: block;
-        left: 0;
-        bottom: 0;
-        height: 4px;
-        width: 0;
-        background: #000;
-        transition: 0.5s;
-      }
+      //&::after {
+      //  content: "";
+      //  position: absolute;
+      //  display: block;
+      //  left: 0;
+      //  bottom: 0;
+      //  height: 4px;
+      //  width: 0;
+      //  background: #000;
+      //  transition: 0.5s;
+      //}
 
       .inner {
         @include inner;
@@ -116,16 +116,16 @@
       }
 
       &:hover {
-        &::after {
-          position: absolute;
-          display: block;
-          left: 0;
-          bottom: -2px;
-          height: 4px;
-          width: 100%;
-          background: #000;
-          transition: 0.3s;
-        }
+        //&::after {
+        //  position: absolute;
+        //  display: block;
+        //  left: 0;
+        //  bottom: -2px;
+        //  height: 4px;
+        //  width: 100%;
+        //  background: #000;
+        //  transition: 0.3s;
+        //}
 
         .inner {
           svg {

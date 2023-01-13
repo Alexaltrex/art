@@ -1,8 +1,9 @@
 @import "./assets/style/app";
 
 .whatWeWorkWith {
-  background: #000;
+  background: #FFF;
   padding-bottom: 26px;
+  transition: $time;
 
   @include desktop {
     padding-bottom: 0;
@@ -22,7 +23,8 @@
       .title {
         @include h2;
         margin-top: 40px;
-        color: #FFF;
+        transition: $time;
+        color: #000;
 
         @include desktop {
           margin-top: 60px;
@@ -144,9 +146,20 @@
       }
 
 
-
     }
 
+  }
+
+  &_dark {
+    background: #000;
+
+    .top {
+      .inner {
+        .title {
+          color: #FFF;
+        }
+      }
+    }
   }
 
 

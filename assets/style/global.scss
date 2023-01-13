@@ -1,3 +1,5 @@
+@import "./app";
+
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +12,7 @@ body {
   background: #FFF;
 }
 
+//========= soundBtn =========//
 .soundBtn {
   svg {
     animation-name: jump;
@@ -44,7 +47,7 @@ body {
   }
 }
 
-
+//========= preloader =========//
 .preloader {
   animation-name: preloader;
   animation-iteration-count: infinite;
@@ -63,3 +66,106 @@ body {
     transform: translateY(0%);
   }
 }
+
+//========= AnimatedLink =========//
+.mouseEnter {
+  @include desktop() {
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      height: 4px;
+      background: #000;
+      animation-name: enter;
+      animation-duration: 0.6s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+.mouseLeave {
+  @include desktop() {
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -2px;
+      right: 0;
+      height: 4px;
+      background: #000;
+      animation-name: leave;
+      animation-duration: 0.6s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+@keyframes enter {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes leave {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+//========= run line =========//
+
+.line-to-left {
+  animation-name: run-line-to-left;
+  animation-iteration-count: infinite;
+  animation-duration: 200s;
+  animation-timing-function: linear;
+}
+
+@keyframes run-line-to-left {
+  0% {
+    transform: translateX(-50%);
+  }
+  25% {
+    transform: translateX(-75%);
+  }
+  75% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.line-to-right {
+  animation-name: run-line-to-right;
+  animation-iteration-count: infinite;
+  animation-duration: 200s;
+  animation-timing-function: linear;
+}
+
+@keyframes run-line-to-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  25% {
+    transform: translateX(-25%);
+  }
+  75% {
+    transform: translateX(-75%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
