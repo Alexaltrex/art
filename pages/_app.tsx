@@ -3,6 +3,8 @@ import type {AppProps} from 'next/app'
 import {store, Store} from "../store/store";
 import {createContext, useEffect, useState} from "react";
 import {useRouter} from "next/router";
+import "aos/dist/aos.css";
+import AOS from "aos";
 
 export const StoreContext = createContext<Store>({} as Store);
 
@@ -30,6 +32,14 @@ export default function App({Component, pageProps}: AppProps) {
     //         router.events.off('routeChangeError', handleStop)
     //     }
     // }, [router]);
+
+    useEffect(() => {
+        AOS.init({
+            // easing: "ease-out-cubic",
+            // once: true,
+            // offset: 50,
+        });
+    }, []);
 
     return (
         <StoreContext.Provider value={store}>

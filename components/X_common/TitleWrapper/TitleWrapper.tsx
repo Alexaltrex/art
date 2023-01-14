@@ -18,7 +18,7 @@ export const TitleWrapper: FC<ITitleWrapper> = ({
             [style.titleWrapper]: true,
             [style.titleWrapper_white]: !black,
         })}>
-            <h2 className={style.left}>
+            <h2 className={style.left} data-aos="fade-right">
                 <p>{step}</p>
                 <p>{label}</p>
             </h2>

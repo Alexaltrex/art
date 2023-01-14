@@ -8,7 +8,7 @@ export const OurPortfolio = () => {
         <div className={style.ourPortfolio}>
             <div className={style.inner}>
                 <TitleWrapper step="03" label="Our Portfolio" black={false}/>
-                <p className={style.title}>
+                <p className={style.title} data-aos="fade-up">
                     More than <span>50+ completed</span> projects
                 </p>
 

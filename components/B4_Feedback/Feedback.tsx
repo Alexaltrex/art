@@ -15,7 +15,7 @@ export const Feedback = () => {
         >
             <div className={style.inner}>
                 <TitleWrapper step="04" label="Feedback" black={!dark}/>
-                <p className={style.title}>
+                <p className={style.title} data-aos="fade-up">
                     A headline that is two lines long, <span>feedback</span>
                 </p>
                 <p className={style.description}>

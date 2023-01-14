@@ -106,16 +106,12 @@ export const LetsTalk = () => {
 
     const [color, setColor] = useState("#FFF");
     const ref = useRef<HTMLDivElement>(null!);
-    const [dark, setDark] = useState(false);
+
     useEffect(() => {
         const onScroll = () => {
             if (ref && ref.current) {
                 const rect = ref.current.getBoundingClientRect();
-                if (rect.top < window.innerHeight / 2) {
-                    setDark(true);
-                } else {
-                    setDark(false);
-                }
+
 
                 if (rect.top < 0.25 * window.innerHeight) {
                     setColor(colors[0]);
@@ -150,7 +146,7 @@ export const LetsTalk = () => {
             <div className={style.inner}>
                 <TitleWrapper step="07" label="Let's talk!"/>
 
-                <p className={style.title}>
+                <p className={style.title} data-aos="fade-up">
                     Hello, Demyanchuk Art studio!
                 </p>
 
