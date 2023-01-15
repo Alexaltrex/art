@@ -1,0 +1,104 @@
+@import "./assets/style/app";
+
+.burgerMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  background: #000;
+  transition: 0.5s;
+  padding-top: 120px;
+  padding-bottom: 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &_hide {
+    transform: translateX(101%);
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+
+    .link {
+      padding-top: 30px;
+      padding-bottom: 30px;
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 100%;
+      color: #FFF;
+      text-decoration: none;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  .btns {
+    padding: 0 24px;
+
+    .talkBtn, .stopBtn {
+      @include button;
+      @include centerRow;
+      display: block;
+      width: 100%;
+      height: 60px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 100%;
+    }
+
+    .talkBtn {
+      background: #FFF;
+    }
+
+    .stopBtn {
+      position: relative;
+      margin-top: 10px;
+      border-radius: 999px;
+      border: 1px solid #FFF;
+      color: #FFF;
+
+      .ukraina {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        overflow: hidden;
+
+        &::before {
+          position: absolute;
+          display: block;
+          content: "";
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 50%;
+          background: #2980E9;
+        }
+
+        &::after {
+          position: absolute;
+          display: block;
+          content: "";
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 50%;
+          background: #F1CC36;
+        }
+      }
+    }
+
+  }
+
+
+
+}

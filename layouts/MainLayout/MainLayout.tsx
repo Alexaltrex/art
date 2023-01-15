@@ -1,13 +1,13 @@
-import {FC, ReactNode, useEffect, useRef, useState} from "react";
+import {FC, ReactNode, useEffect, useRef} from "react";
 import style from "./MainLayout.module.scss"
 import Head from "next/head";
 import {Header} from "../../components/A0_Header/Header";
-
-import {ThemeProvider} from "@mui/material";
 import {observer} from "mobx-react-lite";
 import {useStore} from "../../store/useStore";
 import clsx from "clsx";
 import {Footer} from "../../components/A2_Footer/Footer";
+import {Preloader} from "../../components/A3_Preloader/Preloader";
+import {BurgerMenu} from "../../components/A1_BurgerMenu/BurgerMenu";
 
 interface IMainLayout {
     children: ReactNode
@@ -18,18 +18,27 @@ export const MainLayout: FC<IMainLayout> = observer(({
                                                          children,
                                                          headTitle = 'Demyanchul Art | Home page',
                                                      }) => {
-    const {preloader, setBottom} = useStore();
+    const {
+        pageYOffset,
+        setPageYOffset,
+        preloader,
+        setBottom,
+        setScrollDown,
+    } = useStore();
 
     const ref = useRef<HTMLDivElement>(null!);
 
     useEffect(() => {
-        const onScroll = (e: any) => {
+        const onScroll = (e: Event) => {
+            if (window.pageYOffset > pageYOffset) {
+                setScrollDown(true)
+            } else {
+                setScrollDown(false)
+            }
+            setPageYOffset(window.pageYOffset);
 
             if (ref && ref.current) {
                 const rect = ref.current.getBoundingClientRect();
-                // console.log(rect.bottom);
-                // console.log(window.innerHeight)
-                //console.log(" ")
                 setBottom(rect.bottom - window.innerHeight);
             }
         };
@@ -38,14 +47,16 @@ export const MainLayout: FC<IMainLayout> = observer(({
             onScroll,
             {passive: true}
         );
-    }, []);
+    }, [pageYOffset]);
+
 
     // useEffect(() => {
     //     if (ref && ref.current) {
     //         ref.current.addEventListener(
     //             "wheel",
     //             (e) => {
-    //                 e.preventDefault()
+    //                 //e.preventDefault()
+    //                 //console.log(e)
     //             },
     //             {passive: false}
     //         )
@@ -59,6 +70,7 @@ export const MainLayout: FC<IMainLayout> = observer(({
             [style.mainLayout_preloader]: preloader,
         })}
              ref={ref}
+            //onScroll={e => {}}
         >
             <Head>
                 {/*<meta name="keywords" content="next,js,nextjs,react"/>*/}
@@ -69,8 +81,10 @@ export const MainLayout: FC<IMainLayout> = observer(({
                 </title>
             </Head>
 
+            <Preloader/>
+
             <Header/>
-            {/*<BurgerMenu/>*/}
+            <BurgerMenu/>
 
             <main className={style.main}>
                 {children}

@@ -2,9 +2,11 @@ import style from "./Header.module.scss"
 import {svgIcons} from "../../assets/svgIcons";
 import Link from "next/link";
 import ReactAudioPlayer from "react-audio-player";
-import {useEffect, useRef, useState} from "react";
+import {useState} from "react";
 import clsx from "clsx";
 import {AnimatedLink} from "../X_common/AnimatedLink/AnimatedLink";
+import {observer} from "mobx-react-lite";
+import {useStore} from "../../store/useStore";
 
 export const links = [
     {href: "behance", label: "Behance"},
@@ -13,10 +15,15 @@ export const links = [
     {href: "Twitter", label: "Twitter"},
 ]
 
-export const Header = () => {
+export const Header = observer(() => {
+    const {
+        scrollDown,
+        pageYOffset,
+        burgerMenu,
+        setBurgerMenu,
+    } = useStore();
 
     const onSoundHandler = async () => {
-        console.log("onSoundHandler")
         if (playerRef && playerRef.audioEl && playerRef.audioEl.current) {
             if (play) {
                 setPlay(false);
@@ -46,8 +53,16 @@ export const Header = () => {
     //     }
     // }, [buttonRef])
 
+    const onBurgerHandler = () => {
+        setBurgerMenu(!burgerMenu);
+    }
+
     return (
-        <header className={style.header}>
+        <header className={clsx({
+            [style.header]: true,
+            [style.header_hide]: scrollDown && pageYOffset > 200 && !burgerMenu,
+        })}>
+
             <div className={style.inner}>
 
                 <ReactAudioPlayer
@@ -93,8 +108,10 @@ export const Header = () => {
                         {svgIcons.audio}
                     </button>
 
-                    <button className={style.burgerBtn}>
-                        {svgIcons.burger}
+                    <button className={style.burgerBtn}
+                            onClick={onBurgerHandler}
+                    >
+                        {burgerMenu ? svgIcons.close : svgIcons.burger}
                     </button>
 
                     <button className={style.stopBtn}>
@@ -106,4 +123,4 @@ export const Header = () => {
 
         </header>
     )
-}
+})

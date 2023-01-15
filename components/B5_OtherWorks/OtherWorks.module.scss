@@ -56,6 +56,12 @@
   .works {
     border-top: 1px solid #000;
 
+    .animatedLink {
+      &::before {
+        animation-duration: 1.2s;
+      }
+    }
+
     .work {
       @include container;
       cursor: pointer;

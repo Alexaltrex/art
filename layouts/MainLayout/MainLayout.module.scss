@@ -15,7 +15,12 @@
   }
 
   .main {
+    padding-top: 70px;
     position: relative;
     z-index: 2;
+
+    @include desktop {
+      padding-top: 100px;
+    }
   }
 }

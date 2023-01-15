@@ -44,7 +44,7 @@ export const OtherWorks = () => {
             <div className={style.works}>
                 {
                     works.map(({year, name, label}, key) => (
-                        <AnimatedLink key={key}>
+                        <AnimatedLink key={key} className={style.animatedLink}>
                             <div className={style.work}
                             >
                                 <div className={style.inner}>

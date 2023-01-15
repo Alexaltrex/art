@@ -5,8 +5,8 @@ import {observer} from "mobx-react-lite";
 import {useStore} from "../../store/useStore";
 
 const labels = [
-    "Demyanchuk",
-    "Art Studio",
+    // "Demyanchuk",
+    // "Art Studio",
     "Design",
     "Marketing",
     "Development",
@@ -41,7 +41,7 @@ export const Preloader = observer(() => {
     useEffect(() => {
         //console.log("value")
         setTimeout(() => {
-            if (tik < 6) {
+            if (tik < 4) {
                 setTik(tik + 1);
             }
         }, 1000);
@@ -54,7 +54,7 @@ export const Preloader = observer(() => {
         if (tik % 2 === 0 && tik !== 0) {
             setValue2(value2 + 2)
         }
-        if (tik === 6) {
+        if (tik === 4) {
             setPreloader(false);
         }
 
@@ -63,7 +63,7 @@ export const Preloader = observer(() => {
     return (
         <div className={clsx({
             [style.preloader]: true,
-            [style.preloader_hide]: tik === 6,
+            [style.preloader_hide]: tik === 4,
         })}>
             <div className={style.box}>
                 <div className={clsx(style.inner, start && (tik < 6) && "preloader")}>

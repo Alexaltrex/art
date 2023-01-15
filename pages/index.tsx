@@ -8,12 +8,10 @@ import {OurTeam} from "../components/B6_OurTeam/OurTeam";
 import {Reviews} from "../components/B7_Reviews/Reviews";
 import {LetsTalk} from "../components/B8_LetsTalk/LetsTalk";
 import {WhatWeWorkWith} from "../components/B2_WhatWeWorkWith/WhatWeWorkWith";
-import {Preloader} from "../components/A3_Preloader/Preloader";
 
 const HomePage = () => {
   return (
     <MainLayout>
-        <Preloader/>
         <FirstBlock/>
         <AboutUs/>
         <WhatWeWorkWith/>
