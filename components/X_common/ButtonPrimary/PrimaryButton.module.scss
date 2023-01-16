@@ -1,0 +1,57 @@
+@import "./assets/style/app";
+
+.primaryButton {
+  @include button;
+  @include centerRow;
+  border-radius: 999px;
+  height: 60px;
+  width: 100%;
+  transition: 0.3s;
+
+  @include desktop {
+    height: 80px;
+  }
+
+  p {
+    @include Almarai;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  &_white {
+    background: #FFF;
+
+    &:hover {
+      background: #CFCFCF;
+    }
+
+    p {
+      color: #000;
+    }
+
+  }
+
+  &_white_mouseDown, &_white_mouseDown:hover {
+    background: #B9B9B9;
+  }
+
+  &_dark {
+    background: #000;
+
+    &:hover {
+      background: #323232;
+    }
+
+    p {
+      color: #72EF71;
+    }
+  }
+
+  &_dark_mouseDown, &_dark_mouseDown:hover {
+    background: #282828;
+  }
+
+
+
+}

@@ -6,6 +6,7 @@ import {buttons, socialIcons, works} from "./constant";
 import {svgIcons} from "../../assets/svgIcons";
 import {AnimatedLink} from "../X_common/AnimatedLink/AnimatedLink";
 import {useScroll} from "../../hooks/useScroll";
+import {PrimaryButton} from "../X_common/ButtonPrimary/PrimaryButton";
 
 export const OtherWorks = () => {
     const [selected, setSelected] = useState("All work");
@@ -32,6 +33,7 @@ export const OtherWorks = () => {
                                             [style.btn_selected]: label === selected,
                                         })}
                                         onClick={() => setSelected(label)}
+                                        data-aos="fade-up"
                                 >
                                     {label}
                                 </button>
@@ -47,7 +49,7 @@ export const OtherWorks = () => {
                         <AnimatedLink key={key} className={style.animatedLink}>
                             <div className={style.work}
                             >
-                                <div className={style.inner}>
+                                <div className={style.inner} data-aos="fade-up">
                                     <div className={style.left}>
                                         <p className={style.year}>{year}</p>
                                         <p className={style.name}>{name}</p>
@@ -66,9 +68,11 @@ export const OtherWorks = () => {
 
             <div className={style.bottom}>
                 <div className={style.inner}>
-                    <button className={style.allWorksBtn}>
-                        All work
-                    </button>
+
+                    <PrimaryButton label="All work"
+                                   white={false}
+                                   className={style.allWorksBtn}
+                    />
 
                     <div className={style.socialIcons}>
                         {

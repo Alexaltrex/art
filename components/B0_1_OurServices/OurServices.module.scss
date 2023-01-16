@@ -1,0 +1,131 @@
+@import "./assets/style/app";
+
+.ourServices {
+  background: #000;
+  padding-bottom: 80px;
+
+  @include desktop {
+    padding-bottom: 100px;
+  }
+
+  .header {
+    @include container;
+
+    .inner {
+      @include inner;
+      padding-top: 80px;
+      padding-bottom: 40px;
+
+      @include desktop {
+        padding-top: 100px;
+        padding-bottom: 60px;
+      }
+
+      .title {
+        @include h2;
+        color: #FFF;
+        margin-top: 40px;
+
+        @include desktop {
+          margin-top: 60px;
+        }
+      }
+
+    }
+
+
+  }
+
+  .list {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
+    .item {
+      cursor: pointer;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      background: #000;
+      transition: 0.3s;
+
+      .inner {
+        @include inner;
+        padding-top: 32px;
+        padding-bottom: 32px;
+
+        .top {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .title {
+            font-weight: 500;
+            font-size: 32px;
+            line-height: 100%;
+            color: #FFF;
+            transition: 0.3s;
+
+            @include desktop {
+              font-size: 36px;
+            }
+          }
+
+          .chip {
+            @include centerRow;
+            width: 42px;
+            height: 42px;
+            border-radius: 999px;
+            border: 1px solid #FFF;
+            background: #000;
+            transition: 0.3s;
+
+            p {
+              @include Almarai;
+              font-weight: 700;
+              font-size: 14px;
+              line-height: 16px;
+              color: #FFF;
+              transition: 0.3s;
+            }
+
+            @include desktop {
+              width: 150px;
+            }
+          }
+        }
+
+        .text {
+          @include Almarai;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 16px;
+          margin-top: 8px;
+          padding-right: 82px;
+
+          @include desktop {
+            margin-top: 24px;
+            padding-right: 9px;
+          }
+        }
+
+      }
+
+      &_selected {
+        background: #FFF;
+
+        .inner {
+          .top {
+            .title {
+              color: #000;
+            }
+
+            .chip {
+              border: 1px solid #000;
+
+              p {
+                color: #72EF71;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

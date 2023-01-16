@@ -105,7 +105,7 @@ export const Header = observer(() => {
                     <button className={clsx(style.soundBtn, play && "soundBtn")}
                             onClick={onSoundHandler}
                     >
-                        {svgIcons.audio}
+                        {play ? svgIcons.pause : svgIcons.play}
                     </button>
 
                     <button className={style.burgerBtn}

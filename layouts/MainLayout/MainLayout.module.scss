@@ -4,6 +4,7 @@
   box-sizing: border-box;
   padding-bottom: 660px;
   position: relative;
+  overflow: hidden;
 
   @include desktop {
     padding-bottom: 893px;

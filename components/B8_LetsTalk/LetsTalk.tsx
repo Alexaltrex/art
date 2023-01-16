@@ -3,11 +3,10 @@ import {TitleWrapper} from "../X_common/TitleWrapper/TitleWrapper";
 import * as React from "react";
 import {useEffect, useRef, useState} from "react";
 import {FormikErrors, useFormik} from "formik";
-import {TextField, ThemeProvider} from "@mui/material";
+import {TextField} from "@mui/material";
 import clsx from "clsx";
-import {theme} from "../../theme/theme";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
+import {PrimaryButton} from "../X_common/ButtonPrimary/PrimaryButton";
+import {SelectCustom} from "../X_common/SelectCustom/SelectCustom";
 
 interface IValues {
     name: string
@@ -63,6 +62,17 @@ const fieldSx = {
     }
 }
 
+const items = [
+    {value: "Software to cloud", label: "Software to cloud"},
+    {value: "Product Design", label: "Product Design"},
+    {value: "Digital Marketing", label: "Digital Marketing"},
+    {value: "UI/UX Design", label: "UI/UX Design"},
+    {value: "Web Development", label: "Web Development"},
+    {value: "Web & Mobile apps", label: "Web & Mobile apps"},
+    {value: "Branding", label: "Branding"},
+
+]
+
 export const LetsTalk = () => {
     const [budget, setBudget] = useState(0);
 
@@ -99,10 +109,7 @@ export const LetsTalk = () => {
         "#C6D1D0",
         "#FCEDEB",
         "#DEDDE3",
-        // "red",
-        // "green",
-        // "blue"
-    ]
+    ];
 
     const [color, setColor] = useState("#FFF");
     const ref = useRef<HTMLDivElement>(null!);
@@ -111,7 +118,6 @@ export const LetsTalk = () => {
         const onScroll = () => {
             if (ref && ref.current) {
                 const rect = ref.current.getBoundingClientRect();
-
 
                 if (rect.top < 0.25 * window.innerHeight) {
                     setColor(colors[0]);
@@ -125,13 +131,10 @@ export const LetsTalk = () => {
                 if (rect.top > 0.75 * window.innerHeight) {
                     setColor("#FFF");
                 }
-
             }
-
         };
         window.addEventListener("scroll", onScroll, {passive: true})
     }, []);
-
 
     return (
         <div className={clsx({
@@ -166,6 +169,7 @@ export const LetsTalk = () => {
                                        sx={fieldSx}
                             />
                         </div>
+
                         <div className={style.fieldWrapper}>
                             <p className={style.label}>from</p>
                             <TextField label="From"
@@ -183,45 +187,56 @@ export const LetsTalk = () => {
                     <div className={style.briefWrapper}>
                         <p className={style.textMobile}>I’d like to discuss project idea & design brief.</p>
                         <p className={style.textDesktop}>I’d like to discuss</p>
-                        <Select label="Brief"
-                                variant="standard"
-                                {...formik.getFieldProps('brief')}
-                                className={style.field}
-                                sx={{
-                                    "& .MuiSelect-select": {
-                                        fontFamily: "Syne",
-                                        fontWeight: "500",
-                                        fontSize: "18px",
-                                        lineHeight: "140%",
-                                    },
-                                    "&.Mui-focused": {
-                                        "&::after": {
-                                            borderBottom: "2px solid #000",
-                                        }
-                                    },
-                                }}
-                        >
-                            {
-                                [
-                                    {value: "Software to cloud", label: "Software to cloud"},
-                                    {value: "Option 1", label: "Option 1"},
-                                    {value: "Option 2", label: "Option 2"},
-                                    {value: "Option 3", label: "Option 3"},
-                                ].map(({value, label}, key) => (
-                                    <MenuItem key={key}
-                                              value={value}
-                                              sx={{
-                                                  fontFamily: "Syne",
-                                                  fontWeight: "500",
-                                                  fontSize: "18px",
-                                                  lineHeight: "140%",
-                                              }}
-                                    >
-                                        {label}
-                                    </MenuItem>
-                                ))
-                            }
-                        </Select>
+
+
+                        <SelectCustom name="brief"
+                                      value={formik.values.brief}
+                                      onChange={formik.handleChange}
+                                      items={items}
+                                      setFieldValue={formik.setFieldValue}
+                                      className={style.selectWrapper}
+                        />
+
+                        {/*<Select label="Brief"*/}
+                        {/*        variant="standard"*/}
+                        {/*        {...formik.getFieldProps('brief')}*/}
+                        {/*        className={style.field}*/}
+                        {/*        sx={{*/}
+                        {/*            "& .MuiSelect-select": {*/}
+                        {/*                fontFamily: "Syne",*/}
+                        {/*                fontWeight: "500",*/}
+                        {/*                fontSize: "18px",*/}
+                        {/*                lineHeight: "140%",*/}
+                        {/*            },*/}
+                        {/*            "&.Mui-focused": {*/}
+                        {/*                "&::after": {*/}
+                        {/*                    borderBottom: "2px solid #000",*/}
+                        {/*                }*/}
+                        {/*            },*/}
+                        {/*        }}*/}
+                        {/*>*/}
+                        {/*    {*/}
+                        {/*        [*/}
+                        {/*            {value: "Software to cloud", label: "Software to cloud"},*/}
+                        {/*            {value: "Option 1", label: "Option 1"},*/}
+                        {/*            {value: "Option 2", label: "Option 2"},*/}
+                        {/*            {value: "Option 3", label: "Option 3"},*/}
+                        {/*        ].map(({value, label}, key) => (*/}
+                        {/*            <MenuItem key={key}*/}
+                        {/*                      value={value}*/}
+                        {/*                      sx={{*/}
+                        {/*                          fontFamily: "Syne",*/}
+                        {/*                          fontWeight: "500",*/}
+                        {/*                          fontSize: "18px",*/}
+                        {/*                          lineHeight: "140%",*/}
+                        {/*                      }}*/}
+                        {/*            >*/}
+                        {/*                {label}*/}
+                        {/*            </MenuItem>*/}
+                        {/*        ))*/}
+                        {/*    }*/}
+                        {/*</Select>*/}
+
                         <p className={style.textDesktop}>project idea & design brief.</p>
                     </div>
 
@@ -271,11 +286,12 @@ export const LetsTalk = () => {
                         />
                     </div>
 
-                    <button type="submit"
-                            className={style.submitBtn}
-                    >
-                        <p>Submit</p>
-                    </button>
+                    <PrimaryButton label="Submit"
+                                   white={false}
+                                   type="submit"
+                                   className={style.submitBtn}
+                    />
+
                 </form>
 
             </div>

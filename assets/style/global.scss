@@ -1,3 +1,4 @@
+@use "sass:math";
 @import "./app";
 
 * {
@@ -165,6 +166,59 @@ body {
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+
+//========= run rotated line =========//
+.rotated-line-1 {
+  animation-name: rotated-run-line-1;
+  animation-iteration-count: infinite;
+  animation-duration: 60s;
+  animation-timing-function: linear;
+}
+
+@keyframes rotated-run-line-1 {
+  0% {
+    left: 50%;
+    top: 50%;
+  }
+  25% {
+    left: calc(50% + 0.98480775 * 3000px);
+    top: calc(50% - 0.17364817 * 3000px);
+  }
+  75% {
+    left: calc(50% - 0.98480775 * 3000px);
+    top: calc(50% + 0.17364817 * 3000px);
+  }
+  100% {
+    left: 50%;
+    top: 50%;
+  }
+}
+
+.rotated-line-2 {
+  animation-name: rotated-run-line-2;
+  animation-iteration-count: infinite;
+  animation-duration: 60s;
+  animation-timing-function: linear;
+}
+
+@keyframes rotated-run-line-2 {
+  0% {
+    left: 50%;
+    top: 50%;
+  }
+  25% {
+    left: calc(50% - 0.98480775 * 3000px);
+    top: calc(50% - 0.17364817 * 3000px);
+  }
+  75% {
+    left: calc(50% + 0.98480775 * 3000px);
+    top: calc(50% + 0.17364817 * 3000px);
+  }
+  100% {
+    left: 50%;
+    top: 50%;
   }
 }
 

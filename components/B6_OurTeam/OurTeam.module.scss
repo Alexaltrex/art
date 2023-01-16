@@ -77,6 +77,16 @@
       border-radius: 50%;
       border: 1px solid #FFF;
       box-sizing: border-box;
+      transition: 0.3s;
+
+      &:hover {
+        background: #232323;
+      }
+
+      &:disabled, &:disabled:hover {
+        background: transparent;
+        opacity: 0.4;
+      }
     }
 
     .nextBtn {

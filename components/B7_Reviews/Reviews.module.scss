@@ -95,6 +95,7 @@
 
       @include desktop {
         display: flex;
+        align-items: center;
       }
 
       .texts {
@@ -125,6 +126,7 @@
       .control {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         margin-top: 42px;
 
         @include desktop {
@@ -134,46 +136,16 @@
         }
 
         .workBtn {
-          @include button;
-          display: flex;
-          align-items: center;
-          border: 1px solid #FFF;
-          border-radius: 999px;
-          padding: 8px 8px 8px 20px;
 
-          p {
-            @include Almarai;
-            font-weight: 700;
-            font-size: 16px;
-            line-height: 18px;
-            color: #FFF;
-          }
-
-          .icon {
-            margin-left: 20px;
-            @include centerColumn;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #FFF;
-
-            svg {
-              width: 18px;
-              height: 18px;
-              transition: 0.3s;
-            }
-
-          }
-
-          &:hover {
-            .icon svg {
-              transform: rotate(45deg);
-            }
-          }
         }
 
         .navigate {
           display: flex;
+          margin-left: 12px;
+
+          @include desktop {
+            margin-left: 40px;
+          }
 
           .prevBtn, .nextBtn {
             @include button;
@@ -182,6 +154,18 @@
             border-radius: 50%;
             width: 60px;
             height: 60px;
+            transition: 0.3s;
+            background: transparent;
+
+            &:hover {
+              background: #232323;
+            }
+
+            &:disabled, &:disabled:hover {
+              background: transparent;
+              opacity: 0.4;
+            }
+
           }
 
           .nextBtn {

@@ -9,25 +9,29 @@ import {svgIcons} from "../../assets/svgIcons";
 import {Zoom} from "@mui/material";
 import clsx from "clsx";
 import {useScroll} from "../../hooks/useScroll";
+import {PrimaryButton} from "../X_common/ButtonPrimary/PrimaryButton";
 
 const items = [
     {
-        el: <p>I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and his team were always in touch, made all the changes...</p>,
+        el: <p>1 I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>.
+            Anatoly and his team were always in touch, made all the changes...</p>,
         id: 0,
     },
     {
-        el: <p>I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and his team were always in touch, made all the changes...</p>,
+        el: <p>2 I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>.
+            Anatoly and his team were always in touch, made all the changes...</p>,
         id: 1,
     },
     {
-        el: <p>I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>. Anatoly and his team were always in touch, made all the changes...</p>,
+        el: <p>3 I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>.
+            Anatoly and his team were always in touch, made all the changes...</p>,
         id: 2,
     },
 ];
 
 const makeArray = (n: number): number[] => {
     const result = [] as number[];
-    for (let i = 0; i < n; i ++) {
+    for (let i = 0; i < n; i++) {
         result.push(i)
     }
     return result;
@@ -37,6 +41,8 @@ export const Reviews = () => {
     const [swiper, setSwiper] = useState<SwiperClass | null>(null);
     const [x, setX] = useState(0);
     const [y, setY] = useState(0);
+
+    const [index, setIndex] = useState(1);
 
     const onMouseMoveHandler = (e: any) => {
         setX(e.clientX);
@@ -82,6 +88,9 @@ export const Reviews = () => {
                         onSwiper={(swiper) => {
                             setSwiper(swiper);
                         }}
+                        onSlideChange={(swiper) => {
+                            setIndex(swiper.realIndex)
+                        }}
                         onTouchStart={() => setClick(true)}
                 >
                     {
@@ -105,22 +114,24 @@ export const Reviews = () => {
                     <div className={style.texts}>
                         <p>Cofounder - Jigen Hiperbest</p>
                         <p>Anatoliy Demiacnhuk</p>
-
                     </div>
 
                     <div className={style.control}>
-                        <button className={style.workBtn}>
-                            <p>Watch work</p>
-                            <div className={style.icon}>{svgIcons.arrow_up_right}</div>
-                        </button>
+
+                        <PrimaryButton label="Watch work"
+                                       className={style.workBtn}
+                        />
+
                         <div className={style.navigate}>
                             <button onClick={() => swiper?.slidePrev()}
                                     className={style.prevBtn}
+                                    disabled={index === 1}
                             >
                                 {svgIcons.arrow_left}
                             </button>
                             <button onClick={() => swiper?.slideNext()}
                                     className={style.nextBtn}
+                                    disabled={index === items.length - 1}
                             >
                                 {svgIcons.arrow_left}
                             </button>
@@ -134,23 +145,23 @@ export const Reviews = () => {
                 <div className={clsx(style.row, "line-to-left")}>
                     {
                         makeArray(100).map((el, index) => (
-                                <div className={style[`block${(index + 1) % 4}`]}
-                                     key={index}
-                                >
-                                    {svgIcons.jigen}
-                                </div>
-                            ))
+                            <div className={style[`block${(index + 1) % 4}`]}
+                                 key={index}
+                            >
+                                {svgIcons.jigen}
+                            </div>
+                        ))
                     }
                 </div>
                 <div className={clsx(style.row, "line-to-right")}>
                     {
                         makeArray(100).map((el, index) => (
-                                <div className={style[`block${(index + 1) % 4}`]}
-                                     key={index}
-                                >
-                                    {svgIcons.jigen}
-                                </div>
-                            ))
+                            <div className={style[`block${(index + 1) % 4}`]}
+                                 key={index}
+                            >
+                                {svgIcons.jigen}
+                            </div>
+                        ))
                     }
                 </div>
             </div>

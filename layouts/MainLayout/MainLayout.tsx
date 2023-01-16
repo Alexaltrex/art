@@ -63,7 +63,6 @@ export const MainLayout: FC<IMainLayout> = observer(({
     //     }
     // }, [])
 
-
     return (
         <div className={clsx({
             [style.mainLayout]: true,

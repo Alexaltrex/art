@@ -108,6 +108,18 @@
           line-height: 100%;
         }
 
+        .selectWrapper {
+          margin-top: 16px;
+          width: 100%;
+
+          @include desktop {
+            margin-top: 0;
+            width: 215px;
+            margin-left: 40px;
+            margin-right: 40px;
+          }
+        }
+
         .field {
           margin-top: 16px;
           width: 100%;
@@ -189,17 +201,16 @@
             }
 
             &:hover {
-              //background: rgba(0, 0, 0, 0.5);
-              //color: rgba(255, 255, 255, 0.5);
+              background: #E8E8E8;
             }
 
             &_selected {
               background: rgba(0, 0, 0, 1);
-              color: rgba(255, 255, 255, 1);
+              color: #72EF71;
 
               &:hover {
                 background: rgba(0, 0, 0, 1);
-                color: rgba(255, 255, 255, 1);
+                color: #72EF71;
               }
             }
 
@@ -209,26 +220,10 @@
       }
 
       .submitBtn {
-        @include button;
-        @include centerRow;
-        border-radius: 999px;
-        background: #000;
-        height: 60px;
-        width: 100%;
         margin-top: 40px;
 
         @include desktop {
-          height: 80px;
           margin-top: 60px;
-        }
-
-        p {
-          @include Almarai;
-          font-style: normal;
-          font-weight: 700;
-          font-size: 16px;
-          line-height: 18px;
-          color: #FFF;
         }
 
       }

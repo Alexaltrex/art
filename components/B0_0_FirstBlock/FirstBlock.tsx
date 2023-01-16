@@ -1,11 +1,11 @@
 import style from "./FirstBlock.module.scss";
 
 const items = [
-    {label: "Instagram"},
-    {label: "Dribbble"},
-    {label: "Twitter"},
-    {label: "Telegram"},
-    {label: "Telegram"},
+    {label: "Instagram", href: "#"},
+    {label: "Dribbble", href: "#"},
+    {label: "Twitter", href: "#"},
+    {label: "Telegram", href: "#"},
+    {label: "Telegram", href: "#"},
 ]
 
 
@@ -38,12 +38,14 @@ export const FirstBlock = () => {
 
                     <div className={style.items}>
                         {
-                            items.map(({label}, key) => (
-                                <div key={key}
-                                     className={style.item}
+                            items.map(({label, href}, key) => (
+                                <a key={key}
+                                   className={style.item}
+                                   href={href}
+                                   target="_blank"
                                 >
                                     {label}
-                                </div>
+                                </a>
                             ))
                         }
                     </div>

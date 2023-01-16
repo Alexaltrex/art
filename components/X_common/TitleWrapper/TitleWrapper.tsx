@@ -22,7 +22,7 @@ export const TitleWrapper: FC<ITitleWrapper> = ({
                 <p>{step}</p>
                 <p>{label}</p>
             </h2>
-            <div className={style.right}/>
+            <div className={style.right} data-aos="fade-left"/>
         </div>
     )
 }

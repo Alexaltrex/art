@@ -46,7 +46,7 @@ export const OurTeam = () => {
                 >
                     {
                         slides.map(({position, name, src, backSrc}, key) => (
-                            <SwiperSlide className={style.slideWrapper}  key={key}>
+                            <SwiperSlide className={style.slideWrapper} key={key}>
                                 <div className={style.slide}>
                                     <img src={backSrc} alt="" className={style.back}/>
                                     <img src={src} alt="" className={style.avatar}/>
@@ -78,6 +78,7 @@ export const OurTeam = () => {
             <div className={style.navigate}>
                 <button onClick={() => swiper?.slidePrev()}
                         className={style.prevBtn}
+                        disabled={index === 0}
                 >
                     {svgIcons.arrow_left}
                 </button>
@@ -89,11 +90,11 @@ export const OurTeam = () => {
 
                 <button onClick={() => swiper?.slideNext()}
                         className={style.nextBtn}
+                        disabled={index === slides.length - 1}
                 >
                     {svgIcons.arrow_left}
                 </button>
             </div>
-
 
 
         </div>

@@ -2,6 +2,7 @@ import style from "./Footer.module.scss"
 import {observer} from "mobx-react-lite";
 import {useStore} from "../../store/useStore";
 import {useMediaQuery} from "@mui/material";
+import {PrimaryButton} from "../X_common/ButtonPrimary/PrimaryButton";
 
 const socials = [
     {
@@ -85,17 +86,22 @@ export const Footer = observer(() => {
                             <p className={style.name}>ART</p>
                         </div>
 
-                        <button className={style.talkBtn}
-                                style={{
-                                    transform: `translateX(${
-                                        bottom > height_footer
-                                            ? -100
-                                            : -100 * bottom / height_footer
-                                    }%)`,
-                                }}
-                        >
-                            Let's talk!
-                        </button>
+                        <PrimaryButton label="Let's talk!"
+                                       className={style.talkBtn}
+                                       style={{
+                                           transform: `translateX(${
+                                               bottom > height_footer
+                                                   ? -100
+                                                   : -100 * bottom / height_footer
+                                           }%)`,
+                                       }}
+                        />
+
+                        {/*<button className={style.talkBtn}*/}
+                        {/*        */}
+                        {/*>*/}
+                        {/*    Let's talk!*/}
+                        {/*</button>*/}
                     </div>
                 </div>
 

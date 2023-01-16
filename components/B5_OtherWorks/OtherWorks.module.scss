@@ -43,7 +43,11 @@
             padding: 32px;
           }
 
-          &_selected {
+          &:hover {
+            background: #323232;
+          }
+
+          &_selected, &_selected:hover  {
             background: $color_green;
             color: #000;
           }
@@ -138,17 +142,6 @@
       }
 
       .allWorksBtn {
-        @include button;
-        @include centerRow;
-        background: #000000;
-        border-radius: 999px;
-        height: 80px;
-        width: 100%;
-        @include Almarai;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 18px;
-        color: #FFF;
 
         @include desktop {
           width: 800px;
@@ -164,6 +157,12 @@
           height: 80px;
           background: #000;
           border-radius: 50%;
+          transition: 0.3s;
+
+          &:hover {
+            background: #282828;
+          }
+
         }
       }
 

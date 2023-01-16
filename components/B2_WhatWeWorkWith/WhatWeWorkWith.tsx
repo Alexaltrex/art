@@ -3,10 +3,39 @@ import {TitleWrapper} from "../X_common/TitleWrapper/TitleWrapper";
 import * as React from "react";
 import clsx from "clsx";
 import {svgIcons} from "../../assets/svgIcons";
-import {useRef, useState} from "react";
 import {useScroll} from "../../hooks/useScroll";
 
 const row = [
+    "Solana",
+    "Solana",
+    "Bitcoin",
+    "Matic",
+    "BNB",
+    "Polkadot",
+    "Avalanche",
+    "Cosmos",
+    "Cardano",
+    //
+    "Solana",
+    "Solana",
+    "Bitcoin",
+    "Matic",
+    "BNB",
+    "Polkadot",
+    "Avalanche",
+    "Cosmos",
+    "Cardano",
+    //
+    "Solana",
+    "Solana",
+    "Bitcoin",
+    "Matic",
+    "BNB",
+    "Polkadot",
+    "Avalanche",
+    "Cosmos",
+    "Cardano",
+    //
     "Solana",
     "Solana",
     "Bitcoin",
@@ -28,21 +57,26 @@ export const WhatWeWorkWith = () => {
         })}
              ref={ref}
         >
-             <div className={style.top}>
-                 <div className={style.inner}>
-                     <TitleWrapper step="02" label="What we work with" black={dark}/>
-                     <p className={style.title} data-aos="fade-up">
-                         We work with many blockchains
-                     </p>
-                 </div>
-             </div>
+            <div className={style.top}>
+                <div className={style.inner}>
+                    <TitleWrapper step="02" label="What we work with" black={dark}/>
+                    <p className={style.title} data-aos="fade-up">
+                        We work with many blockchains
+                    </p>
+                </div>
+            </div>
 
             <div className={style.center}>
                 <img src="/png/whatWeWorkWith.png" alt="" className={style.ball}/>
 
                 {
                     [1, 2].map(index => (
-                        <div className={clsx(style.row, style[`row_${index}`])} key={index}
+                        <div className={clsx(
+                            style.row,
+                            style[`row_${index}`],
+                            `rotated-line-${index}`
+                        )}
+                             key={index}
                         >
                             {
                                 row.map((el, key) => (

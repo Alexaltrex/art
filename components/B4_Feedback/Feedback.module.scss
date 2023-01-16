@@ -64,18 +64,9 @@
     }
 
     .submitBtn {
-      @include button;
-      @include centerRow;
-      background: #FFF;
-      border-radius: 999px;
-      height: 60px;
-      width: 100%;
       margin-top: 40px;
-      font-weight: 700;
-      font-size: 16px;
-      line-height: 19px;
-      color: #7B8195;
-      transition: $time;
+      //background: #FFF;
+      //transition: $time;
 
       @include desktop {
         width: 255px;
@@ -96,7 +87,7 @@
       }
 
       .submitBtn {
-        background: #000;
+        //background: #000;
       }
     }
   }

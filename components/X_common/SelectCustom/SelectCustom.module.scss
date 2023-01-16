@@ -1,0 +1,87 @@
+@import "./assets/style/app";
+
+.selectCustom {
+  @include button();
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  &:hover {
+    .icon {
+      background: #E8E8E8;
+    }
+  }
+
+  .input {
+    display: none;
+  }
+
+  .value {
+    @include centerRow;
+    @include Almarai;
+    flex-grow: 1;
+    height: 43px;
+    border: 1px solid black;
+    border-radius: 999px;
+    white-space: nowrap;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .icon {
+    @include centerRow;
+    width: 43px;
+    height: 43px;
+    border: 1px solid black;
+    border-radius: 999px;
+    margin-left: 4px;
+    transition: 0.3s;
+
+    svg {
+      transition: 0.3s;
+    }
+
+    @include desktop {
+      margin-left: 16px;
+    }
+
+    &_open {
+      svg {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+
+}
+
+.list {
+  background: #FFF;
+  box-sizing: border-box;
+
+
+  .item {
+    cursor: pointer;
+    padding: 16px 20px;
+    @include Almarai;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    background: #FFF;
+    transition: 0.3s;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid #000;
+    }
+
+    &:hover {
+      background: #E8E8E8;
+    }
+
+    &_selected, &_selected:hover {
+      background: #000;
+      color: #72EF71;
+    }
+  }
+}

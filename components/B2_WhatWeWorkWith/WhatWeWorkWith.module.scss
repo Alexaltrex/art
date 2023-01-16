@@ -74,8 +74,8 @@
       &_1 {
         position: absolute;
         z-index: 1;
-        left: 50%;
-        top: 50%;
+        //left: 50vw;
+        //top: 50vh;
         transform: translate(-50%, -50%) rotate(-10deg);
         opacity: 0.4;
       }
@@ -83,8 +83,8 @@
       &_2 {
         position: absolute;
         z-index: 3;
-        left: 50%;
-        top: 50%;
+        //left: 50vw;
+        //top: 50vh;
         transform: translate(-50%, -50%) rotate(10deg);
       }
 
