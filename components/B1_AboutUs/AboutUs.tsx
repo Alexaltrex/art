@@ -2,14 +2,15 @@ import style from "./AboutUs.module.scss"
 import {TitleWrapper} from "../X_common/TitleWrapper/TitleWrapper";
 import {FC, useEffect, useRef, useState} from "react";
 import clsx from "clsx";
+import {AnimatedNumber} from "../X_common/AnimatedNumber/AnimatedNumber";
 
 const items = [
     {
-        value: 403,
+        value: 203,
         text: "Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante."
     },
     {
-        value: 403,
+        value: 304,
         text: "Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante."
     },
     {
@@ -147,8 +148,19 @@ export const AboutUs = () => {
                     {
                         items.map(({value, text}, key) => (
                             <div className={style.item} key={key}>
-                                <p className={style.value}>{value}</p>
-                                <p className={style.text}>{text}</p>
+
+                                <AnimatedNumber value={value}
+                                                className={style.value}
+                                />
+
+                                {/*<p className={style.value}>*/}
+                                {/*    {value}*/}
+                                {/*</p>*/}
+                                <p className={style.text}
+                                   data-aos="fade-up"
+                                >
+                                    {text}
+                                </p>
                             </div>
                         ))
                     }
