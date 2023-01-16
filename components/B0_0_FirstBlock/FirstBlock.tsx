@@ -43,6 +43,7 @@ export const FirstBlock = () => {
                                    className={style.item}
                                    href={href}
                                    target="_blank"
+                                   rel="noreferrer noopener"
                                 >
                                     {label}
                                 </a>
