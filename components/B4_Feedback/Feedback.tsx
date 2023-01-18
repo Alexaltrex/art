@@ -3,9 +3,12 @@ import {TitleWrapper} from "../X_common/TitleWrapper/TitleWrapper";
 import {useScroll} from "../../hooks/useScroll";
 import clsx from "clsx";
 import {PrimaryButton} from "../X_common/ButtonPrimary/PrimaryButton";
+import {observer} from "mobx-react-lite";
+import {useStore} from "../../store/useStore";
 
-export const Feedback = () => {
+export const Feedback = observer(() => {
     const {ref, dark} = useScroll();
+    const {setPopupForm} = useStore();
 
     return (
         <div className={clsx({
@@ -26,6 +29,7 @@ export const Feedback = () => {
                 <PrimaryButton label="Submit"
                                white={false}
                                className={style.submitBtn}
+                               onClick={() => setPopupForm(true)}
                 />
 
                 {/*<button className={style.submitBtn}>*/}
@@ -37,4 +41,4 @@ export const Feedback = () => {
             <img src="/png/ring_desktop.png" alt="" className={style.ring_desktop}/>
         </div>
     )
-}
+})

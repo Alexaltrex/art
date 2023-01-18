@@ -6,7 +6,7 @@ export class Store {
     bottom: number = 0
     pageYOffset: number = 0
     scrollDown: boolean = true
-    //popupForm = false
+    popupForm = false
 
     constructor() {
         makeObservable(this, {
@@ -15,14 +15,14 @@ export class Store {
             bottom: observable,
             pageYOffset: observable,
             scrollDown: observable,
-            //popupForm: observable,
+            popupForm: observable,
 
             setBurgerMenu: action.bound,
             setPreloader: action.bound,
             setBottom: action.bound,
             setPageYOffset: action.bound,
             setScrollDown: action.bound,
-            //setPopupForm: action.bound,
+            setPopupForm: action.bound,
         })
     }
 
@@ -46,10 +46,9 @@ export class Store {
         this.scrollDown = scrollDown;
     }
 
-    // setPopupForm(popupForm: boolean) {
-    //     this.popupForm = popupForm
-    // }
-
+    setPopupForm(popupForm: boolean) {
+        this.popupForm = popupForm
+    }
 
 }
 

@@ -197,46 +197,6 @@ export const LetsTalk = () => {
                                       className={style.selectWrapper}
                         />
 
-                        {/*<Select label="Brief"*/}
-                        {/*        variant="standard"*/}
-                        {/*        {...formik.getFieldProps('brief')}*/}
-                        {/*        className={style.field}*/}
-                        {/*        sx={{*/}
-                        {/*            "& .MuiSelect-select": {*/}
-                        {/*                fontFamily: "Syne",*/}
-                        {/*                fontWeight: "500",*/}
-                        {/*                fontSize: "18px",*/}
-                        {/*                lineHeight: "140%",*/}
-                        {/*            },*/}
-                        {/*            "&.Mui-focused": {*/}
-                        {/*                "&::after": {*/}
-                        {/*                    borderBottom: "2px solid #000",*/}
-                        {/*                }*/}
-                        {/*            },*/}
-                        {/*        }}*/}
-                        {/*>*/}
-                        {/*    {*/}
-                        {/*        [*/}
-                        {/*            {value: "Software to cloud", label: "Software to cloud"},*/}
-                        {/*            {value: "Option 1", label: "Option 1"},*/}
-                        {/*            {value: "Option 2", label: "Option 2"},*/}
-                        {/*            {value: "Option 3", label: "Option 3"},*/}
-                        {/*        ].map(({value, label}, key) => (*/}
-                        {/*            <MenuItem key={key}*/}
-                        {/*                      value={value}*/}
-                        {/*                      sx={{*/}
-                        {/*                          fontFamily: "Syne",*/}
-                        {/*                          fontWeight: "500",*/}
-                        {/*                          fontSize: "18px",*/}
-                        {/*                          lineHeight: "140%",*/}
-                        {/*                      }}*/}
-                        {/*            >*/}
-                        {/*                {label}*/}
-                        {/*            </MenuItem>*/}
-                        {/*        ))*/}
-                        {/*    }*/}
-                        {/*</Select>*/}
-
                         <p className={style.textDesktop}>project idea & design brief.</p>
                     </div>
 
