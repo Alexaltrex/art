@@ -50,18 +50,7 @@ export const MainLayout: FC<IMainLayout> = observer(({
     }, [pageYOffset]);
 
 
-    // useEffect(() => {
-    //     if (ref && ref.current) {
-    //         ref.current.addEventListener(
-    //             "wheel",
-    //             (e) => {
-    //                 //e.preventDefault()
-    //                 //console.log(e)
-    //             },
-    //             {passive: false}
-    //         )
-    //     }
-    // }, [])
+
 
     return (
         <div className={clsx({
