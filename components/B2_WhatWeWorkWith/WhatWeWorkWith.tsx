@@ -25,26 +25,7 @@ export const WhatWeWorkWith = () => {
     const {ref, dark} = useScroll();
 
     const refStones = useRef<HTMLDivElement>(null!);
-    const [inCenter, setInCenter] = useState(false);
-    const [centered, setCentered] = useState(false);
-    useEffect(() => {
-        if (inCenter) {
-            setCentered(true)
-        }
-    }, [inCenter]);
-
-    const [tik, setTik] = useState(0);
-
-    //console.log(tik)
-
-    useEffect(() => {
-        if (centered && tik < 10) {
-            setTimeout(() => {
-                setTik(tik + 1)
-            }, 100)
-        }
-    }, [centered, tik])
-
+    const [boom, setBoom] = useState(false);
 
     // useEffect(() => {
     //     if (ref && ref.current) {
@@ -65,24 +46,17 @@ export const WhatWeWorkWith = () => {
         const onScroll = () => {
             if (refStones && refStones.current) {
                 const rect = refStones.current.getBoundingClientRect();
-                // console.log(rect.top + 0.5 * rect.height);
-                // console.log(0.5 * window.innerHeight);
-                // console.log("---");
                 if (
-                    rect.top + 0.5 * rect.height > 0.5 * window.innerHeight - 25 &&
-                    rect.top + 0.5 * rect.height < 0.5 * window.innerHeight + 25
+                    rect.top + 0.5 * rect.height > 0.5 * window.innerHeight
                 ) {
-                    //console.log("in center");
-                    setInCenter(true);
+                    setBoom(true);
                 } else {
-                    setInCenter(false);
+                    setBoom(false);
                 }
             }
-
         };
         window.addEventListener("scroll", onScroll, {passive: true})
     }, []);
-
 
     return (
         <div className={clsx({
@@ -101,18 +75,19 @@ export const WhatWeWorkWith = () => {
             </div>
 
             <div className={style.center} ref={refStones}>
-                {/*<img src="/png/whatWeWorkWith.png" alt="" className={style.ball}/>*/}
-
-
                 {
                     [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(index => (
                         <img key={index}
                              src={imgs[index]}
                              alt=""
                              className={clsx({
-                                 [style.stones0]: true,
-                                 [style.stones0_centered]: centered && tik > index,
-                             })}
+                                 [style.stones]: true,
+                                 [style.stones_centered]: boom,
+                             },
+                             )}
+                             style={{
+                                 transitionDelay: `${index * 100}ms`
+                             }}
                         />
                     ))
                 }

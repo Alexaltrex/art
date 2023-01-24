@@ -24,7 +24,9 @@ export const OtherWorks = () => {
                 <div className={style.inner}>
                     <TitleWrapper step="01" label="Other works"/>
 
-                    <div className={style.buttons}>
+                    <div className={style.buttons}
+                         data-aos="fade-up"
+                    >
                         {
                             buttons.map(({label}, key) => (
                                 <button key={key}
@@ -33,7 +35,7 @@ export const OtherWorks = () => {
                                             [style.btn_selected]: label === selected,
                                         })}
                                         onClick={() => setSelected(label)}
-                                        data-aos="fade-up"
+
                                 >
                                     {label}
                                 </button>

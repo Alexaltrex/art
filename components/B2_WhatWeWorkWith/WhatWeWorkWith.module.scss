@@ -37,7 +37,6 @@
 
   .center {
     overflow: hidden;
-    //overflow-x: hidden;
     position: relative;
     width: 100%;
     height: 505px;
@@ -46,7 +45,7 @@
       height: 1111px;
     }
 
-    .stones0 {
+    .stones {
       position: absolute;
       z-index: 2;
       top: 50%;
@@ -54,7 +53,7 @@
       transform: translate(-50%, -50%);
       width: 570px;
       height: 505px;
-      transition: 0.5s;
+      transition: 1s;
 
       @include desktop {
         width: 1253.99px;

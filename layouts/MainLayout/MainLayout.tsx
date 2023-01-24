@@ -49,9 +49,6 @@ export const MainLayout: FC<IMainLayout> = observer(({
         );
     }, [pageYOffset]);
 
-
-
-
     return (
         <div className={clsx({
             [style.mainLayout]: true,
