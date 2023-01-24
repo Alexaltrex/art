@@ -47,7 +47,7 @@ export const WhatWeWorkWith = () => {
             if (refStones && refStones.current) {
                 const rect = refStones.current.getBoundingClientRect();
                 if (
-                    rect.top + 0.5 * rect.height > 0.5 * window.innerHeight
+                    rect.top + 0.5 * rect.height < 0.5 * window.innerHeight
                 ) {
                     setBoom(true);
                 } else {
