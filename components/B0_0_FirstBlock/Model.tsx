@@ -1,4 +1,8 @@
 import {GLTF} from "three/examples/jsm/loaders/GLTFLoader";
+import React, {useEffect, useRef} from "react";
+import {useGLTF, useAnimations} from "@react-three/drei";
+import {observer} from "mobx-react-lite";
+import {useStore} from "../../store/useStore";
 
 type GLTFResultType = GLTF & {
     nodes: {
@@ -9,13 +13,14 @@ type GLTFResultType = GLTF & {
     }
 }
 
+export const Model = observer(() => {
+    const {setModel} = useStore();
 
-import React, {useEffect, useRef} from "react";
-import {useGLTF, useAnimations} from "@react-three/drei";
 
-export const Model = () => {
     const group = useRef<THREE.Group>(null!);
     const glb = useGLTF("/model.glb");
+
+    console.log(glb)
 
     const {nodes, materials, animations} = glb;
     const animationsResult = useAnimations(animations, group);
@@ -23,9 +28,17 @@ export const Model = () => {
     //console.log(animationsResult)
 
     useEffect(() => {
+        //console.log("start", new Date())
         actions[names[0]]?.play();
 
     }, [])
+
+    useEffect(() => {
+        //console.log("glb", new Date())
+        if (glb) {
+            setModel(true)
+        }
+    }, [glb])
 
     return (
         <group ref={group} dispose={null}>
@@ -139,6 +152,6 @@ export const Model = () => {
             </group>
         </group>
     );
-}
+})
 
 useGLTF.preload("/model.glb");

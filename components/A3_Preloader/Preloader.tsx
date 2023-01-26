@@ -15,7 +15,7 @@ const labels = [
 ]
 
 export const Preloader = observer(() => {
-    const {setPreloader} = useStore();
+    const {setPreloader, model} = useStore();
 
     const [value1, setValue1] = useState(1);
     const [value2, setValue2] = useState(2);
@@ -63,7 +63,7 @@ export const Preloader = observer(() => {
     return (
         <div className={clsx({
             [style.preloader]: true,
-            [style.preloader_hide]: tik === 4,
+            [style.preloader_hide]: tik === 4 && model,
         })}>
             <div className={style.box}>
                 <div className={clsx(style.inner, start && (tik < 6) && "preloader")}>

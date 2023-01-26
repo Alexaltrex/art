@@ -30,9 +30,9 @@ export const FirstBlock = () => {
                             <meshPhongMaterial color="green"/>
                         </Box>
 
-                        <Suspense fallback={null}>
+                        {/*<Suspense fallback={null}>*/}
                             <Model/>
-                        </Suspense>
+                        {/*</Suspense>*/}
 
 
                         <PerspectiveCamera makeDefault

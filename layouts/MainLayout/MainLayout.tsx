@@ -24,7 +24,12 @@ export const MainLayout: FC<IMainLayout> = observer(({
         preloader,
         setBottom,
         setScrollDown,
+        model,
     } = useStore();
+
+    // useEffect(() => {
+    //     console.log("model: ", model)
+    // }, [model])
 
     const ref = useRef<HTMLDivElement>(null!);
 

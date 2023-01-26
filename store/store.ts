@@ -7,6 +7,7 @@ export class Store {
     pageYOffset: number = 0
     scrollDown: boolean = true
     popupForm = false
+    model = false
 
     constructor() {
         makeObservable(this, {
@@ -16,6 +17,7 @@ export class Store {
             pageYOffset: observable,
             scrollDown: observable,
             popupForm: observable,
+            model: observable,
 
             setBurgerMenu: action.bound,
             setPreloader: action.bound,
@@ -23,6 +25,7 @@ export class Store {
             setPageYOffset: action.bound,
             setScrollDown: action.bound,
             setPopupForm: action.bound,
+            setModel: action.bound,
         })
     }
 
@@ -48,6 +51,10 @@ export class Store {
 
     setPopupForm(popupForm: boolean) {
         this.popupForm = popupForm
+    }
+
+    setModel(model: boolean) {
+        this.model = model
     }
 
 }
