@@ -66,7 +66,7 @@ export const MainLayout: FC<IMainLayout> = observer(({
                 </title>
             </Head>
 
-            {/*<Preloader/>*/}
+            <Preloader/>
 
             <Header/>
             <BurgerMenu/>
