@@ -12,7 +12,9 @@
 
   &_preloader {
     height: 100vh;
+    box-sizing: border-box;
     overflow: hidden;
+    padding-bottom: 0;
   }
 
   .main {
