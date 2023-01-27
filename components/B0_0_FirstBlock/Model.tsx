@@ -3,6 +3,8 @@ import React, {useEffect, useRef} from "react";
 import {useGLTF, useAnimations} from "@react-three/drei";
 import {observer} from "mobx-react-lite";
 import {useStore} from "../../store/useStore";
+import {getValue} from "../../helpers/helpers";
+import {Material} from "three";
 
 type GLTFResultType = GLTF & {
     nodes: {
@@ -14,13 +16,21 @@ type GLTFResultType = GLTF & {
 }
 
 export const Model = observer(() => {
-    const {setModel} = useStore();
+    const {
+        setModel,
+        block2Height,
+        pageYOffset
+    } = useStore();
+
+    console.log(block2Height)
+    console.log(pageYOffset)
+    console.log("         ")
 
 
     const group = useRef<THREE.Group>(null!);
     const glb = useGLTF("/model.glb");
 
-    console.log(glb)
+    //console.log(glb)
 
     const {nodes, materials, animations} = glb;
     const animationsResult = useAnimations(animations, group);
@@ -40,8 +50,22 @@ export const Model = observer(() => {
         }
     }, [glb])
 
+
+
     return (
-        <group ref={group} dispose={null}>
+        <group ref={group}
+               dispose={null}
+               rotation={[
+                   0,
+                   getValue({
+                       x2: block2Height || 0,
+                       x: pageYOffset,
+                       f1: - (0.3) * Math.PI,
+                       f2: 0
+                   }),
+                   0]
+               }
+        >
             <group name="Scene">
                 <group name="GLTF_SceneRootNode004" rotation={[Math.PI / 2, 0, 0]}>
                     <group name="Cube_0"/>
@@ -61,10 +85,27 @@ export const Model = observer(() => {
                             name="unamedmesh004_1"
                             //@ts-ignore
                             geometry={nodes.unamedmesh004_1.geometry}
-                            material={materials["Material.006"]}
+                            //material={materials["Material.006"]}
                             //@ts-ignore
                             skeleton={nodes.unamedmesh004_1.skeleton}
-                        />
+                        >
+                            <meshStandardMaterial
+                                color={`rgb(255, ${Math.round(getValue({
+                                    x2: block2Height || 0,
+                                    x: pageYOffset,
+                                    f1: 255,
+                                    f2: 0
+                                }))}, ${Math.round(getValue({
+                                    x2: block2Height || 0,
+                                    x: pageYOffset,
+                                    f1: 255,
+                                    f2: 0
+                                }))})`}
+                                emissive="#444"
+                                roughness={0.5}
+                                metalness={1}
+                            />
+                        </skinnedMesh>
                     </group>
                 </group>
                 <mesh

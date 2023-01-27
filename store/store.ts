@@ -8,6 +8,8 @@ export class Store {
     scrollDown: boolean = true
     popupForm = false
     model = false
+    modelShift = false
+    block2Height: null | number = null
 
     constructor() {
         makeObservable(this, {
@@ -18,6 +20,8 @@ export class Store {
             scrollDown: observable,
             popupForm: observable,
             model: observable,
+            modelShift: observable,
+            block2Height: observable,
 
             setBurgerMenu: action.bound,
             setPreloader: action.bound,
@@ -26,6 +30,8 @@ export class Store {
             setScrollDown: action.bound,
             setPopupForm: action.bound,
             setModel: action.bound,
+            setModelShift: action.bound,
+            setBlock2Height: action.bound,
         })
     }
 
@@ -57,6 +63,14 @@ export class Store {
         this.model = model
     }
 
+    setModelShift(modelShift: boolean) {
+        this.modelShift = modelShift
+    }
+
+
+    setBlock2Height(block2Height: number) {
+        this.block2Height = block2Height
+    }
 }
 
 export const store = new Store()

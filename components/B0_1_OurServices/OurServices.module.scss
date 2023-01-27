@@ -1,8 +1,10 @@
 @import "./assets/style/app";
 
 .ourServices {
-  background: #000;
+  //background: #000;
   padding-bottom: 80px;
+  position: relative;
+  z-index: 2;
 
   @include desktop {
     padding-bottom: 100px;
@@ -30,10 +32,7 @@
           margin-top: 60px;
         }
       }
-
     }
-
-
   }
 
   .list {
@@ -42,7 +41,7 @@
     .item {
       cursor: pointer;
       border-top: 1px solid rgba(255, 255, 255, 0.3);
-      background: #000;
+      //background: #000;
       transition: 0.3s;
 
       .inner {

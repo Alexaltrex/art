@@ -60,7 +60,6 @@ export const MainLayout: FC<IMainLayout> = observer(({
             [style.mainLayout_preloader]: preloader,
         })}
              ref={ref}
-            //onScroll={e => {}}
         >
             <Head>
                 {/*<meta name="keywords" content="next,js,nextjs,react"/>*/}
@@ -80,7 +79,7 @@ export const MainLayout: FC<IMainLayout> = observer(({
                 {children}
             </main>
 
-            <Footer/>
+            {/*<Footer/>*/}
         </div>
     )
 

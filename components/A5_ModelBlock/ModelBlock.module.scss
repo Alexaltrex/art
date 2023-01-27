@@ -1,0 +1,25 @@
+@import "../../assets/style/app";
+
+.modelBlocks {
+  position: fixed;
+  background: #000;
+  top: 70px;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 70px);
+  z-index: 1;
+
+  @include desktop {
+    top: 100px;
+    height: calc(100vh - 100px);
+  }
+
+  &_shift {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+  }
+
+
+
+}

@@ -10,13 +10,20 @@ import {LetsTalk} from "../components/B8_LetsTalk/LetsTalk";
 import {WhatWeWorkWith} from "../components/B2_WhatWeWorkWith/WhatWeWorkWith";
 import {OurServices} from "../components/B0_1_OurServices/OurServices";
 import { LetsTalkModal } from "../components/A4_LetsTalkModal/LetsTalkModal";
+import {ModelBlock} from "../components/A5_ModelBlock/ModelBlock";
+import style from "./HomePage.module.scss"
 
 const HomePage = () => {
   return (
     <MainLayout>
         <LetsTalkModal/>
-        <FirstBlock/>
-        <OurServices/>
+
+        <div className={style.twoBlocksWrapper}>
+            <FirstBlock/>
+            <OurServices/>
+            <ModelBlock/>
+        </div>
+
         <AboutUs/>
         <WhatWeWorkWith/>
         <OurPortfolio/>
