@@ -79,7 +79,7 @@ export const MainLayout: FC<IMainLayout> = observer(({
                 {children}
             </main>
 
-            {/*<Footer/>*/}
+            <Footer/>
         </div>
     )
 

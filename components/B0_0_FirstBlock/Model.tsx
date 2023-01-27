@@ -22,9 +22,9 @@ export const Model = observer(() => {
         pageYOffset
     } = useStore();
 
-    console.log(block2Height)
-    console.log(pageYOffset)
-    console.log("         ")
+    // console.log(block2Height)
+    // console.log(pageYOffset)
+    // console.log("         ")
 
 
     const group = useRef<THREE.Group>(null!);
