@@ -8,8 +8,9 @@ import * as React from "react";
 import {svgIcons} from "../../assets/svgIcons";
 import {Zoom} from "@mui/material";
 import clsx from "clsx";
-import {useScroll} from "../../hooks/useScroll";
 import {PrimaryButton} from "../X_common/ButtonPrimary/PrimaryButton";
+
+
 
 const items = [
     {
@@ -141,14 +142,22 @@ export const Reviews = () => {
                 </div>
             </div>
 
+            <div>
+                {svgIcons.logo6}
+            </div>
+
+
             <div className={style.blocks}>
-                <div className={clsx(style.row, "line-to-left")}>
+                <div className={clsx(
+                    style.row,
+                    "line-to-left"
+                )}>
                     {
                         makeArray(100).map((el, index) => (
-                            <div className={style[`block${(index + 1) % 4}`]}
+                            <div className={style[`block${index % 4}`]}
                                  key={index}
                             >
-                                {svgIcons.jigen}
+                                <img src={`/png/logo${index % 9}.png`} alt=""/>
                             </div>
                         ))
                     }
@@ -156,10 +165,10 @@ export const Reviews = () => {
                 <div className={clsx(style.row, "line-to-right")}>
                     {
                         makeArray(100).map((el, index) => (
-                            <div className={style[`block${(index + 1) % 4}`]}
+                            <div className={style[`block${index % 4}`]}
                                  key={index}
                             >
-                                {svgIcons.jigen}
+                                <img src={`/png/logo${index % 9}.png`} alt=""/>
                             </div>
                         ))
                     }

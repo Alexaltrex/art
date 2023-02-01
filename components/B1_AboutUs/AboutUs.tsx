@@ -6,16 +6,16 @@ import {AnimatedNumber} from "../X_common/AnimatedNumber/AnimatedNumber";
 
 const items = [
     {
-        value: 203,
-        text: "Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante."
+        value: 40,
+        text: "Cool and ambitious professionals on our team"
     },
     {
-        value: 304,
-        text: "Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante."
+        value: 3,
+        text: "Years of uninterrupted growth and development in fintech and web3"
     },
     {
-        value: 403,
-        text: "Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante."
+        value: 50,
+        text: "Successfully completed projects and satisfied customers"
     },
 ]
 
@@ -135,11 +135,6 @@ export const AboutUs = () => {
                             ))
                         }
                     </div>
-
-                    {/*<div className={style.text}>*/}
-                    {/*    For more than <span>3 years</span> our team has been making unique and reliable <span>crypto and fintech</span> products. <span>10+ people</span> in*/}
-                    {/*    the design team, <span>20+ person development team. And all this allows us to be one of the best in our niche</span>*/}
-                    {/*</div>*/}
                 </div>
             </div>
 
@@ -147,15 +142,41 @@ export const AboutUs = () => {
                 <div className={style.inner}>
                     {
                         items.map(({value, text}, key) => (
-                            <div className={style.item} key={key}>
-
-                                <AnimatedNumber value={value}
-                                                className={style.value}
+                            <div key={key}
+                                 className={style.item}
+                            >
+                                <div className={style.borderMobile}
+                                     data-aos="zoom-in-left"
+                                     data-aos-offset="200"
+                                     data-aos-duration="1000"
                                 />
 
-                                {/*<p className={style.value}>*/}
-                                {/*    {value}*/}
-                                {/*</p>*/}
+                                <div className={style.borderTopDesktop}>
+                                    <div className={style.borderTopDesktopInner}
+                                         data-aos="zoom-in-left"
+                                         data-aos-offset="200"
+                                         data-aos-duration="1000"
+                                    />
+                                </div>
+
+                                {
+                                    key !== 0 &&
+                                    <div className={style.borderVerticalDesktop}>
+                                        <div className={style.borderVerticalInner}
+                                             data-aos="zoom-in-up"
+                                             data-aos-offset="200"
+                                             data-aos-duration="1000"
+                                        />
+                                    </div>
+                                }
+
+                                <div className={style.numberWrapper}>
+                                    <AnimatedNumber value={value}
+                                                    className={style.value}
+                                    />
+                                    <span className={style.value}>+</span>
+                                </div>
+
                                 <p className={style.text}
                                    data-aos="fade-up"
                                 >

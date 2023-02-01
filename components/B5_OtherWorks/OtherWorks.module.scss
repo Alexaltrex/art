@@ -13,8 +13,8 @@
       padding-bottom: 24px;
 
       @include desktop {
-        padding-top: 100px;
-        padding-bottom: 60px;
+        padding-top: vwD(100);
+        padding-bottom: vwD(60);
       }
 
       .buttons {
@@ -23,7 +23,7 @@
         flex-wrap: wrap;
 
         @include desktop {
-          margin-top: 60px;
+          margin-top: vwD(60);
         }
 
         .btn {
@@ -39,15 +39,17 @@
           transition: 0.3s;
 
           @include desktop {
+            padding: vwD(32);
+            font-size: vwD(16);
+            line-height: vwD(18);
             margin: 0;
-            padding: 32px;
           }
 
           &:hover {
             background: #323232;
           }
 
-          &_selected, &_selected:hover  {
+          &_selected, &_selected:hover {
             background: $color_green;
             color: #000;
           }
@@ -69,17 +71,27 @@
     .work {
       @include container;
       cursor: pointer;
-      border-bottom: 1px solid #000;
+      //border-bottom: 1px solid #000;
       position: relative;
+
+      .borderTop {
+        height: 1px;
+        width: 100%;
+        background: #000;
+      }
 
       .inner {
         @include inner;
         padding-top: 32px;
         padding-bottom: 32px;
-
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        @include desktop {
+          padding-top: vwD(32);
+          padding-bottom: vwD(32);
+        }
 
         .left {
           display: flex;
@@ -87,11 +99,11 @@
 
           .year, .label {
             @include onlyDesktop();
-            padding: 10px 14px;
+            padding: vwD(10) vwD(14);
             font-weight: 400;
-            font-size: 16px;
+            font-size: vwD(16);
             line-height: 140%;
-            border: 1px solid #000;
+            border: vwD(1) solid #000;
             border-radius: 999px;
           }
 
@@ -101,17 +113,37 @@
             line-height: 100%;
 
             @include desktop {
-              font-size: 36px;
-              width: 640px;
+              font-size: vwD(36);
+              width: vwD(640);
               box-sizing: border-box;
-              padding-left: 40px;
+              padding-left: vwD(40);
             }
           }
         }
 
-        svg {
-          transition: 0.5s;
+        .arrowWrapper {
+          width: 24px;
+          height: 24px;
+
+          @include desktop {
+            width: vwD(36);
+            height: vwD(36);
+          }
+
+          svg {
+            transition: 0.5s;
+            width: 24px;
+            height: 24px;
+
+            @include desktop {
+              width: vwD(36);
+              height: vwD(36);
+            }
+
+          }
         }
+
+
       }
 
       &:hover {
@@ -134,8 +166,8 @@
       padding-bottom: 80px;
 
       @include desktop {
-        padding-top: 60px;
-        padding-bottom: 100px;
+        padding-top: vwD(60);
+        padding-bottom: vwD(100);
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -144,7 +176,7 @@
       .allWorksBtn {
 
         @include desktop {
-          width: 800px;
+          width: vwD(800);
         }
       }
 
@@ -153,14 +185,19 @@
 
         .socialLink {
           @include centerRow;
-          width: 80px;
-          height: 80px;
+          width: vwD(80);
+          height: vwD(80);
           background: #000;
           border-radius: 50%;
           transition: 0.3s;
 
           &:hover {
             background: #282828;
+          }
+
+          svg {
+            width: vwD(24);
+            height: vwD(24);
           }
 
         }

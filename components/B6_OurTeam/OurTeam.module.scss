@@ -6,7 +6,7 @@
   padding-bottom: 80px;
 
   @include desktop {
-    padding-bottom: 100px;
+    padding-bottom: vwD(100);
   }
 
   .top {
@@ -18,8 +18,8 @@
       padding-bottom: 32px;
 
       @include desktop {
-        padding-top: 100px;
-        padding-bottom: 60px;
+        padding-top: vwD(100);
+        padding-bottom: vwD(60);
       }
 
       .title {
@@ -29,8 +29,8 @@
         margin-top: 32px;
 
         @include desktop {
-          margin-top: 60px;
-          width: 680px;
+          margin-top: vwD(60);
+          width: vwD(680);
         }
       }
     }
@@ -38,11 +38,11 @@
 
   .swiperWrapper {
     @include onlyMobile();
+
     .swiper {
 
-
       .slideWrapper {
-         display: flex;
+        display: flex;
         justify-content: center;
       }
     }
@@ -57,9 +57,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(2, 1fr);
-      grid-gap: 4px;
-
-
+      grid-gap: vwD(4);
     }
   }
 
@@ -137,9 +135,10 @@
 
     @include desktop {
       width: auto;
-      height: 417px;
-      padding-top: 30px;
-      padding-left: 30px;
+      height: vwD(417);
+      border-radius: vwD(32);
+      padding-top: vwD(30);
+      padding-left: vwD(30);
     }
 
     .back {
@@ -163,10 +162,10 @@
       top: 90px;
 
       @include desktop {
-        width: 428px;
-        height: 413px;
-        left: 35px;
-        top: 45px;
+        width: vwD(428);
+        height: vwD(413);
+        left: vwD(35);
+        top: vwD(45);
       }
     }
 
@@ -175,6 +174,13 @@
       font-weight: 400;
       font-size: 14px;
       line-height: 16px;
+      position: relative;
+      z-index: 3;
+
+      @include desktop {
+        font-size: vwD(14);
+        line-height: vwD(16);
+      }
     }
 
     .name {
@@ -182,9 +188,13 @@
       font-size: 24px;
       line-height: 100%;
       margin-top: 8px;
+      position: relative;
+      z-index: 3;
 
       @include desktop {
-        width: 280px;
+        width: vwD(280);
+        font-size: vwD(24);
+        margin-top: vwD(8);
       }
     }
   }

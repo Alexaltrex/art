@@ -7,7 +7,7 @@
   z-index: 2;
 
   @include desktop {
-    padding-bottom: 100px;
+    padding-bottom: vwD(100);
   }
 
   .header {
@@ -19,8 +19,8 @@
       padding-bottom: 40px;
 
       @include desktop {
-        padding-top: 100px;
-        padding-bottom: 60px;
+        padding-top: vwD(100);
+        padding-bottom: vwD(60);
       }
 
       .title {
@@ -29,7 +29,7 @@
         margin-top: 40px;
 
         @include desktop {
-          margin-top: 60px;
+          margin-top: vwD(60);
         }
       }
     }
@@ -40,14 +40,24 @@
 
     .item {
       cursor: pointer;
-      border-top: 1px solid rgba(255, 255, 255, 0.3);
-      //background: #000;
+      //border-top: 1px solid rgba(255, 255, 255, 0.3);
       transition: 0.3s;
+
+      .borderTop {
+        height: 1px;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.3);
+      }
 
       .inner {
         @include inner;
         padding-top: 32px;
         padding-bottom: 32px;
+
+        @include desktop {
+          padding-top: vwD(32);
+          padding-bottom: vwD(32);
+        }
 
         .top {
           display: flex;
@@ -62,7 +72,7 @@
             transition: 0.3s;
 
             @include desktop {
-              font-size: 36px;
+              font-size: vwD(36);
             }
           }
 
@@ -75,6 +85,11 @@
             background: #000;
             transition: 0.3s;
 
+            @include desktop {
+              width: vwD(42);
+              height: vwD(42);
+            }
+
             p {
               @include Almarai;
               font-weight: 700;
@@ -82,10 +97,15 @@
               line-height: 16px;
               color: #FFF;
               transition: 0.3s;
+
+              @include desktop {
+                font-size: vwD(14);
+                line-height: vwD(16);
+              }
             }
 
             @include desktop {
-              width: 150px;
+              width: vwD(150);
             }
           }
         }
@@ -99,8 +119,10 @@
           padding-right: 82px;
 
           @include desktop {
-            margin-top: 24px;
-            padding-right: 9px;
+            font-size: vwD(14);
+            line-height: vwD(16);
+            margin-top: vwD(24);
+            padding-right: vwD(9);
           }
         }
 
@@ -119,7 +141,7 @@
               border: 1px solid #000;
 
               p {
-                color: #72EF71;
+                color: #FFF;
               }
             }
           }

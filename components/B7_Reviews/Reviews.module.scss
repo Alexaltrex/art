@@ -6,8 +6,8 @@
   padding-bottom: 80px;
 
   @include desktop {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: vwD(100);
+    padding-bottom: vwD(100);
   }
 
   .popup {
@@ -18,8 +18,8 @@
 
     .popupInner {
       @include centerRow;
-      width: 120px;
-      height: 120px;
+      width: vwD(120);
+      height: vwD(120);
       background: #FFF;
       border: 1px solid #000;
       border-radius: 50%;
@@ -28,9 +28,9 @@
         @include Almarai;
         font-style: normal;
         font-weight: 700;
-        font-size: 16px;
-        line-height: 18px;
-        margin: 0 6px;
+        font-size: vwD(16);
+        line-height: vwD(18);
+        margin: 0 vwD(6);
       }
 
       svg {
@@ -61,7 +61,7 @@
     margin-top: 40px;
 
     @include desktop {
-      margin-top: 60px;
+      margin-top: vwD(60);
     }
 
     .swiper {
@@ -87,7 +87,7 @@
     margin-top: 20px;
 
     @include desktop {
-      margin-top: 60px;
+      margin-top: vwD(60);
     }
 
     .inner {
@@ -105,6 +105,11 @@
           font-size: 14px;
           line-height: 16px;
           color: rgba(255, 255, 255, 0.4);
+
+          @include desktop {
+            font-size: vwD(14);
+            line-height: vwD(16);
+          }
         }
 
         p:nth-child(2) {
@@ -116,9 +121,9 @@
 
           @include desktop {
             font-weight: 700;
-            font-size: 24px;
+            font-size: vwD(24);
             line-height: 100%;
-            margin-top: 8px;
+            margin-top: vwD(8);
           }
         }
       }
@@ -132,7 +137,7 @@
         @include desktop {
           flex-grow: 1;
           margin-top: 0;
-          margin-left: 40px;
+          margin-left: vwD(40);
         }
 
         .workBtn {
@@ -144,7 +149,7 @@
           margin-left: 12px;
 
           @include desktop {
-            margin-left: 40px;
+            margin-left: vwD(40);
           }
 
           .prevBtn, .nextBtn {
@@ -156,6 +161,11 @@
             height: 60px;
             transition: 0.3s;
             background: transparent;
+
+            @include desktop {
+              width: vwD(60);
+              height: vwD(60);
+            }
 
             &:hover {
               background: #232323;
@@ -170,6 +180,10 @@
 
           .nextBtn {
             margin-left: 4px;
+
+            @include desktop {
+              margin-left: vwD(4);
+            }
 
             svg {
               transform: rotate(180deg);
@@ -190,8 +204,8 @@
     overflow: hidden;
 
     @include desktop {
-      margin-top: 100px;
-      height: 340px;
+      margin-top: vwD(100);
+      height: vwD(340);
     }
 
     .row {
@@ -201,7 +215,6 @@
 
       &:nth-child(1) {
         top: 0;
-        //transform: translateX(-50%);
       }
 
       &:nth-child(2) {
@@ -216,7 +229,7 @@
           margin-left: 8px;
 
           @include desktop {
-            margin-left: 20px;
+            margin-left: vwD(20);
           }
         }
       }
@@ -226,18 +239,21 @@
         width: 100px;
         height: 100px;
 
-        svg {
-          width: 52px;
+        @include desktop {
+          width: vwD(160);
+          height: vwD(160);
+        }
+
+        img {
+          display: block;
+          width: 60px;
+          height: auto;
 
           @include desktop {
-            width: 81px;
+            width: vwD(100);
           }
         }
 
-        @include desktop {
-          width: 160px;
-          height: 160px;
-        }
       }
 
       .block0 {
@@ -259,8 +275,19 @@
         height: 100px;
 
         @include desktop {
-          width: 300px;
-          height: 160px;
+          border-radius: vwD(30);
+          width: vwD(300);
+          height: vwD(160);
+        }
+
+        img {
+          display: block;
+          width: 81px;
+          height: auto;
+
+          @include desktop {
+            width: vwD(120);
+          }
         }
       }
 

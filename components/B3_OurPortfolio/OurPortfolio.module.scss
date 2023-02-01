@@ -10,8 +10,8 @@
     padding-bottom: 80px;
 
     @include desktop {
-      padding-top: 100px;
-      padding-bottom: 104px;
+      padding-top: vwD(100);
+      padding-bottom: vwD(104);
     }
 
     .title {
@@ -20,7 +20,7 @@
       margin-top: 40px;
 
       @include desktop {
-        margin-top: 60px;
+        margin-top: vwD(60);
       }
     }
 
@@ -28,13 +28,15 @@
       margin-top: 40px;
 
       @include desktop {
-        margin-top: 60px;
+        margin-top: vwD(60);
       }
 
       .itemsMobile {
         @include onlyMobile();
 
         .item {
+          display: block;
+          text-decoration: none;
           height: 270px;
           background: #CBD6CD;
           border-radius: 34.7875px;
@@ -90,47 +92,48 @@
         .itemWrapper {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
-          grid-column-gap: 4px;
+          grid-column-gap: vwD(4);
 
           &:not(:first-child) {
-            margin-top: 4px;
+            margin-top: vwD(4);
           }
 
           .bigItem {
-            height: 500px;
+            text-decoration: none;
+            height: vwD(500);
             background: #B0BB90;
-            border-radius: 32px;
+            border-radius: vwD(32);
             overflow: hidden;
             position: relative;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 4px;
+            padding: vwD(4);
             box-sizing: border-box;
 
             img {
               position: absolute;
               z-index: 1;
-              width: 560px;
-              height: 476px;
-              top: 25px;
-              left: 57px;
+              width: vwD(560);
+              height: vwD(476);
+              top: vwD(25);
+              left: vwD(57);
             }
 
             .info {
               position: relative;
               z-index: 2;
-              height: 56px;
+              height: vwD(56);
               background: #000000;
-              border-radius: 32px;
-              padding: 0 16px;
+              border-radius: vwD(32);
+              padding: 0 vwD(16);
               display: flex;
               align-items: center;
               justify-content: space-between;
 
               p {
                 font-weight: 400;
-                font-size: 16px;
+                font-size: vwD(16);
                 line-height: 140%;
                 color: #FFF;
               }
@@ -144,7 +147,13 @@
             grid-template-rows: repeat(2, 1fr);
             grid-gap: 4px;
 
+            @include desktop {
+              height: vwD(500);
+              grid-gap: vwD(4);
+            }
+
             .smallItem {
+              text-decoration: none;
               overflow: hidden;
               position: relative;
               border-radius: 32px;
@@ -154,6 +163,11 @@
               justify-content: flex-end;
               padding: 4px;
               box-sizing: border-box;
+
+              @include desktop {
+                border-radius: vwD(32);
+                padding: vwD(4);
+              }
 
               &:nth-child(1) {
                 background: #90BB99;
@@ -179,6 +193,11 @@
                 top: 31px;
                 left: 50%;
                 transform: translateX(-50%);
+
+                @include desktop {
+                  width: vwD(136);
+                  top: vwD(31);
+                }
               }
 
               .info {
@@ -194,10 +213,20 @@
                 justify-content: space-between;
                 padding: 0 16px;
 
+                @include desktop {
+                  height: vwD(56);
+                  border-radius: vwD(32);
+                  padding: 0 vwD(16);
+                }
+
                 p {
                   font-weight: 400;
                   font-size: 16px;
                   line-height: 140%;
+
+                  @include desktop {
+                    font-size: vwD(16);
+                  }
                 }
               }
             }

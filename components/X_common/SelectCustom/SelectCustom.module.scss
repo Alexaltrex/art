@@ -28,6 +28,12 @@
     font-weight: 700;
     font-size: 14px;
     line-height: 16px;
+
+    @include desktop {
+      height: vwD(43);
+      font-size: vwD(14);
+      line-height: vwD(16);
+    }
   }
 
   .icon {
@@ -39,12 +45,21 @@
     margin-left: 4px;
     transition: 0.3s;
 
-    svg {
-      transition: 0.3s;
+    @include desktop {
+      width: vwD(43);
+      height: vwD(43);
+      margin-left: vwD(16);
     }
 
-    @include desktop {
-      margin-left: 16px;
+    svg {
+      transition: 0.3s;
+      width: 24px;
+      height: 24px;
+
+      @include desktop {
+        width: vwD(24);
+        height: vwD(24);
+      }
     }
 
     &_open {
@@ -70,6 +85,12 @@
     line-height: 16px;
     background: #FFF;
     transition: 0.3s;
+
+    @include desktop {
+      padding: vwD(16) vwD(20);
+      font-size: vwD(14);
+      line-height: vwD(16);
+    }
 
     &:not(:last-child) {
       border-bottom: 1px solid #000;

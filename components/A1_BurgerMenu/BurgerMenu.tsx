@@ -30,10 +30,14 @@ export const BurgerMenu = observer(() => {
                 <button className={style.talkBtn}>
                     Let’s talk
                 </button>
-                <button className={style.stopBtn}>
+                <a className={style.stopBtn}
+                   href="https://savelife.in.ua"
+                   target="_blank"
+                   rel="noopener nofollow"
+                >
                     <div className={style.ukraina}/>
                     Stop war
-                </button>
+                </a>
             </div>
         </div>
     )

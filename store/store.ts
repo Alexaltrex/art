@@ -10,6 +10,7 @@ export class Store {
     model = false
     modelShift = false
     block2Height: null | number = null
+    disableScroll = false
 
     constructor() {
         makeObservable(this, {
@@ -22,6 +23,7 @@ export class Store {
             model: observable,
             modelShift: observable,
             block2Height: observable,
+            disableScroll: observable,
 
             setBurgerMenu: action.bound,
             setPreloader: action.bound,
@@ -32,6 +34,7 @@ export class Store {
             setModel: action.bound,
             setModelShift: action.bound,
             setBlock2Height: action.bound,
+            setDisableScroll: action.bound,
         })
     }
 
@@ -67,9 +70,12 @@ export class Store {
         this.modelShift = modelShift
     }
 
-
     setBlock2Height(block2Height: number) {
         this.block2Height = block2Height
+    }
+
+    setDisableScroll(disableScroll: boolean) {
+        this.disableScroll = disableScroll
     }
 }
 

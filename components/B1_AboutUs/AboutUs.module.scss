@@ -13,8 +13,8 @@
       padding-bottom: 32px;
 
       @include desktop {
-        padding-top: 100px;
-        padding-bottom: 80px;
+        padding-top: vwD(100);
+        padding-bottom: vwD(80);
       }
 
       .textMobile {
@@ -34,11 +34,11 @@
 
       .textDesktop {
         @include onlyDesktop();
-        margin-top: 80px;
+        margin-top: vwD(80);
 
         p {
           font-weight: 500;
-          font-size: 80px;
+          font-size: vwD(80);
           line-height: 100%;
 
           span {
@@ -55,8 +55,8 @@
         transition: $time;
 
         @include desktop {
-          font-size: 80px;
-          margin-top: 80px;
+          font-size: vwD(80);
+          margin-top: vwD(80);
         }
 
         span {
@@ -72,40 +72,92 @@
     transition: $time;
 
     @include desktop {
-      border-top: 1px solid #000;
+      //border-top: 1px solid #000;
     }
 
     .inner {
       @include inner;
-      padding-left: 0;
-      padding-right: 0;
+      //padding-left: 0;
+      //padding-right: 0;
 
       @include desktop {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-column-gap: 106px;
-        padding-top: 40px;
-        padding-bottom: 40px;
+        grid-column-gap: vwD(106);
+        padding-top: vwD(40);
+        padding-bottom: vwD(40);
       }
 
       .item {
-        padding: 32px 24px;
-        border-top: 1px solid #000;
+        padding: 0 0 32px;
+        //border-top: 1px solid #000;
         position: relative;
 
         @include desktop {
           padding: 0;
           border-top: none;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
 
-        .value {
-          font-weight: 400;
-          font-size: 64px;
-          line-height: 100%;
-          transition: $time;
+        .borderMobile {
+          @include onlyMobile();
+          height: 1px;
+          width: 100%;
+          background: #000;
+        }
+
+        .borderTopDesktop {
+          @include onlyDesktop();
+          position: absolute;
+          left: 50%;
+          top: vwD(-40);
+          width: vwD(327);
+          height: 1px;
+          transform: translateX(-50%);
+
+          .borderTopDesktopInner {
+            height: 100%;
+            width: 100%;
+            background: #000;;
+          }
+        }
+
+        .borderVerticalDesktop {
+          @include onlyDesktop();
+          position: absolute;
+          top: 50%;
+          left: vwD(-53);
+          transform: translateY(-50%) rotate(-0deg);
+          width: 1px;
+          height: vwD(200);
+
+          .borderVerticalInner {
+            height: 100%;
+            width: 100%;
+            background: #000;
+          }
+
+        }
+
+        .numberWrapper {
+          display: flex;
+          margin-top: 32px;
 
           @include desktop {
-            font-size: 128px;
+            margin-top: 0;
+          }
+
+          .value {
+            font-weight: 400;
+            font-size: 64px;
+            line-height: 100%;
+            transition: $time;
+
+            @include desktop {
+              font-size: vwD(128);
+            }
           }
         }
 
@@ -117,24 +169,38 @@
           transition: $time;
 
           @include desktop {
-            margin-top: 30px;
+            font-size: vwD(16);
+            margin-top: vwD(30);
+            text-align: center;
           }
         }
 
-        &:not(:first-child) {
-          &::before {
-            @include onlyDesktop();
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: -70px;
-            transform: translateY(-50%) rotate(-15deg);
-            width: 1px;
-            height: 200px;
-            background: #000;
-            transition: $time;
-          }
-        }
+        //&::after {
+        //  @include onlyDesktop();
+        //  content: "";
+        //  position: absolute;
+        //  top: vwD(-40);
+        //  left: 50%;
+        //  transform: translateX(-50%);
+        //  width: vwD(340);
+        //  height: 1px;
+        //  background: #000;
+        //}
+
+        //&:not(:first-child) {
+        //  &::before {
+        //    @include onlyDesktop();
+        //    content: "";
+        //    position: absolute;
+        //    top: 50%;
+        //    left: vwD(-53);
+        //    transform: translateY(-50%) rotate(-0deg);
+        //    width: 1px;
+        //    height: vwD(200);
+        //    background: #000;
+        //    transition: $time;
+        //  }
+        //}
       }
     }
   }
@@ -206,6 +272,7 @@
     &::after {
       display: block;
     }
+
     p {
       color: #000;
     }

@@ -56,7 +56,7 @@ export const OurServices = observer(() => {
 
             <div className={style.header}>
                 <div className={style.inner}>
-                    <TitleWrapper step="01" label="OurServices" black={false}/>
+                    <TitleWrapper step="01" label="Our Services" black={false}/>
                     <p className={style.title} data-aos="fade-up">
                         The <span>services</span> we provide to our customers
                     </p>
@@ -73,6 +73,12 @@ export const OurServices = observer(() => {
                              })}
                              onClick={() => setSelectedIndex(index)}
                         >
+                            <div className={style.borderTop}
+                                 data-aos="zoom-in-left"
+                                 data-aos-offset="200"
+                                 data-aos-duration="1000"
+                            />
+
                             <div className={style.inner}>
                                 <div className={style.top}>
                                     <p className={style.title}

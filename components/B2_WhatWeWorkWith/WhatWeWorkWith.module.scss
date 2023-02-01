@@ -17,7 +17,7 @@
       padding-top: 80px;
 
       @include desktop {
-        padding-top: 100px;
+        padding-top: vwD(100);
       }
 
       .title {
@@ -27,7 +27,7 @@
         color: #000;
 
         @include desktop {
-          margin-top: 60px;
+          margin-top: vwD(60);
           width: 720px;
         }
       }
@@ -42,7 +42,7 @@
     height: 505px;
 
     @include desktop {
-      height: 1111px;
+      height: vwD(1111);
     }
 
     .stones {
@@ -56,8 +56,8 @@
       transition: 1s;
 
       @include desktop {
-        width: 1253.99px;
-        height: 1111px;
+        width: vwD(1254);
+        height: vwD(1111);
       }
 
       &_centered {
@@ -76,8 +76,8 @@
       height: 505px;
 
       @include desktop {
-        width: 1253.99px;
-        height: 1111px;
+        width: vwD(1254);
+        height: vwD(1111);
       }
     }
 
@@ -89,14 +89,13 @@
       padding: 0 28px;
 
       @include desktop {
-        height: 180px;
+        height: vwD(180);
+        padding: 0 vwD(28);
       }
 
       &_1 {
         position: absolute;
         z-index: 1;
-        //left: 50vw;
-        //top: 50vh;
         transform: translate(-50%, -50%) rotate(-10deg);
         opacity: 0.4;
       }
@@ -104,8 +103,6 @@
       &_2 {
         position: absolute;
         z-index: 3;
-        //left: 50vw;
-        //top: 50vh;
         transform: translate(-50%, -50%) rotate(10deg);
       }
 
@@ -117,7 +114,7 @@
           margin-left: 24px;
 
           @include desktop {
-            margin-left: 50px;
+            margin-left: vwD(50);
           }
         }
 
@@ -127,8 +124,8 @@
           line-height: 48px;
 
           @include desktop {
-            font-size: 80px;
-            line-height: 100px;
+            font-size: vwD(80);
+            line-height: vwD(100);
           }
 
           &_2n {
@@ -137,7 +134,7 @@
             border-radius: 999px;
 
             @include desktop {
-              padding: 12px 64px;
+              padding: vwD(12) vwD(64);
             }
           }
         }
@@ -151,24 +148,23 @@
           margin-left: 24px;
 
           @include desktop {
-            width: 84px;
-            height: 84px;
-            margin-left: 50px;
+            width: vwD(84);
+            height: vwD(84);
+            margin-left: vwD(50);
           }
 
           svg {
             width: 18px;
+            height: 18px;
 
             @include desktop {
-              width: 37px;
+              width: vwD(37);
+              height: vwD(37);
             }
           }
         }
       }
-
-
     }
-
   }
 
   &_dark {
@@ -182,6 +178,5 @@
       }
     }
   }
-
 
 }

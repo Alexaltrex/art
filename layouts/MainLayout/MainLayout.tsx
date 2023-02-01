@@ -25,6 +25,7 @@ export const MainLayout: FC<IMainLayout> = observer(({
         setBottom,
         setScrollDown,
         model,
+        disableScroll
     } = useStore();
 
     // useEffect(() => {
@@ -58,6 +59,7 @@ export const MainLayout: FC<IMainLayout> = observer(({
         <div className={clsx({
             [style.mainLayout]: true,
             [style.mainLayout_preloader]: preloader,
+            //[style.mainLayout_disableScroll]: disableScroll,
         })}
              ref={ref}
         >

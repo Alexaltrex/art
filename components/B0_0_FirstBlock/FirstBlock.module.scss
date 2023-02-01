@@ -14,10 +14,10 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    box-sizing: border-box;
 
     @include desktop {
-      height: calc(100vh - 100px);
+      padding-bottom: vwD(45);
+      height: 100vh - vwD(100);
     }
 
     .titleBlock {
@@ -32,7 +32,7 @@
         color: #FFF;
 
         @include desktop {
-          width: 720px;
+          width: vwD(720);
         }
       }
 
@@ -52,6 +52,10 @@
             font-size: 18px;
             line-height: 140%;
             color: #FFF;
+
+            @include desktop {
+              font-size: vwD(18);
+            }
           }
         }
 
@@ -63,6 +67,10 @@
       margin-top: 24px;
       display: flex;
       flex-wrap: wrap;
+
+      @include desktop {
+        margin-top: vwD(24);
+      }
 
       .item {
         text-decoration: none;
@@ -82,6 +90,8 @@
         }
 
         @include desktop {
+          font-size: vwD(16);
+          padding: vwD(10) vwD(20);
           margin: 0;
         }
       }

@@ -9,8 +9,9 @@
   padding: 30px 20px 20px;
 
   @include desktop {
-    width: 460px;
-    padding: 32px 28px 28px;
+    border-radius: vwD(32);
+    width: vwD(460);
+    padding: vwD(32) vwD(28) vwD(28);
   }
 
   .title {
@@ -20,7 +21,7 @@
     text-align: center;
 
     @include desktop {
-      font-size: 32px;
+      font-size: vwD(32);
     }
 
     &_form {
@@ -40,11 +41,26 @@
     border-radius: 50%;
     transition: 0.3s;
 
+    @include desktop {
+      top: vwD(20);
+      right: vwD(20);
+      width: vwD(42);
+      height: vwD(42);
+    }
+
     &:hover {
       background: #282828;
     }
 
     svg {
+      width: 20px;
+      height: 20px;
+
+      @include desktop {
+        width: vwD(20);
+        height: vwD(20);
+      }
+
       path {
         fill: #72EF71;
       }
@@ -55,7 +71,7 @@
     margin-top: 30px;
 
     @include desktop {
-      margin-top: 45px;
+      margin-top: vwD(45);
     }
 
     .twoFields {
@@ -63,7 +79,7 @@
       @include desktop {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-column-gap: 20px;
+        grid-column-gap: vwD(20);
       }
 
       .field {
@@ -79,7 +95,7 @@
       margin-top: 16px;
 
       @include desktop {
-        margin-top: 40px;
+        margin-top: vwD(40);
       }
     }
 
@@ -91,14 +107,15 @@
       height: 180px;
 
       @include desktop {
-        margin-top: 20px;
-        padding: 20px;
-        height: 200px;
+        border-radius: vwD(5);
+        margin-top: vwD(20);
+        padding: vwD(20);
+        height: vwD(200);
       }
 
       .textarea {
         background: none;
-        border: none;//1px solid #000;
+        border: none;
         outline: none;
         width: 100%;
         height: 100%;
@@ -108,7 +125,7 @@
         line-height: 140%;
 
         @include desktop {
-          font-size: 16px;
+          font-size: vwD(16);
         }
       }
 
@@ -116,6 +133,10 @@
 
     .sendBtn {
       margin-top: 20px;
+
+      @include desktop {
+        margin-top: vwD(20);
+      }
     }
 
   }
@@ -130,7 +151,10 @@
     width: 150px;
 
     @include desktop {
-      margin: 12px auto 0;
+      font-size: vwD(14);
+      line-height: vwD(16);
+      margin: vwD(12) auto 0;
+      width: vwD(150);
     }
 
   }
@@ -142,9 +166,9 @@
     height: 283px;
 
     @include desktop {
-      margin: 32px auto 0;
-      width: 193px;
-      height: 298px;
+      margin: vwD(32) auto 0;
+      width: vwD(193);
+      height: vwD(298);
     }
   }
 
@@ -152,7 +176,7 @@
     margin-top: 26px;
 
     @include desktop {
-      margin-top: 18px;
+      margin-top: vwD(18);
     }
   }
 

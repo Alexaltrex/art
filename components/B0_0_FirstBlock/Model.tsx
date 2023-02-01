@@ -30,27 +30,19 @@ export const Model = observer(() => {
     const group = useRef<THREE.Group>(null!);
     const glb = useGLTF("/model.glb");
 
-    //console.log(glb)
-
     const {nodes, materials, animations} = glb;
     const animationsResult = useAnimations(animations, group);
     const {actions, names} = animationsResult;
-    //console.log(animationsResult)
 
     useEffect(() => {
-        //console.log("start", new Date())
         actions[names[0]]?.play();
-
     }, [])
 
     useEffect(() => {
-        //console.log("glb", new Date())
         if (glb) {
             setModel(true)
         }
     }, [glb])
-
-
 
     return (
         <group ref={group}
@@ -90,16 +82,21 @@ export const Model = observer(() => {
                             skeleton={nodes.unamedmesh004_1.skeleton}
                         >
                             <meshStandardMaterial
-                                color={`rgb(255, ${Math.round(getValue({
+                                color={`rgb(${Math.round(getValue({
                                     x2: block2Height || 0,
                                     x: pageYOffset,
                                     f1: 255,
-                                    f2: 0
+                                    f2: 114
                                 }))}, ${Math.round(getValue({
                                     x2: block2Height || 0,
                                     x: pageYOffset,
                                     f1: 255,
-                                    f2: 0
+                                    f2: 239
+                                }))}, ${Math.round(getValue({
+                                    x2: block2Height || 0,
+                                    x: pageYOffset,
+                                    f1: 255,
+                                    f2: 113
                                 }))})`}
                                 emissive="#444"
                                 roughness={0.5}

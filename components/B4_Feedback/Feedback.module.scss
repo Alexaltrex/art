@@ -12,8 +12,11 @@
     position: absolute;
     z-index: 1;
     bottom: 0;
-    right: 0;
-    mix-blend-mode: lighten;
+    left: 50%;
+    height: 160px;
+    width: auto;
+    transform: translateX(-50%);
+
   }
 
   .ring_desktop {
@@ -21,7 +24,8 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    mix-blend-mode: lighten;
+    width: vwD(524);
+    height: auto;
   }
 
   .inner {
@@ -29,11 +33,11 @@
     z-index: 2;
     @include inner;
     padding-top: 80px;
-    padding-bottom: 60px;
+    padding-bottom: 160px;
 
     @include desktop {
-      padding-top: 100px;
-      padding-bottom: 100px;
+      padding-top: vwD(100);
+      padding-bottom: vwD(100);
     }
 
     .title {
@@ -43,8 +47,8 @@
       margin-top: 40px;
 
       @include desktop {
-        margin-top: 60px;
-        width: 842px;
+        margin-top: vwD(60);
+        width: vwD(842);
       }
     }
 
@@ -58,18 +62,18 @@
       transition: $time;
 
       @include desktop {
-        margin-top: 24px;
+        margin-top: vwD(24);
+        font-size: vwD(14);
+        line-height: vwD(16);
         width: 320px;
       }
     }
 
     .submitBtn {
       margin-top: 40px;
-      //background: #FFF;
-      //transition: $time;
 
       @include desktop {
-        width: 255px;
+        width: vwD(255);
       }
     }
   }

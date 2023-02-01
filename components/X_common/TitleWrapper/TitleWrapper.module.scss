@@ -16,11 +16,16 @@
       color: #000;
       transition: $time;
 
+      @include desktop {
+        font-size: vwD(16);
+        line-height: vwD(18);
+      }
+
       &:last-child {
         margin-left: 32px;
 
         @include desktop {
-          margin-left: 84px;
+          margin-left: vwD(84);
         }
       }
     }
@@ -32,6 +37,11 @@
     border-radius: 50%;
     background: #000;
     transition: $time;
+
+    @include desktop {
+      width: vwD(20);
+      height: vwD(20);
+    }
   }
 
   &_white {

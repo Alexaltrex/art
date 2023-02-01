@@ -22,11 +22,6 @@ const socials = [
     },
 ]
 
-const getPercent = (b: number, h: number) => {
-
-}
-
-
 export const Footer = observer(() => {
     const {bottom} = useStore();
     const desktop = useMediaQuery('(min-width:1400px)');

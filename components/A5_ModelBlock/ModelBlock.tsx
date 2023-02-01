@@ -39,12 +39,6 @@ export const ModelBlock = observer(() => {
                                    position={[
                                        0,
                                        6,
-                                       // getValue({
-                                       //     f1: 6,
-                                       //     f2: 10,
-                                       //     x2: block2Height || 0,
-                                       //     x: pageYOffset,
-                                       // })   ,
                                        20
                                    ]}
                                    rotation={new THREE.Euler(0, 0, 0)}

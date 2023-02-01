@@ -3,26 +3,54 @@
 .primaryButton {
   @include button;
   @include centerRow;
+  position: relative;
   border-radius: 999px;
   height: 60px;
   width: 100%;
   transition: 0.3s;
+  overflow: hidden;
 
   @include desktop {
-    height: 80px;
+    height: vwD(80);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.3s;
+    transform: translateY(101%);
+  }
+
+  &:hover {
+    &::after {
+      transform: translateY(0%);
+    }
   }
 
   p {
+    position: relative;
+    z-index: 2;
     @include Almarai;
     font-weight: 700;
     font-size: 16px;
     line-height: 18px;
+
+    @include desktop {
+      font-size: vwD(16);
+      line-height: vwD(18);
+    }
   }
 
   &_white {
     background: #FFF;
 
-    &:hover {
+    &::after {
       background: #CFCFCF;
     }
 
@@ -33,25 +61,27 @@
   }
 
   &_white_mouseDown, &_white_mouseDown:hover {
-    background: #B9B9B9;
+    &::after {
+      background: #B9B9B9;
+    }
   }
 
   &_dark {
     background: #000;
 
-    &:hover {
+    &::after {
       background: #323232;
     }
 
     p {
-      color: #72EF71;
+      color: #FFF;//#72EF71;
     }
   }
 
   &_dark_mouseDown, &_dark_mouseDown:hover {
-    background: #282828;
+    &::after {
+      background: #282828;
+    }
   }
-
-
 
 }

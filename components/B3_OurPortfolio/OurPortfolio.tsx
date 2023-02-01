@@ -1,4 +1,4 @@
-import { TitleWrapper } from "../X_common/TitleWrapper/TitleWrapper"
+import {TitleWrapper} from "../X_common/TitleWrapper/TitleWrapper"
 import style from "./OurPortfolio.module.scss"
 import {portfolios} from "./portfolios";
 import clsx from "clsx";
@@ -19,15 +19,18 @@ export const OurPortfolio = () => {
                             [...portfolios]
                                 .slice(0, 6)
                                 .map(({year, name}, key) => (
-                                    <div key={key}
-                                         className={style.item}
+                                    <a key={key}
+                                       className={style.item}
+                                       href="https://www.behance.net/gallery/147201249/Jigen-Hypebeast-Crypto-Nft-Metaverse"
+                                       target="_blank"
+                                       rel="noopener"
                                     >
                                         <img src="/png/ourPortfolio_0.png" alt=""/>
                                         <div className={style.info}>
                                             <p>{name}</p>
                                             <p>{year}</p>
                                         </div>
-                                    </div>
+                                    </a>
                                 ))
                         }
                     </div>
@@ -63,37 +66,46 @@ export const OurPortfolio = () => {
                                     ]
                                 },
                             ].map(({big: {name, year}, square}, key) => (
-                                    <div key={key}
-                                         className={clsx({
-                                             [style.itemWrapper]: true,
-                                             [style.itemWrapper_2n]: (key + 1) % 2 === 0,
-                                         })}
+                                <div key={key}
+                                     className={clsx({
+                                         [style.itemWrapper]: true,
+                                         [style.itemWrapper_2n]: (key + 1) % 2 === 0,
+                                     })}
+                                >
+                                    <a className={style.bigItem}
+                                       href="https://www.behance.net/gallery/147201249/Jigen-Hypebeast-Crypto-Nft-Metaverse"
+                                       target="_blank"
+                                       rel="noopener"
                                     >
-                                        <div className={style.bigItem}>
-                                            <img src="/png/ourPortfolio_1.png" alt=""/>
-                                            <div className={style.info}>
-                                                <p>{name}</p>
-                                                <p>{year}</p>
-                                            </div>
+                                        <img src="/png/ourPortfolio_1.png" alt=""/>
+                                        <div className={style.info}>
+                                            <p>{name}</p>
+                                            <p>{year}</p>
                                         </div>
+                                    </a>
 
-                                        <div className={style.square}>
-                                            {
-                                                square.map(({year, name}, key) => (
-                                                    <div className={style.smallItem} key={key}>
-                                                        <img src="/png/ourPortfolio_0.png" alt=""/>
-                                                        <div className={style.info}>
-                                                            <p>{name}</p>
-                                                            <p>{year}</p>
-                                                        </div>
+                                    <div className={style.square}>
+                                        {
+                                            square.map(({year, name}, key) => (
+                                                <a className={style.smallItem}
+                                                     key={key}
+                                                     href="https://www.behance.net/gallery/147201249/Jigen-Hypebeast-Crypto-Nft-Metaverse"
+                                                     target="_blank"
+                                                     rel="noopener"
+                                                >
+                                                    <img src="/png/ourPortfolio_0.png" alt=""/>
+                                                    <div className={style.info}>
+                                                        <p>{name}</p>
+                                                        <p>{year}</p>
                                                     </div>
-                                                ))
-                                            }
-                                        </div>
-
-
+                                                </a>
+                                            ))
+                                        }
                                     </div>
-                                ))
+
+
+                                </div>
+                            ))
                         }
                     </div>
                 </div>

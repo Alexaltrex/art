@@ -11,14 +11,14 @@ import {PrimaryButton} from "../X_common/ButtonPrimary/PrimaryButton";
 export const OtherWorks = () => {
     const [selected, setSelected] = useState("All work");
 
-    const {ref, dark} = useScroll();
+    //const {ref, dark} = useScroll();
 
     return (
         <div className={clsx({
             [style.otherWorks]: true,
-            [style.otherWorks_dark]: !dark,
+            [style.otherWorks_dark]: true,
         })}
-             ref={ref}
+             //ref={ref}
         >
             <div className={style.top}>
                 <div className={style.inner}>
@@ -51,14 +51,23 @@ export const OtherWorks = () => {
                         <AnimatedLink key={key} className={style.animatedLink}>
                             <div className={style.work}
                             >
+                                <div className={style.borderTop}
+                                     data-aos="zoom-in-left"
+                                     data-aos-offset="100"
+                                     data-aos-duration="1000"
+                                />
+
+
                                 <div className={style.inner} data-aos="fade-up">
                                     <div className={style.left}>
                                         <p className={style.year}>{year}</p>
                                         <p className={style.name}>{name}</p>
                                         <p className={style.label}>{label}</p>
                                     </div>
+                                    <div className={style.arrowWrapper}>
+                                        {svgIcons.arrow_up_right}
+                                    </div>
 
-                                    {svgIcons.arrow_up_right}
                                 </div>
 
                             </div>

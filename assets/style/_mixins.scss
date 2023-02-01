@@ -5,7 +5,7 @@
   line-height: 100%;
 
   @include desktop {
-    font-size: 80px;
+    font-size: vwD(80);
   }
 
   span {
@@ -48,7 +48,6 @@
 @mixin container {
   box-sizing: border-box;
 
-
   @include desktop {
     padding-left: 0;
     padding-right: 0;
@@ -61,7 +60,7 @@
   padding-right: 24px;
 
   @include desktop {
-    width: 1160px;
+    width: vwD(1160);
     margin-left: auto;
     margin-right: auto;
     padding-left: 0;

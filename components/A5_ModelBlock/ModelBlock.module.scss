@@ -10,8 +10,8 @@
   z-index: 1;
 
   @include desktop {
-    top: 100px;
-    height: calc(100vh - 100px);
+    top: vwD(100);
+    height: 100vh - vwD(100);
   }
 
   &_shift {

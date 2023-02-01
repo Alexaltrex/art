@@ -6,6 +6,8 @@ import {svgIcons} from "../../assets/svgIcons";
 import {useScroll} from "../../hooks/useScroll";
 import {row} from "./row";
 import {useEffect, useRef, useState} from "react";
+import {observer} from "mobx-react-lite";
+import {useStore} from "../../store/useStore";
 
 const imgs = [
     `/png/stones0.png`,
@@ -21,8 +23,10 @@ const imgs = [
     `/png/stones9.png`,
 ];
 
-export const WhatWeWorkWith = () => {
+export const WhatWeWorkWith = observer(() => {
     const {ref, dark} = useScroll();
+
+    const {setDisableScroll} = useStore();
 
     const refStones = useRef<HTMLDivElement>(null!);
     const [boom, setBoom] = useState(false);
@@ -47,9 +51,10 @@ export const WhatWeWorkWith = () => {
             if (refStones && refStones.current) {
                 const rect = refStones.current.getBoundingClientRect();
                 if (
-                    rect.top + 0.5 * rect.height < 0.5 * window.innerHeight
+                    rect.top + 0.5 * rect.height < 0.6 * window.innerHeight
                 ) {
                     setBoom(true);
+                    setDisableScroll(true);
                 } else {
                     setBoom(false);
                 }
@@ -133,4 +138,4 @@ export const WhatWeWorkWith = () => {
             </div>
         </div>
     )
-}
+})

@@ -114,10 +114,14 @@ export const Header = observer(() => {
                         {burgerMenu ? svgIcons.close : svgIcons.burger}
                     </button>
 
-                    <button className={style.stopBtn}>
+                    <a className={style.stopBtn}
+                       href="https://savelife.in.ua"
+                       target="_blank"
+                       rel="noopener nofollow"
+                    >
                         {svgIcons.ukraina}
                         <p>Stop war</p>
-                    </button>
+                    </a>
                 </div>
             </div>
 
