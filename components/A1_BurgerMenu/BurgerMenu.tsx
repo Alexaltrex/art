@@ -33,7 +33,7 @@ export const BurgerMenu = observer(() => {
                 <a className={style.stopBtn}
                    href="https://savelife.in.ua"
                    target="_blank"
-                   rel="noopener nofollow"
+                   rel="noopener nofollow noreferrer"
                 >
                     <div className={style.ukraina}/>
                     Stop war

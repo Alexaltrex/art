@@ -23,7 +23,7 @@ export const OurPortfolio = () => {
                                        className={style.item}
                                        href="https://www.behance.net/gallery/147201249/Jigen-Hypebeast-Crypto-Nft-Metaverse"
                                        target="_blank"
-                                       rel="noopener"
+                                       rel="noopener nofollow noreferrer"
                                     >
                                         <img src="/png/ourPortfolio_0.png" alt=""/>
                                         <div className={style.info}>
@@ -75,7 +75,7 @@ export const OurPortfolio = () => {
                                     <a className={style.bigItem}
                                        href="https://www.behance.net/gallery/147201249/Jigen-Hypebeast-Crypto-Nft-Metaverse"
                                        target="_blank"
-                                       rel="noopener"
+                                       rel="noopener nofollow noreferrer"
                                     >
                                         <img src="/png/ourPortfolio_1.png" alt=""/>
                                         <div className={style.info}>
@@ -91,7 +91,7 @@ export const OurPortfolio = () => {
                                                      key={key}
                                                      href="https://www.behance.net/gallery/147201249/Jigen-Hypebeast-Crypto-Nft-Metaverse"
                                                      target="_blank"
-                                                     rel="noopener"
+                                                     rel="noopener nofollow noreferrer"
                                                 >
                                                     <img src="/png/ourPortfolio_0.png" alt=""/>
                                                     <div className={style.info}>

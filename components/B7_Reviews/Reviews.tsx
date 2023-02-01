@@ -142,11 +142,6 @@ export const Reviews = () => {
                 </div>
             </div>
 
-            <div>
-                {svgIcons.logo6}
-            </div>
-
-
             <div className={style.blocks}>
                 <div className={clsx(
                     style.row,

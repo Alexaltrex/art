@@ -49,7 +49,10 @@ export const OtherWorks = () => {
                 {
                     works.map(({year, name, label}, key) => (
                         <AnimatedLink key={key} className={style.animatedLink}>
-                            <div className={style.work}
+                            <a className={style.work}
+                               href="https://www.behance.net/gallery/147201249/Jigen-Hypebeast-Crypto-Nft-Metaverse"
+                               target="_blank"
+                               rel="noopener nofollow noreferrer"
                             >
                                 <div className={style.borderTop}
                                      data-aos="zoom-in-left"
@@ -70,7 +73,7 @@ export const OtherWorks = () => {
 
                                 </div>
 
-                            </div>
+                            </a>
                         </AnimatedLink>
 
                     ))

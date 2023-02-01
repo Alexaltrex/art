@@ -117,7 +117,7 @@ export const Header = observer(() => {
                     <a className={style.stopBtn}
                        href="https://savelife.in.ua"
                        target="_blank"
-                       rel="noopener nofollow"
+                       rel="noopener nofollow noreferrer"
                     >
                         {svgIcons.ukraina}
                         <p>Stop war</p>
