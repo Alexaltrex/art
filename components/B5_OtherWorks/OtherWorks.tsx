@@ -1,15 +1,27 @@
 import style from "./OtherWorks.module.scss"
 import {TitleWrapper} from "../X_common/TitleWrapper/TitleWrapper";
-import {useState} from "react";
+import {FC, useState} from "react";
 import clsx from "clsx";
 import {buttons, socialIcons, works} from "./constant";
 import {svgIcons} from "../../assets/svgIcons";
 import {AnimatedLink} from "../X_common/AnimatedLink/AnimatedLink";
 import {useScroll} from "../../hooks/useScroll";
 import {PrimaryButton} from "../X_common/ButtonPrimary/PrimaryButton";
+import {IPortfolio} from "../../types/portfolio.type";
+import {ICategory} from "../../types/category.type";
+import {sortOrderedItemByOrder} from "../../helpers/helpers";
 
-export const OtherWorks = () => {
-    const [selected, setSelected] = useState("All work");
+interface IOtherWorks {
+    portfolios: IPortfolio[]
+    categories: ICategory[]
+}
+
+export const OtherWorks: FC<IOtherWorks> = ({
+                                                portfolios,
+                                                categories,
+                                            }) => {
+
+    const [selectedCategoryId, setSelectedCategoryId] = useState(""); // "" === all work
 
     //const {ref, dark} = useScroll();
 
@@ -28,16 +40,19 @@ export const OtherWorks = () => {
                          data-aos="fade-up"
                     >
                         {
-                            buttons.map(({label}, key) => (
+                            [
+                                {id: "", name: "All works"},
+                                ...categories
+                            ].map(({id, name}, key) => (
                                 <button key={key}
                                         className={clsx({
                                             [style.btn]: true,
-                                            [style.btn_selected]: label === selected,
+                                            [style.btn_selected]: id === selectedCategoryId,
                                         })}
-                                        onClick={() => setSelected(label)}
+                                        onClick={() => setSelectedCategoryId(id)}
 
                                 >
-                                    {label}
+                                    {name}
                                 </button>
                             ))
                         }
@@ -47,7 +62,12 @@ export const OtherWorks = () => {
 
             <div className={style.works}>
                 {
-                    works.map(({year, name, label}, key) => (
+                    [...portfolios]
+                        .sort(sortOrderedItemByOrder)
+                        .filter(portfolio => selectedCategoryId === ""
+                            ? true
+                            : portfolio.category.id === selectedCategoryId)
+                        .map(({year, name, tag}, key) => (
                         <AnimatedLink key={key} className={style.animatedLink}>
                             <a className={style.work}
                                href="https://www.behance.net/gallery/147201249/Jigen-Hypebeast-Crypto-Nft-Metaverse"
@@ -65,7 +85,7 @@ export const OtherWorks = () => {
                                     <div className={style.left}>
                                         <p className={style.year}>{year}</p>
                                         <p className={style.name}>{name}</p>
-                                        <p className={style.label}>{label}</p>
+                                        <p className={style.label}>{tag}</p>
                                     </div>
                                     <div className={style.arrowWrapper}>
                                         {svgIcons.arrow_up_right}

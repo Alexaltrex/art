@@ -9,6 +9,8 @@ import {svgIcons} from "../../assets/svgIcons";
 import {FormikErrors, useFormik} from "formik";
 import * as React from "react";
 import {PrimaryButton} from "../X_common/ButtonPrimary/PrimaryButton";
+import {FormikHelpers} from "formik/dist/types";
+import {mailAPI} from "../../api/mail.api";
 
 interface IValues {
     name: string
@@ -43,12 +45,19 @@ export const LetsTalkModal = observer(() => {
     const {popupForm, setPopupForm} = useStore()
     const [form, setForm] = useState(true);
 
-    const onSubmit = (
-        values: IValues,
+    const onSubmit = async (
+        values: IValues
     ) => {
-        console.log(values);
-        formik.resetForm();
-        setForm(false);
+        try {
+            //console.log(values);
+            await mailAPI.sendEmail(values);
+            setForm(false);
+        } catch (e: any) {
+            console.log(e.message);
+        } finally {
+            formik.resetForm();
+        }
+
     }
 
     const formik = useFormik({
@@ -88,6 +97,7 @@ export const LetsTalkModal = observer(() => {
                                         <TextField label="Name"
                                                    variant="standard"
                                                    placeholder="Your name"
+                                                   fullWidth
                                                    {...formik.getFieldProps('name')}
                                                    error={formik.touched.name && Boolean(formik.errors.name)}
                                                    helperText={formik.touched.name && formik.errors.name}
@@ -97,6 +107,7 @@ export const LetsTalkModal = observer(() => {
                                         <TextField label="From"
                                                    variant="standard"
                                                    placeholder="Website or company name"
+                                                   fullWidth
                                                    {...formik.getFieldProps('from')}
                                                    error={formik.touched.from && Boolean(formik.errors.from)}
                                                    helperText={formik.touched.from && formik.errors.from}

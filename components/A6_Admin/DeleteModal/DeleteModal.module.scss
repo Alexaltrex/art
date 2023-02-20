@@ -1,0 +1,25 @@
+.dialogTitle {
+  text-align: center;
+  padding: 10px 0 0!important;
+  margin: 0!important;
+  position: relative;
+  color: #000;
+
+  .closeBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+.dialogContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .btn {
+    svg path {
+      color: #FFF;
+    }
+  }
+}

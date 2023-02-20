@@ -35,10 +35,10 @@
         @include onlyMobile();
 
         .item {
-          display: block;
+          //width: 100%;
           text-decoration: none;
           height: 270px;
-          background: #CBD6CD;
+          //background: #CBD6CD;
           border-radius: 34.7875px;
           display: flex;
           flex-direction: column;
@@ -48,6 +48,7 @@
           padding: 4px;
           box-sizing: border-box;
 
+
           &:not(:first-child) {
             margin-top: 4px;
           }
@@ -55,11 +56,16 @@
           img {
             position: absolute;
             z-index: 1;
-            top: 33px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 136px;
-            height: auto;
+            //top: 33px;
+            //left: 50%;
+            //transform: translateX(-50%);
+            //width: 136px;
+            //height: auto;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
           }
 
           .info {
@@ -101,7 +107,7 @@
           .bigItem {
             text-decoration: none;
             height: vwD(500);
-            background: #B0BB90;
+            //background: #B0BB90;
             border-radius: vwD(32);
             overflow: hidden;
             position: relative;
@@ -114,10 +120,15 @@
             img {
               position: absolute;
               z-index: 1;
-              width: vwD(560);
-              height: vwD(476);
-              top: vwD(25);
-              left: vwD(57);
+              //width: vwD(560);
+              //height: vwD(476);
+              //top: vwD(25);
+              //left: vwD(57);
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
             }
 
             .info {
@@ -188,16 +199,21 @@
               img {
                 position: absolute;
                 z-index: 1;
-                width: 136px;
-                height: auto;
-                top: 31px;
-                left: 50%;
-                transform: translateX(-50%);
+                //width: 136px;
+                //height: auto;
+                //top: 31px;
+                //left: 50%;
+                //transform: translateX(-50%);
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
 
-                @include desktop {
-                  width: vwD(136);
-                  top: vwD(31);
-                }
+                //@include desktop {
+                //  width: vwD(136);
+                //  top: vwD(31);
+                //}
               }
 
               .info {

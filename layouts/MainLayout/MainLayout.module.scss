@@ -3,12 +3,12 @@
 .mainLayout {
   background: #000;
   box-sizing: border-box;
-  padding-bottom: 660px;
+  //padding-bottom: 660px;
   position: relative;
   overflow: hidden;
 
   @include desktop {
-    padding-bottom: 893px;
+    //padding-bottom: 893px;
   }
 
   &_preloader {
@@ -24,11 +24,12 @@
 
   .main {
     padding-top: 70px;
+    box-sizing: border-box;
     position: relative;
     z-index: 2;
 
     @include desktop {
-      padding-top: 100px;
+      padding-top: vwD(100);
     }
   }
 }

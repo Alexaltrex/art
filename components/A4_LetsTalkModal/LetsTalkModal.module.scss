@@ -5,7 +5,8 @@
   background: #FFF;
   box-sizing: border-box;
   border-radius: 32px;
-  width: 290px;
+  width: calc(100vw - 32px);
+  max-width: 460px;
   padding: 30px 20px 20px;
 
   @include desktop {

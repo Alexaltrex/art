@@ -1,37 +1,31 @@
-import {GLTF} from "three/examples/jsm/loaders/GLTFLoader";
 import React, {useEffect, useRef} from "react";
 import {useGLTF, useAnimations} from "@react-three/drei";
 import {observer} from "mobx-react-lite";
-import {useStore} from "../../store/useStore";
-import {getValue} from "../../helpers/helpers";
-import {Material} from "three";
+import {useStore} from "../../../store/useStore";
+import {getValue} from "../../../helpers/helpers";
+//import {Material} from "three";
 
-type GLTFResultType = GLTF & {
-    nodes: {
-        Cube: THREE.Mesh
-    }
-    materials: {
-        Material: THREE.MeshStandardMaterial
-    }
-}
+// type GLTFResultType = GLTF & {
+//     nodes: {
+//         Cube: THREE.Mesh
+//     }
+//     materials: {
+//         Material: THREE.MeshStandardMaterial
+//     }
+// }
 
-export const Model = observer(() => {
+export const ManModel = observer(() => {
     const {
         setModel,
         block2Height,
         pageYOffset
     } = useStore();
 
-    // console.log(block2Height)
-    // console.log(pageYOffset)
-    // console.log("         ")
-
-
-    const group = useRef<THREE.Group>(null!);
-    const glb = useGLTF("/model.glb");
+    const groupRef = useRef<THREE.Group>(null!);
+    const glb = useGLTF("/glb/man.glb");
 
     const {nodes, materials, animations} = glb;
-    const animationsResult = useAnimations(animations, group);
+    const animationsResult = useAnimations(animations, groupRef);
     const {actions, names} = animationsResult;
 
     useEffect(() => {
@@ -45,7 +39,7 @@ export const Model = observer(() => {
     }, [glb])
 
     return (
-        <group ref={group}
+        <group ref={groupRef}
                dispose={null}
                rotation={[
                    0,
@@ -107,8 +101,6 @@ export const Model = observer(() => {
                 </group>
                 <mesh
                     name="Torus001"
-                    castShadow
-                    receiveShadow
                     //@ts-ignore
                     geometry={nodes.Torus001.geometry}
                     material={materials["Material.009"]}
@@ -118,8 +110,6 @@ export const Model = observer(() => {
                 />
                 <mesh
                     name="Torus"
-                    castShadow
-                    receiveShadow
                     //@ts-ignore
                     geometry={nodes.Torus.geometry}
                     material={materials["Material.009"]}
@@ -129,40 +119,30 @@ export const Model = observer(() => {
                 />
                 <mesh
                     name="Object_8"
-                    castShadow
-                    receiveShadow
                     //@ts-ignore
                     geometry={nodes.Object_8.geometry}
                     material={materials["Material.008"]}
                 >
                     <mesh
                         name="Object_3"
-                        castShadow
-                        receiveShadow
                         //@ts-ignore
                         geometry={nodes.Object_3.geometry}
                         material={materials["Material.008"]}
                     />
                     <mesh
                         name="Object_6001"
-                        castShadow
-                        receiveShadow
                         //@ts-ignore
                         geometry={nodes.Object_6001.geometry}
                         material={materials["Material.008"]}
                     />
                     <mesh
                         name="Object_7"
-                        castShadow
-                        receiveShadow
                         //@ts-ignore
                         geometry={nodes.Object_7.geometry}
                         material={materials["Material.017"]}
                     />
                     <mesh
                         name="Object_9"
-                        castShadow
-                        receiveShadow
                         //@ts-ignore
                         geometry={nodes.Object_9.geometry}
                         material={materials["Material.008"]}
@@ -173,16 +153,12 @@ export const Model = observer(() => {
                 </mesh>
                 <mesh
                     name="Object_6007"
-                    castShadow
-                    receiveShadow
                     //@ts-ignore
                     geometry={nodes.Object_6007.geometry}
                     material={materials["Material.008"]}
                 />
                 <mesh
                     name="Vector"
-                    castShadow
-                    receiveShadow
                     //@ts-ignore
                     geometry={nodes.Vector.geometry}
                     material={materials.Vector}
@@ -192,4 +168,4 @@ export const Model = observer(() => {
     );
 })
 
-useGLTF.preload("/model.glb");
+useGLTF.preload("/glb/man.glb");

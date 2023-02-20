@@ -2,11 +2,16 @@ import style from "./Header.module.scss"
 import {svgIcons} from "../../assets/svgIcons";
 import Link from "next/link";
 import ReactAudioPlayer from "react-audio-player";
-import {useState} from "react";
+import {FC, useRef, useState} from "react";
 import clsx from "clsx";
 import {AnimatedLink} from "../X_common/AnimatedLink/AnimatedLink";
 import {observer} from "mobx-react-lite";
 import {useStore} from "../../store/useStore";
+import {ICategory} from "../../types/category.type";
+import * as React from "react";
+import dynamic from "next/dynamic";
+
+const ReactPlayer = dynamic(() => import("react-player/lazy"), {ssr: false});
 
 export const links = [
     {href: "behance", label: "Behance"},
@@ -15,7 +20,11 @@ export const links = [
     {href: "Twitter", label: "Twitter"},
 ]
 
-export const Header = observer(() => {
+interface IHeader {
+    categories: ICategory[]
+}
+
+export const Header: FC<IHeader> = observer(({categories}) => {
     const {
         scrollDown,
         pageYOffset,
@@ -57,6 +66,14 @@ export const Header = observer(() => {
         setBurgerMenu(!burgerMenu);
     }
 
+    const reactPlayerRef = useRef(null!);
+    const [playing, setPlaying] = useState(true);
+    //console.log(reactPlayerRef.current)
+
+    const onPlay = () => {
+        setPlaying(!playing);
+    }
+
     return (
         <header className={clsx({
             [style.header]: true,
@@ -65,10 +82,30 @@ export const Header = observer(() => {
 
             <div className={style.inner}>
 
+                {/*<ReactPlayer ref={reactPlayerRef}*/}
+                {/*             playing={true}*/}
+                {/*             url={"/video/sound.mp4"}*/}
+                {/*               url={"https://www.youtube.com/watch?v=ZzIwhiPAW6A"}*/}
+                {/*             controls={true}*/}
+                {/*             loop={true}*/}
+                {/*             volume={1}*/}
+                {/*             config={{*/}
+                {/*                 file: {*/}
+                {/*                     attributes: {*/}
+                {/*                         autoPlay: true,*/}
+                {/*                         //muted: true*/}
+                {/*                     }*/}
+                {/*                 }*/}
+                {/*             }}*/}
+                {/*             style={{*/}
+                {/*                 //display: "none"*/}
+                {/*             }}*/}
+                {/*/>*/}
+
                 <ReactAudioPlayer
                     ref={el => setPlayerRef(el)}
                     src="/mp3/music.mp3"
-                    autoPlay
+                    //autoPlay
                     //controls
                     volume={1}
                 />
@@ -95,6 +132,19 @@ export const Header = observer(() => {
                         }
                     </nav>
 
+                    <nav className={style.links2}>
+                        {
+                            categories.map(({id, name}) => (
+                                <Link key={id}
+                                      href={`/branding/${id}`}
+                                      className={style.link}
+                                >
+                                    {name}
+                                </Link>
+                            ))
+                        }
+                    </nav>
+
                 </div>
 
                 <div className={style.rightBlock}>
@@ -104,6 +154,7 @@ export const Header = observer(() => {
 
                     <button className={clsx(style.soundBtn, play && "soundBtn")}
                             onClick={onSoundHandler}
+                            //onClick={onPlay}
                     >
                         {play ? svgIcons.pause : svgIcons.play}
                     </button>

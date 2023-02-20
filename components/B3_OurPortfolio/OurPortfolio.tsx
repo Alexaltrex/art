@@ -1,9 +1,19 @@
 import {TitleWrapper} from "../X_common/TitleWrapper/TitleWrapper"
 import style from "./OurPortfolio.module.scss"
-import {portfolios} from "./portfolios";
 import clsx from "clsx";
+import {FC} from "react";
+import {IPortfolio} from "../../types/portfolio.type";
+import {sortOrderedItemByOrder} from "../../helpers/helpers";
 
-export const OurPortfolio = () => {
+interface IOurPortfolio {
+    portfolios: IPortfolio[]
+}
+
+export const OurPortfolio: FC<IOurPortfolio> = ({
+                                                    portfolios
+                                                }) => {
+    const portfoliosSorted = [...portfolios].sort(sortOrderedItemByOrder);
+
     return (
         <div className={style.ourPortfolio}>
             <div className={style.inner}>
@@ -16,16 +26,16 @@ export const OurPortfolio = () => {
 
                     <div className={style.itemsMobile}>
                         {
-                            [...portfolios]
+                            [...portfoliosSorted]
                                 .slice(0, 6)
-                                .map(({year, name}, key) => (
+                                .map(({year, name, img}, key) => (
                                     <a key={key}
                                        className={style.item}
                                        href="https://www.behance.net/gallery/147201249/Jigen-Hypebeast-Crypto-Nft-Metaverse"
                                        target="_blank"
                                        rel="noopener nofollow noreferrer"
                                     >
-                                        <img src="/png/ourPortfolio_0.png" alt=""/>
+                                        <img src={img} alt=""/>
                                         <div className={style.info}>
                                             <p>{name}</p>
                                             <p>{year}</p>
@@ -39,33 +49,33 @@ export const OurPortfolio = () => {
                         {
                             [
                                 {
-                                    big: portfolios[0],
+                                    big: portfoliosSorted[0],
                                     square: [
-                                        portfolios[1],
-                                        portfolios[2],
-                                        portfolios[3],
-                                        portfolios[4],
+                                        portfoliosSorted[1],
+                                        portfoliosSorted[2],
+                                        portfoliosSorted[3],
+                                        portfoliosSorted[4],
                                     ]
                                 },
                                 {
-                                    big: portfolios[5],
+                                    big: portfoliosSorted[5],
                                     square: [
-                                        portfolios[6],
-                                        portfolios[7],
-                                        portfolios[8],
-                                        portfolios[9],
+                                        portfoliosSorted[6],
+                                        portfoliosSorted[7],
+                                        portfoliosSorted[8],
+                                        portfoliosSorted[9],
                                     ]
                                 },
                                 {
-                                    big: portfolios[10],
+                                    big: portfoliosSorted[10],
                                     square: [
-                                        portfolios[11],
-                                        portfolios[12],
-                                        portfolios[13],
-                                        portfolios[14],
+                                        portfoliosSorted[11],
+                                        portfoliosSorted[12],
+                                        portfoliosSorted[13],
+                                        portfoliosSorted[14],
                                     ]
                                 },
-                            ].map(({big: {name, year}, square}, key) => (
+                            ].map(({big: {name, year, img}, square}, key) => (
                                 <div key={key}
                                      className={clsx({
                                          [style.itemWrapper]: true,
@@ -77,7 +87,7 @@ export const OurPortfolio = () => {
                                        target="_blank"
                                        rel="noopener nofollow noreferrer"
                                     >
-                                        <img src="/png/ourPortfolio_1.png" alt=""/>
+                                        <img src={img} alt=""/>
                                         <div className={style.info}>
                                             <p>{name}</p>
                                             <p>{year}</p>
@@ -86,14 +96,14 @@ export const OurPortfolio = () => {
 
                                     <div className={style.square}>
                                         {
-                                            square.map(({year, name}, key) => (
+                                            square.map(({year, name, img}, key) => (
                                                 <a className={style.smallItem}
-                                                     key={key}
-                                                     href="https://www.behance.net/gallery/147201249/Jigen-Hypebeast-Crypto-Nft-Metaverse"
-                                                     target="_blank"
-                                                     rel="noopener nofollow noreferrer"
+                                                   key={key}
+                                                   href="https://www.behance.net/gallery/147201249/Jigen-Hypebeast-Crypto-Nft-Metaverse"
+                                                   target="_blank"
+                                                   rel="noopener nofollow noreferrer"
                                                 >
-                                                    <img src="/png/ourPortfolio_0.png" alt=""/>
+                                                    <img src={img} alt=""/>
                                                     <div className={style.info}>
                                                         <p>{name}</p>
                                                         <p>{year}</p>
@@ -109,7 +119,6 @@ export const OurPortfolio = () => {
                         }
                     </div>
                 </div>
-
             </div>
         </div>
     )

@@ -1,0 +1,24 @@
+@import "../../assets/style/app";
+
+.loginPage {
+  width: 100%;
+  height: 100vh;
+  padding: 24px;
+  box-sizing: border-box;
+  @include centerRow;
+
+  .form {
+    max-width: 100%;
+    width: 600px;
+
+    .homeBtn {
+      margin-top: 24px;
+
+      svg path {
+        color: #FFF!important;
+      }
+    }
+
+  }
+
+}

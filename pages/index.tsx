@@ -9,30 +9,57 @@ import {Reviews} from "../components/B7_Reviews/Reviews";
 import {LetsTalk} from "../components/B8_LetsTalk/LetsTalk";
 import {WhatWeWorkWith} from "../components/B2_WhatWeWorkWith/WhatWeWorkWith";
 import {OurServices} from "../components/B0_1_OurServices/OurServices";
-import { LetsTalkModal } from "../components/A4_LetsTalkModal/LetsTalkModal";
+import {LetsTalkModal} from "../components/A4_LetsTalkModal/LetsTalkModal";
 import {ModelBlock} from "../components/A5_ModelBlock/ModelBlock";
 import style from "./HomePage.module.scss"
+import {portfolioAPI} from "../api/portfolio.api";
+import {IPortfolio} from "../types/portfolio.type";
+import {NextPage} from "next";
+import {categoryAPI} from "../api/category.api";
+import {ICategory} from "../types/category.type";
 
-const HomePage = () => {
-  return (
-    <MainLayout>
-        <LetsTalkModal/>
+interface IHomePage {
+    portfolios: IPortfolio[]
+    categories: ICategory[]
+}
 
-        <div className={style.twoBlocksWrapper}>
-            <FirstBlock/>
-            <OurServices/>
-            <ModelBlock/>
-        </div>
+const HomePage: NextPage<IHomePage> = ({
+                                           portfolios,
+                                           categories
+                                       }) => {
+    return (
+        <MainLayout categories={categories}>
+            <LetsTalkModal/>
 
-        <AboutUs/>
-        <WhatWeWorkWith/>
-        <OurPortfolio/>
-        <Feedback/>
-        <OtherWorks/>
-        <OurTeam/>
-        <Reviews/>
-        <LetsTalk/>
-    </MainLayout>
-  )
+
+
+            <div className={style.twoBlocksWrapper}>
+                <FirstBlock/>
+                <OurServices/>
+                <ModelBlock/>
+            </div>
+
+            <AboutUs/>
+            <WhatWeWorkWith/>
+            <OurPortfolio portfolios={portfolios}/>
+            <Feedback/>
+            <OtherWorks categories={categories} portfolios={portfolios}/>
+            <OurTeam/>
+            <Reviews/>
+            <LetsTalk/>
+        </MainLayout>
+    )
 }
 export default HomePage
+
+////////////////////////////////////////////////
+export const getServerSideProps = async () => {
+    const portfolios = await portfolioAPI.getAll();
+    const categories = await categoryAPI.getAll();
+    return {
+        props: {
+            portfolios,
+            categories
+        }
+    }
+}

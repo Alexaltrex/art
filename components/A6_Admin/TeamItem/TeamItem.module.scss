@@ -1,0 +1,132 @@
+@import "./assets/style/app";
+
+.teamListItemWrapper {
+
+  &:not(:first-child) {
+    margin-top: 8px;
+  }
+
+  .teamListItem {
+    cursor: move;
+    display: flex;
+
+    &_isDragging {
+      opacity: 0;
+    }
+
+    .img {
+      display: block;
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 5px;
+      border: 1px solid grey;
+      box-sizing: border-box;
+    }
+
+    .nameWrapper {
+      margin-left: 4px;
+      flex-grow: 1;
+      height: 50px;
+      border-radius: 5px;
+      padding: 0 16px;
+      background: #454545;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .name, .category {
+        color: #FFF;
+        font-weight: bold;
+        font-size: 18px;
+
+        @include desktop {
+          font-size: 24px;
+        }
+      }
+
+      .categoryWrapper {
+        display: flex;
+        align-items: center;
+
+        .categoryLabel {
+          color: grey;
+        }
+
+        .category {
+          margin-left: 8px;
+        }
+      }
+
+
+
+      .viewCountWrapper {
+        display: flex;
+        align-items: center;
+
+        .viewCount {
+          color: #FFF;
+          margin-right: 4px;
+        }
+      }
+
+    }
+
+    .editButton, .deleteButton, {
+      margin-left: 4px;
+      height: 50px;
+      border-radius: 5px;
+    }
+
+    .editButton {
+      position: relative;
+      background-color: royalblue;
+      padding-left: 16px;
+      padding-right: 16px;
+
+      &:hover {
+        background-color: royalblue;
+      }
+
+      .preloaderWrapper {
+        @include centerRow;
+        width: 32px;
+        height: 32px;
+
+        .preloader {
+          display: block;
+          width: 32px;
+          height: 32px;
+
+          svg path {
+            color: #FFF;
+          }
+        }
+      }
+
+      svg path {
+        color: #FFF;
+      }
+
+      .label {
+        margin-left: 8px;
+        color: #FFF;
+      }
+    }
+
+    .deleteButton {
+      width: auto;
+      background-color: darkred;
+
+      &:hover {
+        background-color: darkred;
+      }
+
+      svg path {
+        color: #FFF;
+      }
+    }
+
+  }
+
+}

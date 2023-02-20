@@ -7,6 +7,8 @@ import {TextField} from "@mui/material";
 import clsx from "clsx";
 import {PrimaryButton} from "../X_common/ButtonPrimary/PrimaryButton";
 import {SelectCustom} from "../X_common/SelectCustom/SelectCustom";
+import {mailAPI} from "../../api/mail.api";
+import {FormikHelpers} from "formik/dist/types";
 
 interface IValues {
     name: string
@@ -76,10 +78,20 @@ const items = [
 export const LetsTalk = () => {
     const [budget, setBudget] = useState(0);
 
-    const onSubmit = (
-        values: IValues,
-    ) => {
-        console.log(values)
+    const onSubmit = async (values: IValues) => {
+        try {
+            //console.log(values);
+            await mailAPI.sendEmail({
+                ...values,
+                budget: budgets[budget].label
+            });
+        } catch (e: any) {
+            console.log(e.message);
+        } finally {
+            formik.resetForm()
+            setBudget(0)
+        }
+
     }
 
     const validate = (values: IValues): FormikErrors<IValues> => {

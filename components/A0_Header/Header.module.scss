@@ -65,6 +65,17 @@
           }
         }
       }
+
+      .links2 {
+        @include onlyDesktop(flex);
+        margin-left: 8px;
+
+        .link {
+          margin-left: 16px;
+          font-family: "Roboto";
+          font-size: 12px;
+        }
+      }
     }
 
     .rightBlock {

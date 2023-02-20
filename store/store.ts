@@ -1,4 +1,7 @@
 import {action, makeObservable, observable} from "mobx";
+import { enableStaticRendering } from "mobx-react-lite";
+
+enableStaticRendering(typeof window === 'undefined');
 
 export class Store {
     burgerMenu = false
@@ -11,6 +14,11 @@ export class Store {
     modelShift = false
     block2Height: null | number = null
     disableScroll = false
+
+    deleteModal = false
+    deleteId = "" // для сущности определяемой одним id и slideId для слада
+    deleteSliderId = ""
+
 
     constructor() {
         makeObservable(this, {
@@ -25,6 +33,10 @@ export class Store {
             block2Height: observable,
             disableScroll: observable,
 
+            deleteModal: observable,
+            deleteId: observable,
+            deleteSliderId: observable,
+
             setBurgerMenu: action.bound,
             setPreloader: action.bound,
             setBottom: action.bound,
@@ -35,6 +47,10 @@ export class Store {
             setModelShift: action.bound,
             setBlock2Height: action.bound,
             setDisableScroll: action.bound,
+
+            setDeleteModal: action.bound,
+            setDeleteId: action.bound,
+            setDeleteSliderId: action.bound,
         })
     }
 
@@ -76,6 +92,18 @@ export class Store {
 
     setDisableScroll(disableScroll: boolean) {
         this.disableScroll = disableScroll
+    }
+
+    setDeleteModal(deleteModal: boolean) {
+        this.deleteModal = deleteModal
+    }
+
+    setDeleteId(deleteId: string) {
+        this.deleteId = deleteId
+    }
+
+    setDeleteSliderId(deleteSliderId: string) {
+        this.deleteSliderId = deleteSliderId
     }
 }
 

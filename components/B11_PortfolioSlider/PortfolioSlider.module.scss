@@ -1,0 +1,17 @@
+@import "./assets/style/app";
+
+.portfolioSlider {
+  width: 100vw;
+  height: 857px;
+
+  .slide {
+    width: 100vw;
+    height: 857px;
+
+    img {
+      width: 100vw;
+      height: 857px;
+      object-fit: cover;
+    }
+  }
+}

@@ -1,9 +1,4 @@
 import style from "./FirstBlock.module.scss";
-import {Canvas} from "@react-three/fiber";
-import {Box, OrbitControls, PerspectiveCamera} from "@react-three/drei";
-import * as THREE from "three";
-import { Suspense } from "react";
-import {Model} from "./Model";
 
 const items = [
     {label: "Instagram", href: "#"},

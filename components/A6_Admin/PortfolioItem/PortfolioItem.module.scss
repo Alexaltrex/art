@@ -1,0 +1,116 @@
+@import "./assets/style/app";
+
+.portfolioListItemWrapper {
+
+  &:not(:first-child) {
+    margin-top: 8px;
+  }
+
+  .portfolioListItem {
+    cursor: move;
+    display: flex;
+
+    &_isDragging {
+      opacity: 0;
+    }
+
+    .img {
+      display: block;
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .nameWrapper {
+      margin-left: 4px;
+      flex-grow: 1;
+      height: 50px;
+      border-radius: 5px;
+      padding: 0 16px;
+      background: #454545;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .name, .category {
+        color: #FFF;
+        font-weight: bold;
+        font-size: 18px;
+
+        @include desktop {
+          font-size: 24px;
+        }
+      }
+
+      .categoryWrapper {
+        display: flex;
+        align-items: center;
+
+        .categoryLabel {
+          color: grey;
+        }
+
+        .category {
+          margin-left: 8px;
+        }
+      }
+    }
+
+    .editButton, .deleteButton, {
+      margin-left: 4px;
+      height: 50px;
+      border-radius: 5px;
+    }
+
+    .editButton {
+      position: relative;
+      background-color: royalblue;
+      padding-left: 16px;
+      padding-right: 16px;
+
+      &:hover {
+        background-color: royalblue;
+      }
+
+      .preloaderWrapper {
+        @include centerRow;
+        width: 32px;
+        height: 32px;
+
+        .preloader {
+          display: block;
+          width: 32px;
+          height: 32px;
+
+          svg path {
+            color: #FFF;
+          }
+        }
+      }
+
+      svg path {
+        color: #FFF;
+      }
+
+      .label {
+        margin-left: 8px;
+        color: #FFF;
+      }
+    }
+
+    .deleteButton {
+      width: auto;
+      background-color: darkred;
+
+      &:hover {
+        background-color: darkred;
+      }
+
+      svg path {
+        color: #FFF;
+      }
+    }
+
+  }
+}

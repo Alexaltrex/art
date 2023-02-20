@@ -5,6 +5,9 @@ import {createContext, useEffect, useState} from "react";
 import {useRouter} from "next/router";
 import "aos/dist/aos.css";
 import AOS from "aos";
+import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
+import {HTML5Backend} from "react-dnd-html5-backend";
+import {DndProvider} from "react-dnd";
 
 export const StoreContext = createContext<Store>({} as Store);
 
@@ -33,6 +36,19 @@ export default function App({Component, pageProps}: AppProps) {
     //     }
     // }, [router]);
 
+    const [queryClient] = useState(() => new QueryClient({
+        defaultOptions: {
+            queries: {
+                retry: 1,
+                refetchOnWindowFocus: false,
+                staleTime: Infinity,
+            },
+            mutations: {
+                retry: 1
+            }
+        }
+    }))
+
     useEffect(() => {
         AOS.init({
             // easing: "ease-out-cubic",
@@ -42,8 +58,14 @@ export default function App({Component, pageProps}: AppProps) {
     }, []);
 
     return (
-        <StoreContext.Provider value={store}>
-                <Component {...pageProps} />
-       </StoreContext.Provider>
+        <DndProvider backend={HTML5Backend}>
+            <QueryClientProvider client={queryClient}>
+                <StoreContext.Provider value={store}>
+                    <Component {...pageProps} />
+                </StoreContext.Provider>
+            </QueryClientProvider>
+        </DndProvider>
+
+
     )
 }

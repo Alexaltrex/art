@@ -1,4 +1,4 @@
-import {FC, ReactNode, useEffect, useRef} from "react";
+import {FC, ReactNode, useEffect, useRef, useState} from "react";
 import style from "./MainLayout.module.scss"
 import Head from "next/head";
 import {Header} from "../../components/A0_Header/Header";
@@ -8,15 +8,21 @@ import clsx from "clsx";
 import {Footer} from "../../components/A2_Footer/Footer";
 import {Preloader} from "../../components/A3_Preloader/Preloader";
 import {BurgerMenu} from "../../components/A1_BurgerMenu/BurgerMenu";
+import {ICategory} from "../../types/category.type";
+import {useMediaQuery} from "@mui/material";
+import {getFooterHeight} from "../../helpers/helpers";
+import { FooterNew } from "../../components/FooterNew/FooterNew";
 
 interface IMainLayout {
     children: ReactNode
     headTitle?: string
+    categories: ICategory[]
 }
 
 export const MainLayout: FC<IMainLayout> = observer(({
                                                          children,
                                                          headTitle = 'Demyanchul Art | Home page',
+                                                         categories
                                                      }) => {
     const {
         pageYOffset,
@@ -24,15 +30,11 @@ export const MainLayout: FC<IMainLayout> = observer(({
         preloader,
         setBottom,
         setScrollDown,
-        model,
         disableScroll
     } = useStore();
 
-    // useEffect(() => {
-    //     console.log("model: ", model)
-    // }, [model])
-
     const ref = useRef<HTMLDivElement>(null!);
+
 
     useEffect(() => {
         const onScroll = (e: Event) => {
@@ -47,6 +49,7 @@ export const MainLayout: FC<IMainLayout> = observer(({
                 const rect = ref.current.getBoundingClientRect();
                 setBottom(rect.bottom - window.innerHeight);
             }
+
         };
         window.addEventListener(
             "scroll",
@@ -55,6 +58,8 @@ export const MainLayout: FC<IMainLayout> = observer(({
         );
     }, [pageYOffset]);
 
+
+
     return (
         <div className={clsx({
             [style.mainLayout]: true,
@@ -62,6 +67,9 @@ export const MainLayout: FC<IMainLayout> = observer(({
             //[style.mainLayout_disableScroll]: disableScroll,
         })}
              ref={ref}
+             // style={{
+             //     paddingBottom: getFooterHeight(isDesktop)
+             // }}
         >
             <Head>
                 {/*<meta name="keywords" content="next,js,nextjs,react"/>*/}
@@ -74,14 +82,14 @@ export const MainLayout: FC<IMainLayout> = observer(({
 
             <Preloader/>
 
-            <Header/>
+            <Header categories={categories}/>
             <BurgerMenu/>
 
             <main className={style.main}>
                 {children}
             </main>
 
-            <Footer/>
+            <FooterNew/>
         </div>
     )
 

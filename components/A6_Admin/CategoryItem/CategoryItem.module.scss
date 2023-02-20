@@ -1,0 +1,99 @@
+@import "./assets/style/app";
+
+.categoryItemWrapper {
+
+  &:not(:first-child) {
+    margin-top: 8px;
+  }
+
+  .categoryItem {
+    display: flex;
+
+    .nameWrapper {
+      flex-grow: 1;
+      height: 50px;
+      border-radius: 5px;
+      padding: 0 16px;
+      background: #454545;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .name {
+        color: #FFF;
+        font-weight: bold;
+        font-size: 18px;
+
+        @include desktop {
+          font-size: 24px;
+        }
+      }
+
+      .viewCountWrapper {
+        display: flex;
+        align-items: center;
+
+        .viewCount {
+          color: #FFF;
+          margin-right: 4px;
+        }
+      }
+
+    }
+
+    .editButton, .deleteButton, {
+      margin-left: 4px;
+      height: 50px;
+      border-radius: 5px;
+    }
+
+    .editButton {
+      position: relative;
+      background-color: royalblue;
+      padding-left: 16px;
+      padding-right: 16px;
+
+      &:hover {
+        background-color: royalblue;
+      }
+
+      .preloaderWrapper {
+        @include centerRow;
+        width: 32px;
+        height: 32px;
+
+        .preloader {
+          display: block;
+          width: 32px;
+          height: 32px;
+
+          svg path {
+            color: #FFF;
+          }
+        }
+      }
+
+      svg path {
+        color: #FFF;
+      }
+
+      .label {
+        margin-left: 8px;
+        color: #FFF;
+      }
+    }
+
+    .deleteButton {
+      width: auto;
+      background-color: darkred;
+
+      &:hover {
+        background-color: darkred;
+      }
+
+      svg path {
+        color: #FFF;
+      }
+    }
+  }
+}

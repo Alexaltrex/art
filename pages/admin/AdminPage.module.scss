@@ -1,0 +1,41 @@
+@import "../../assets/style/app";
+
+.adminPage {
+
+  .header {
+    padding: 8px 32px;
+    background: royalblue;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .left {
+      display: flex;
+      align-items: center;
+
+      svg path {
+        color: #FFF;
+      }
+
+
+      .text {
+        margin-left: 8px;
+        color: #FFF;
+      }
+    }
+
+    button {
+      svg path {
+        color: #FFF;
+      }
+    }
+  }
+
+  .content {
+    padding: 8px 24px;
+
+    .tabContent {
+      margin-top: 16px;
+    }
+  }
+}

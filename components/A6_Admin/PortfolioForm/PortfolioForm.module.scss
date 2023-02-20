@@ -1,0 +1,40 @@
+@import "./assets/style/app";
+
+.portfolioForm {
+  //width: 100%;
+  display: block;
+  box-sizing: border-box;
+
+  .form {
+    padding-top: 8px;
+    box-sizing: border-box;
+    //width: 100%;
+
+    .field {
+      &:not(:first-child) {
+        margin-top: 24px;
+      }
+    }
+
+    .images {
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 24px;
+    }
+
+    .btn {
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+
+      svg {
+        transform: translateY(-1px);
+
+        path {
+          color: #FFF;
+        }
+      }
+    }
+
+  }
+}

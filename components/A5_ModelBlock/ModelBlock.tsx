@@ -1,12 +1,12 @@
 import {Canvas} from "@react-three/fiber";
 import {Box, OrbitControls, PerspectiveCamera} from "@react-three/drei";
-import {Model} from "../B0_0_FirstBlock/Model";
 import * as THREE from "three";
 import style from "./ModelBlock.module.scss";
 import {observer} from "mobx-react-lite";
 import {useStore} from "../../store/useStore";
 import clsx from "clsx";
 import {getValue} from "../../helpers/helpers";
+import {ManModel} from "../X_common/Models/ManModel";
 
 export const ModelBlock = observer(() => {
     const {
@@ -26,12 +26,12 @@ export const ModelBlock = observer(() => {
                 <directionalLight position={[2, 0, 2]} intensity={1.5}/>
                 <directionalLight position={[-2, 0, 2]} intensity={1.5}/>
 
-                <Box args={[1, 1, 1]}>
-                    <meshPhongMaterial color="green"/>
-                </Box>
+                {/*<Box args={[1, 1, 1]}>*/}
+                {/*    <meshPhongMaterial color="green"/>*/}
+                {/*</Box>*/}
 
                 {/*<Suspense fallback={null}>*/}
-                <Model/>
+                <ManModel/>
                 {/*</Suspense>*/}
 
 

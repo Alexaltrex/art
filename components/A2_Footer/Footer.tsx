@@ -29,7 +29,6 @@ export const Footer = observer(() => {
 
     //console.log(bottom / height_footer)
 
-
     return (
         <footer className={style.footer}>
             <div className={style.wrapper}>

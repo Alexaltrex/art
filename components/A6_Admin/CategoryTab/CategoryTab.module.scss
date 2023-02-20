@@ -1,0 +1,40 @@
+@import "./assets/style/app";
+
+.categoryTab {
+
+  .top {
+    display: flex;
+
+    .titleWrapper {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      background: #000;
+      margin-right: 4px;
+      border-radius: 4px;
+      padding-left: 16px;
+      box-sizing: border-box;
+
+      h5 {
+        color: #FFF;
+      }
+
+      .preloader {
+        margin-left: 16px;
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    .addFormBtn {
+      svg path {
+        color: #FFF;
+      }
+    }
+  }
+
+  .items {
+    margin: 24px 0;
+  }
+
+}
