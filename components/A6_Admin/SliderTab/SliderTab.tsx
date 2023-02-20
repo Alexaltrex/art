@@ -1,5 +1,4 @@
 import style from "./SliderTab.module.scss"
-import {useState} from "react";
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 import {AxiosError} from "axios";
 import {ISlider} from "../../../types/slider.type";
@@ -7,9 +6,6 @@ import {sliderAPI} from "../../../api/slider.api";
 import {DeleteModal} from "../DeleteModal/DeleteModal";
 import {Typography} from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
-import Button from "@mui/material/Button";
-import CloseIcon from "@mui/icons-material/Close";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import {SliderItem} from "../SliderItem/SliderItem";
 import {observer} from "mobx-react-lite";
 import {useStore} from "../../../store/useStore";

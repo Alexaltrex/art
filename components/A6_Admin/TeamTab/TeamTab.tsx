@@ -11,17 +11,16 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Button from "@mui/material/Button";
 import CloseIcon from "@mui/icons-material/Close";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import {portfolioAPI} from "../../../api/portfolio.api";
-import {IPortfolioFormValues} from "../../../types/portfolio.type";
 import Collapse from "@mui/material/Collapse";
-import {PortfolioForm} from "../PortfolioForm/PortfolioForm";
 import {TeamForm} from "../TeamForm/TeamForm";
 import {sortOrderedItemByOrder} from "../../../helpers/helpers";
-import {PortfolioItem} from "../PortfolioItem/PortfolioItem";
 import * as React from "react";
 import {TeamItem} from "../TeamItem/TeamItem";
+import {useStore} from "../../../store/useStore";
+import {observer} from "mobx-react-lite";
 
-export const TeamTab = () => {
+export const TeamTab = observer(() => {
+    const { deleteId } = useStore();
     const [showAddForm, setShowAddForm] = useState(false);
     const onFormClickHandler = () => setShowAddForm(!showAddForm);
 
@@ -77,7 +76,9 @@ export const TeamTab = () => {
         <div className={style.teamTab}>
 
             <DeleteModal title="Delete team member?"
-                         mutateAsyncFn={deleteMutation.mutateAsync}
+                         deleteHandler={async () => {
+                             await deleteMutation.mutateAsync(deleteId)
+                         }}
                          isLoading={deleteMutation.isLoading}
             />
 
@@ -138,4 +139,4 @@ export const TeamTab = () => {
 
         </div>
     )
-}
+})

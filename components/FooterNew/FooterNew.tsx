@@ -69,7 +69,7 @@ export const FooterNew = () => {
                                        href={href}
                                        className={style.link}
                                        target="_blank"
-                                       rel="nofollow noopener"
+                                       rel="nofollow noopener noreferrer"
                                     >
                                         {icon}
                                     </a>
