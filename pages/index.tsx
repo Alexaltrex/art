@@ -17,20 +17,23 @@ import {IPortfolio} from "../types/portfolio.type";
 import {NextPage} from "next";
 import {categoryAPI} from "../api/category.api";
 import {ICategory} from "../types/category.type";
+import {memberAPI} from "../api/member.api";
+import {IMember} from "../types/member.type";
 
 interface IHomePage {
     portfolios: IPortfolio[]
     categories: ICategory[]
+    members: IMember[]
 }
 
 const HomePage: NextPage<IHomePage> = ({
                                            portfolios,
-                                           categories
+                                           categories,
+                                           members,
                                        }) => {
     return (
         <MainLayout categories={categories}>
             <LetsTalkModal/>
-
 
 
             <div className={style.twoBlocksWrapper}>
@@ -44,7 +47,7 @@ const HomePage: NextPage<IHomePage> = ({
             <OurPortfolio portfolios={portfolios}/>
             <Feedback/>
             <OtherWorks categories={categories} portfolios={portfolios}/>
-            <OurTeam/>
+            <OurTeam members={members}/>
             <Reviews/>
             <LetsTalk/>
         </MainLayout>
@@ -56,10 +59,12 @@ export default HomePage
 export const getServerSideProps = async () => {
     const portfolios = await portfolioAPI.getAll();
     const categories = await categoryAPI.getAll();
+    const members = await memberAPI.getAll();
     return {
         props: {
             portfolios,
-            categories
+            categories,
+            members
         }
     }
 }

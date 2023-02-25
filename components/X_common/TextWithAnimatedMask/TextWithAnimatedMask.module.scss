@@ -1,0 +1,47 @@
+@import "./assets/style/app";
+
+.textWithAnimatedMask {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      background: #FFF;
+      opacity: 0.8;
+      transition: 2s;
+      display: none;
+    }
+
+    p {
+      position: relative;
+      z-index: 1;
+      color: #cacaca;
+
+      span {
+        display: inline-block;
+        position: relative;
+        z-index: 3;
+      }
+    }
+
+    &_showMask {
+      &::after {
+        display: block;
+      }
+
+      p {
+        color: #000;
+      }
+    }
+
+    &_hideMask {
+      &::after {
+        width: 0%;
+      }
+    }
+}

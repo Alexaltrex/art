@@ -27,6 +27,7 @@ export const OurPortfolio: FC<IOurPortfolio> = ({
                     <div className={style.itemsMobile}>
                         {
                             [...portfoliosSorted]
+                                .sort(sortOrderedItemByOrder)
                                 .slice(0, 6)
                                 .map(({year, name, img}, key) => (
                                     <a key={key}

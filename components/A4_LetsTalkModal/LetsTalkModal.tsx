@@ -40,9 +40,12 @@ const validate = (values: IValues): FormikErrors<IValues> => {
     return errors
 }
 
-
 export const LetsTalkModal = observer(() => {
-    const {popupForm, setPopupForm} = useStore()
+    const {
+        popupForm,
+        setPopupForm,
+        setShowPopup
+    } = useStore()
     const [form, setForm] = useState(true);
 
     const onSubmit = async (
@@ -56,6 +59,7 @@ export const LetsTalkModal = observer(() => {
             console.log(e.message);
         } finally {
             formik.resetForm();
+            setShowPopup(true);
         }
 
     }
@@ -66,9 +70,14 @@ export const LetsTalkModal = observer(() => {
         onSubmit
     });
 
+    const onCloseHandler = () => {
+        setPopupForm(false);
+        setShowPopup(true);
+    }
+
     return (
         <Modal open={popupForm}
-               onClose={() => setPopupForm(false)}
+               onClose={onCloseHandler}
 
         >
             <Fade in={popupForm}>
@@ -84,7 +93,7 @@ export const LetsTalkModal = observer(() => {
                                 </p>
 
                                 <button className={style.closeBtn}
-                                        onClick={() => setPopupForm(false)}
+                                        onClick={onCloseHandler}
                                 >
                                     {svgIcons.close}
                                 </button>

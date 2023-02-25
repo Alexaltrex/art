@@ -13,6 +13,9 @@ import {IPortfolio} from "../../types/portfolio.type";
 import {portfolioAPI} from "../../api/portfolio.api";
 import {OtherWorks} from "../../components/B5_OtherWorks/OtherWorks";
 import {LetsTalk} from "../../components/B8_LetsTalk/LetsTalk";
+import {TextBlock} from "../../components/B10_TextBlock/TextBlock";
+import {BrandingOtherWorks} from "../../components/B12_BrandingOtherWorks/BrandingOtherWorks";
+import {LetsTalkModal} from "../../components/A4_LetsTalkModal/LetsTalkModal";
 
 interface ICategoryBrandingPage {
     slider: ISlider
@@ -30,11 +33,12 @@ const CategoryBrandingPage: NextPage<ICategoryBrandingPage> = ({
 
     return (
         <MainLayout categories={categories}>
-
-
+            <LetsTalkModal/>
+            <TextBlock/>
             {slider && <PortfolioSlider slider={slider}/>}
             <OurServices/>
             <OtherWorks categories={categories} portfolios={portfolios}/>
+            <BrandingOtherWorks/>
             <LetsTalk/>
         </MainLayout>
     )

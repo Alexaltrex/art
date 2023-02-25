@@ -1,0 +1,23 @@
+@import "./assets/style/app";
+
+.textBlock {
+  @include container;
+  background: #000;
+
+  .inner {
+    @include inner;
+    padding-top: 64px;
+    padding-bottom: 64px;
+
+    @include desktop {
+      padding-top: vwD(100);
+      padding-bottom: vwD(100);
+    }
+
+    .title {
+      color: #FFF;
+      @include h2;
+
+    }
+  }
+}

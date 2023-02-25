@@ -1,0 +1,131 @@
+@import "./assets/style/app";
+
+.brandingOtherWorks {
+  @include container;
+  background: #FFF;
+
+  .inner {
+    @include inner;
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    @include desktop {
+      padding-top: vwD(80);
+      padding-bottom: vwD(80);
+    }
+
+    .textMobile {
+      @include onlyMobile();
+      margin-top: 40px;
+
+      p {
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 100%;
+      }
+    }
+
+    .wrapper {
+      @include onlyDesktop();
+      margin-top: vwD(80);
+      position: relative;
+      cursor: pointer;
+
+      .popup {
+        @include onlyDesktop();
+        pointer-events: none;
+        position: fixed;
+        z-index: 10;
+
+        .popupInner {
+          @include centerRow;
+          width: vwD(160);
+          height: vwD(160);
+          background: #72EF71;
+          border-radius: 50%;
+
+          p {
+            font-weight: 500;
+            font-size: vwD(16);
+            line-height: vwD(19);
+            color: #000;
+          }
+
+        }
+
+
+      }
+
+      .textDesktop {
+
+        p {
+          font-weight: 500;
+          font-size: vwD(80);
+          line-height: 100%;
+        }
+      }
+
+    }
+
+    .info {
+      position: relative;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+
+      @include desktop {
+        margin-top: vwD(40);
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .label {
+        @include Almarai;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 115%;
+        color: rgba(0, 0, 0, 0.2);
+
+        @include desktop {
+          font-size: vwD(18);
+        }
+      }
+
+      .name {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 140%;
+        color: #000000;
+        margin-top: 4px;
+
+        @include desktop {
+          font-size: vwD(20);
+          margin-top: 0;
+          margin-left: vwD(8);
+        }
+      }
+
+      .sign {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 86px;
+        height: 54px;
+
+        @include desktop {
+          width: vwD(194);
+          height: vwD(126);
+        }
+
+      }
+
+    }
+
+    .btn {
+      @include onlyMobile(flex);
+      margin-top: 24px;
+    }
+
+  }
+}

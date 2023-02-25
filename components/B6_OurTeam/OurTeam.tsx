@@ -5,12 +5,18 @@ import {slides} from "./slides";
 import {Swiper, SwiperSlide} from "swiper/react";
 import "swiper/css";
 import SwiperClass from 'swiper/types/swiper-class';
-import {useState} from "react";
+import {FC, useState} from "react";
 import {svgIcons} from "../../assets/svgIcons";
 import {useScroll} from "../../hooks/useScroll";
 import clsx from "clsx";
+import {IMember} from "../../types/member.type";
+import {sortOrderedItemByOrder} from "../../helpers/helpers";
 
-export const OurTeam = () => {
+interface IOurTeam {
+    members: IMember[]
+}
+
+export const OurTeam: FC<IOurTeam> = ({members}) => {
     const [swiper, setSwiper] = useState<SwiperClass | null>(null);
     const [index, setIndex] = useState(0);
 
@@ -45,11 +51,13 @@ export const OurTeam = () => {
                         className={style.swiper}
                 >
                     {
-                        slides.map(({position, name, src, backSrc}, key) => (
-                            <SwiperSlide className={style.slideWrapper} key={key}>
+                        [...members]
+                            .sort(sortOrderedItemByOrder)
+                            .map(({id, order, position, name, img}) => (
+                            <SwiperSlide className={style.slideWrapper} key={id}>
                                 <div className={style.slide}>
-                                    <img src={backSrc} alt="" className={style.back}/>
-                                    <img src={src} alt="" className={style.avatar}/>
+                                    <img src={img} alt="" className={style.back}/>
+                                    {/*<img src={src} alt="" className={style.avatar}/>*/}
                                     <p className={style.position}>{position}</p>
                                     <p className={style.name}>{name}</p>
                                 </div>
@@ -63,10 +71,12 @@ export const OurTeam = () => {
             <div className={style.slidesDesktop}>
                 <div className={style.inner}>
                     {
-                        slides.map(({position, name, src, backSrc}, key) => (
-                            <div className={style.slide} key={key}>
-                                <img src={backSrc} alt="" className={style.back}/>
-                                <img src={src} alt="" className={style.avatar}/>
+                        [...members]
+                            .sort(sortOrderedItemByOrder)
+                            .map(({id, order, position, name, img}) => (
+                            <div className={style.slide} key={id}>
+                                <img src={img} alt="" className={style.back}/>
+                                {/*<img src={src} alt="" className={style.avatar}/>*/}
                                 <p className={style.position}>{position}</p>
                                 <p className={style.name}>{name}</p>
                             </div>

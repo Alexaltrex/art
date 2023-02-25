@@ -10,8 +10,6 @@ import {Zoom} from "@mui/material";
 import clsx from "clsx";
 import {PrimaryButton} from "../X_common/ButtonPrimary/PrimaryButton";
 
-
-
 const items = [
     {
         el: <p>1 I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>.
@@ -58,8 +56,8 @@ export const Reviews = () => {
 
             <div className={style.popup}
                  style={{
-                     left: `${x - 60}px`,
-                     top: `${y - 60}px`
+                     left: `calc(${x}px - ${60/14}vw)`,
+                     top: `calc(${y}px - ${60/14}vw)`,
                  }}
             >
                 <Zoom in={enter && !click}>

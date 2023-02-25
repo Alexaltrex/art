@@ -3,6 +3,7 @@ import {TitleWrapper} from "../X_common/TitleWrapper/TitleWrapper";
 import {FC, useEffect, useRef, useState} from "react";
 import clsx from "clsx";
 import {AnimatedNumber} from "../X_common/AnimatedNumber/AnimatedNumber";
+import {TextWithAnimatedMask} from "../X_common/TextWithAnimatedMask/TextWithAnimatedMask";
 
 const items = [
     {
@@ -18,44 +19,6 @@ const items = [
         text: "Successfully completed projects and satisfied customers"
     },
 ]
-
-//========= ANIMATED ROW =========//
-interface IRowAnimated {
-    row: JSX.Element
-    showMask: boolean
-}
-
-const RowAnimated: FC<IRowAnimated> = ({row, showMask}) => {
-    const [hideMask, setHideMask] = useState(false);
-    const ref = useRef<HTMLDivElement>(null!);
-
-    useEffect(() => {
-        const onScroll = () => {
-            if (ref && ref.current) {
-                const rect = ref.current.getBoundingClientRect();
-                if (rect.top < 0.5 * window.innerHeight) {
-                    setHideMask(true);
-                } else {
-                    setHideMask(false);
-                }
-            }
-
-        };
-        window.addEventListener("scroll", onScroll, {passive: true})
-    }, []);
-
-    return (
-        <div ref={ref}
-             className={clsx({
-                 [style.row]: true,
-                 [style.row_showMask]: showMask,
-                 [style.row_hideMask]: hideMask,
-             })}
-        >
-            {row}
-        </div>
-    )
-}
 
 //========= ABOUT US =========//
 export const AboutUs = () => {
@@ -114,7 +77,8 @@ export const AboutUs = () => {
                                 {item: <p>to be one of the best</p>},
                                 {item: <p>in our niche</p>}
                             ].map(({item}, key) => (
-                                <RowAnimated key={key} row={item} showMask={showMask}/>
+                                // <RowAnimated key={key} row={item} showMask={showMask}/>
+                                <TextWithAnimatedMask key={key} row={item} showMask={showMask}/>
                             ))
                         }
                     </div>
@@ -131,7 +95,8 @@ export const AboutUs = () => {
                                 {item: <p>this allows us to be one of the</p>},
                                 {item: <p>best in our niche</p>},
                             ].map(({item}, key) => (
-                                <RowAnimated key={key} row={item} showMask={showMask}/>
+                                // <RowAnimated key={key} row={item} showMask={showMask}/>
+                                <TextWithAnimatedMask key={key} row={item} showMask={showMask}/>
                             ))
                         }
                     </div>

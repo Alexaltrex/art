@@ -19,6 +19,8 @@ export class Store {
     deleteId = "" // для сущности определяемой одним id и slideId для слада
     deleteSliderId = ""
 
+    showPopup = true // BrandingOtherWorks
+
 
     constructor() {
         makeObservable(this, {
@@ -36,6 +38,7 @@ export class Store {
             deleteModal: observable,
             deleteId: observable,
             deleteSliderId: observable,
+            showPopup: observable,
 
             setBurgerMenu: action.bound,
             setPreloader: action.bound,
@@ -51,6 +54,7 @@ export class Store {
             setDeleteModal: action.bound,
             setDeleteId: action.bound,
             setDeleteSliderId: action.bound,
+            setShowPopup: action.bound,
         })
     }
 
@@ -104,6 +108,10 @@ export class Store {
 
     setDeleteSliderId(deleteSliderId: string) {
         this.deleteSliderId = deleteSliderId
+    }
+
+    setShowPopup(showPopup: boolean) {
+        this.showPopup = showPopup
     }
 }
 
