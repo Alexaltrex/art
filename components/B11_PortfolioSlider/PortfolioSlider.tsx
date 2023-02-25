@@ -18,7 +18,7 @@ export const PortfolioSlider: FC<IPortfolioSlider> = ({slider}) => {
                 Object.values(slider.slides)
                     .sort(sortOrderedItemByOrder)
                     .map(slide => (
-                        <img src={slide.src} alt="" className={style.img}/>
+                        <img src={slide.src} alt="" className={style.img} key={slide.id}/>
                     ))
             }
         </div>
