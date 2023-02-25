@@ -22,6 +22,7 @@ export const PortfolioSlider: FC<IPortfolioSlider> = ({slider}) => {
                     ))
             }
         </div>
+
         // <Swiper direction={"vertical"}
         //         slidesPerView={1}
         //         spaceBetween={0}
