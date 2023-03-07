@@ -43,7 +43,7 @@ const HomePage: NextPage<IHomePage> = ({
             </div>
 
             <AboutUs/>
-            <WhatWeWorkWith/>
+            {/*<WhatWeWorkWith/>*/}
             <OurPortfolio portfolios={portfolios}/>
             <Feedback/>
             <OtherWorks categories={categories} portfolios={portfolios}/>

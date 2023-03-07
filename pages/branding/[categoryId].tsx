@@ -35,7 +35,7 @@ const CategoryBrandingPage: NextPage<ICategoryBrandingPage> = ({
         <MainLayout categories={categories}>
             <LetsTalkModal/>
             <TextBlock/>
-            {slider && <PortfolioSlider slider={slider}/>}
+            {/*{slider && <PortfolioSlider slider={slider}/>}*/}
             <OurServices/>
             <OtherWorks categories={categories} portfolios={portfolios}/>
             <BrandingOtherWorks/>
