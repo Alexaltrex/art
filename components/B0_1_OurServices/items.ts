@@ -2,31 +2,31 @@ export const items = [
     {
         title: "UI/UX Design",
         text: "Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante.",
-        chip: "$100k — 300k",
+        chip: "from $3 000",
     },
     {
         title: "Branding",
         text: "Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante.",
-        chip: "$60k — 200k",
+        chip: "from $2 000",
     },
     {
         title: "Product Design",
         text: "Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante.",
-        chip: "$300k — 500k",
+        chip: "from $5 000",
     },
-    {
-        title: "Digital Marketing",
-        text: "Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante.",
-        chip: "$300k — 500k",
-    },
+    // {
+    //     title: "Digital Marketing",
+    //     text: "Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante.",
+    //     chip: "$300k — 500k",
+    // },
     {
         title: "Web Development",
         text: "Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante.",
-        chip: "$100k — 200k",
+        chip: "from $4 000",
     },
     {
-        title: "Web & Mobile apps",
+        title: "Mobile apps",
         text: "Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante.",
-        chip: "$250k — 300k",
+        chip: "from $5 000",
     },
 ]

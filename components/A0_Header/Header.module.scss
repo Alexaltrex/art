@@ -66,16 +66,6 @@
         }
       }
 
-      .links2 {
-        @include onlyDesktop(flex);
-        margin-left: 8px;
-
-        .link {
-          margin-left: 16px;
-          font-family: "Roboto";
-          font-size: 12px;
-        }
-      }
     }
 
     .rightBlock {
@@ -95,11 +85,33 @@
         font-weight: 500;
         font-size: 16px;
         line-height: 140%;
+        position: relative;
+        overflow: hidden;
 
         @include desktop {
           width: vwD(159);
           height: vwD(54);
           font-size: vwD(16);
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          display: block;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          transition: 0.3s;
+          transform: translateY(101%);
+          background: rgba(0, 0, 0, 0.1);
+        }
+
+        &:hover {
+          &::after {
+            transform: translateY(0%);
+          }
         }
       }
 
@@ -109,6 +121,8 @@
         @include rounded;
         width: 50px;
         height: 50px;
+        position: relative;
+        overflow: hidden;
 
         @include desktop {
           width: vwD(54);
@@ -122,6 +136,26 @@
           @include desktop {
             width: vwD(26);
             height: vwD(26);
+          }
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          display: block;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          transition: 0.3s;
+          transform: translateY(101%);
+          background: rgba(0, 0, 0, 0.1);
+        }
+
+        &:hover {
+          &::after {
+            transform: translateY(0%);
           }
         }
       }
@@ -138,17 +172,36 @@
       .stopBtn {
         @include onlyDesktop(flex);
         @include rounded;
+        position: relative;
         text-decoration: none;
         justify-content: space-between;
         align-items: center;
         width: vwD(160);
         height: vwD(54);
+        box-sizing: border-box;
         padding-left: vwD(8);
         padding-right: vwD(30);
         transition: 0.3s;
+        overflow: hidden;
+
+        &::after {
+          content: "";
+          position: absolute;
+          display: block;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          transition: 0.3s;
+          transform: translateY(101%);
+          background: rgba(0, 0, 0, 0.1);
+        }
 
         &:hover {
-          background: rgba(0, 0, 0, 0.1);
+          &::after {
+            transform: translateY(0%);
+          }
         }
 
         svg {
@@ -157,6 +210,7 @@
         }
 
         p {
+          margin-left: vwD(15);
           font-weight: 500;
           font-size: vwD(16);
           line-height: 140%;

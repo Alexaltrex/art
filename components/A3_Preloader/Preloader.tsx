@@ -5,13 +5,11 @@ import {observer} from "mobx-react-lite";
 import {useStore} from "../../store/useStore";
 
 const labels = [
-    // "Demyanchuk",
-    // "Art Studio",
     "Design",
-    "Marketing",
     "Development",
     "Branding",
     "Production",
+    "    ",
 ]
 
 export const Preloader = observer(() => {

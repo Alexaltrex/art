@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 import style from "./FirstBlock.module.scss";
 
 const items = [
@@ -23,15 +24,11 @@ export const FirstBlock = () => {
                         <div className={style.right}>
                             <div>
                                 <p>Kiev, Ukrainian Local</p>
-                                <p>Local Time → 11:01 AM</p>
+                                <p>Local Time → {format(new Date(), 'hh:mm aa')}</p>
                             </div>
                             <div>
-                                <p>
-                                    Monday
-                                </p>
-                                <p>
-                                    November 14, 2022
-                                </p>
+                                <p>{format(new Date(), 'cccc')}</p>
+                                <p>{format(new Date(), 'LLLL d, yyyy')}</p>
                             </div>
                         </div>
                     </div>

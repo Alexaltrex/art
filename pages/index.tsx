@@ -35,7 +35,6 @@ const HomePage: NextPage<IHomePage> = ({
         <MainLayout categories={categories}>
             <LetsTalkModal/>
 
-
             <div className={style.twoBlocksWrapper}>
                 <FirstBlock/>
                 <OurServices/>

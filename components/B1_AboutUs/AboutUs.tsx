@@ -59,7 +59,7 @@ export const AboutUs = () => {
 
             <div className={style.first}>
                 <div className={style.inner}>
-                    <TitleWrapper step="01" label="About us" black={!dark}/>
+                    <TitleWrapper step="02" label="About us" black={!dark}/>
 
                     <div className={style.textMobile}>
                         {

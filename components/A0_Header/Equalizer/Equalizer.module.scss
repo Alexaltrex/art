@@ -1,0 +1,58 @@
+@import "./assets/style/app";
+
+.equalizer {
+  display: flex;
+
+  width: 18px;
+  height: 18px;
+
+  @include desktop {
+    width: vwD(18);
+    height: vwD(18);
+  }
+
+  .item {
+    position: relative;
+    height: 18px;
+    width: 2px;
+
+
+    @include desktop {
+      height: vwD(18);
+      width: vwD(2);
+    }
+
+    &:not(:first-child) {
+      margin-left: 2px;
+
+      @include desktop {
+        margin-left: vwD(2);
+      }
+    }
+
+    .itemInner {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background: #000;
+      width: 2px;
+      transition: 0.3s;
+
+      &_stop {
+        position: absolute;
+        left: 0;
+        width: 2px;
+        top: 50%;
+        bottom: auto;
+        transform: translateY(-50%);
+        height: 30%;
+        background: #000;
+      }
+
+      @include desktop {
+        width: vwD(2);
+      }
+    }
+  }
+
+}

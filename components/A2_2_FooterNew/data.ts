@@ -8,9 +8,9 @@ export const socialIcons = [
 ]
 
 export const socialLinks = [
-    {label: "Email:", linkLabel: "demyanchukart@gmail.com", href: "#"},
-    {label: "Telegram:", linkLabel: "Anatoliy099", href: "#"},
-    {label: "Instagram:", linkLabel: "@demyanchukart", href: "#"},
+    {label: "Email:", linkLabel: "demyanchukart@gmail.com", href: "mailto:demyanchukart@gmail.com"},
+    {label: "Telegram:", linkLabel: "Anatoliy099", href: "https://t.me/Anatoliy099"},
+    {label: "Instagram:", linkLabel: "@demyanchukart", href: "http://www.instagram.com/@demyanchukart"},
 ]
 
 export const siteLinks = [
@@ -30,4 +30,4 @@ export const siteLinks = [
             {label: "Community", href: "/Community"},
         ]
     },
-]
+];

@@ -72,7 +72,7 @@ export const WhatWeWorkWith = observer(() => {
         >
             <div className={style.top}>
                 <div className={style.inner}>
-                    <TitleWrapper step="02" label="What we work with" black={dark}/>
+                    <TitleWrapper step="03" label="What we work with" black={dark}/>
                     <p className={style.title} data-aos="fade-up">
                         We work with many blockchains
                     </p>

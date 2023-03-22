@@ -6,7 +6,7 @@ import {ISlider} from "../../types/slider.type";
 import {PortfolioSlider} from "../../components/B11_PortfolioSlider/PortfolioSlider";
 import {MainLayout} from "../../layouts/MainLayout/MainLayout";
 import {ICategory} from "../../types/category.type";
-import {FooterNew} from "../../components/FooterNew/FooterNew";
+import {FooterNew} from "../../components/A2_2_FooterNew/FooterNew";
 import * as React from "react";
 import {OurServices} from "../../components/B0_1_OurServices/OurServices";
 import {IPortfolio} from "../../types/portfolio.type";

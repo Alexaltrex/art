@@ -5,13 +5,10 @@ import {Header} from "../../components/A0_Header/Header";
 import {observer} from "mobx-react-lite";
 import {useStore} from "../../store/useStore";
 import clsx from "clsx";
-import {Footer} from "../../components/A2_Footer/Footer";
 import {Preloader} from "../../components/A3_Preloader/Preloader";
 import {BurgerMenu} from "../../components/A1_BurgerMenu/BurgerMenu";
 import {ICategory} from "../../types/category.type";
-import {useMediaQuery} from "@mui/material";
-import {getFooterHeight} from "../../helpers/helpers";
-import { FooterNew } from "../../components/FooterNew/FooterNew";
+import { FooterNew } from "../../components/A2_2_FooterNew/FooterNew";
 
 interface IMainLayout {
     children: ReactNode
@@ -83,13 +80,13 @@ export const MainLayout: FC<IMainLayout> = observer(({
             <Preloader/>
 
             <Header categories={categories}/>
-            <BurgerMenu/>
+            <BurgerMenu categories={categories}/>
 
             <main className={style.main}>
                 {children}
             </main>
 
-            <FooterNew/>
+            <FooterNew categories={categories}/>
         </div>
     )
 

@@ -34,7 +34,7 @@ export const OtherWorks: FC<IOtherWorks> = ({
         >
             <div className={style.top}>
                 <div className={style.inner}>
-                    <TitleWrapper step="01" label="Other works"/>
+                    <TitleWrapper step="06" label="Other works"/>
 
                     <div className={style.buttons}
                          data-aos="fade-up"

@@ -71,7 +71,7 @@ export const OurServices = observer(() => {
                                  [style.item]: true,
                                  [style.item_selected]: index === selectedIndex,
                              })}
-                             onClick={() => setSelectedIndex(index)}
+                             //onClick={() => setSelectedIndex(index)}
                         >
                             <div className={style.borderTop}
                                  data-aos="zoom-in-left"

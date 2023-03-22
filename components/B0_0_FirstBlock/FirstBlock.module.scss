@@ -38,14 +38,48 @@
 
       .right {
         @include onlyDesktop(flex);
+        margin-top: vwD(18);
         flex-direction: column;
-        justify-content: space-between;
 
+        //& > div:nth-child(1) {
+        //  position: relative;
+        //
+        //  &:after {
+        //    position: absolute;
+        //    bottom: 0;
+        //    right: 0;
+        //    height: 1px;
+        //    width: 1000px;
+        //    background: #FFF;
+        //    display: block;
+        //    content: "";
+        //  }
+        //}
+
+        //& > div:nth-child(2) {
+        //  position: relative;
+        //
+        //  &:after {
+        //    position: absolute;
+        //    top: 50%;
+        //    right: 0;
+        //    height: 1px;
+        //    width: 1000px;
+        //    transform: translateY(-50%);
+        //    background: #FFF;
+        //    display: block;
+        //    content: "";
+        //  }
+        //}
 
         div {
           display: flex;
           flex-direction: column;
           align-items: flex-end;
+
+          &:nth-child(2) {
+            margin-top: vwD(111);
+          }
 
           p {
             font-weight: 500;

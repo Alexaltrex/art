@@ -5,20 +5,34 @@ import {PrimaryButton} from "../X_common/ButtonPrimary/PrimaryButton";
 import Link from "next/link";
 import {Canvas, extend} from "@react-three/fiber";
 import {Effects, OrbitControls, PerspectiveCamera} from "@react-three/drei";
-import {siteLinks, socialIcons, socialLinks} from "./data";
+import {socialIcons, socialLinks} from "./data";
 import * as THREE from "three";
-import {getValue} from "../../helpers/helpers";
+//import {getValue} from "../../helpers/helpers";
 import {FC, Suspense} from "react";
 import {WireModel} from "../X_common/Models/WireModel";
-import {EffectComposer, Bloom} from '@react-three/postprocessing'
+//import {EffectComposer, Bloom} from '@react-three/postprocessing'
 import { UnrealBloomPass } from 'three-stdlib'
+import {ICategory} from "../../types/category.type";
+import {AnimatedLink} from "../X_common/AnimatedLink/AnimatedLink";
+import * as React from "react";
 
 extend({ UnrealBloomPass })
 
-export const FooterNew = () => {
+export const FooterNew: FC<{ categories: ICategory[] }> = ({categories}) => {
     const desktop = useMediaQuery('(min-width:1400px)');
 
-    //
+    const siteLinks = [
+        {
+            groupLabel: "",
+            links: [...categories.slice(0, 3)],
+        },
+        {
+            groupLabel: "",
+            links: [...categories.slice(3)],
+        },
+    ]
+
+
     return (
         <footer className={style.footerNew}>
 
@@ -111,7 +125,13 @@ export const FooterNew = () => {
                                          className={style.socialLinkItem}
                                     >
                                         <p className={style.label}>{label}</p>
-                                        <a href={href} className={style.link}>{linkLabel}</a>
+                                        <a href={href}
+                                           className={style.link}
+                                           target="_blank"
+                                           rel="noreferrer nofollow noopener"
+                                        >
+                                            {linkLabel}
+                                        </a>
                                     </div>
                                 ))
                             }
@@ -124,26 +144,28 @@ export const FooterNew = () => {
                 <div className={style.bottom}>
                     <div className={style.bottomInner}>
                         <div className={style.text}>
-                            I have been working with Anatoly and his team for over 3 years. Implemented 3 projects.
-                            Anatoly and his team were always in touch, made all the changes
+                            We help businesses to plan, design, develop and launch <span>Web3 and fintech</span> based products and services
                         </div>
 
                         <div className={style.siteLinks}>
                             {
                                 siteLinks.map((group, key) => (
                                     <div className={style.group} key={key}>
-                                        <p className={style.groupLabel}>
-                                            {group.groupLabel}
-                                        </p>
+                                        {/*<p className={style.groupLabel}>*/}
+                                        {/*    {group.groupLabel}*/}
+                                        {/*</p>*/}
                                         <div className={style.links}>
                                             {
-                                                group.links.map((link, key) => (
-                                                    <Link key={key}
-                                                          href={link.href}
-                                                          className={style.link}
-                                                    >
-                                                        {link.label}
-                                                    </Link>
+                                                group.links.map(({id, name}) => (
+                                                    <AnimatedLink className={style.linkWrapper}
+                                                                  key={id}>
+                                                        <Link href={`/branding/${id}`}
+                                                              className={style.link}
+                                                        >
+                                                            {name}
+                                                        </Link>
+                                                    </AnimatedLink>
+
                                                 ))
                                             }
                                         </div>

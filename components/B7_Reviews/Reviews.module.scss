@@ -100,7 +100,7 @@
 
       .texts {
         p:nth-child(1) {
-          @include Almarai;
+          //@include Almarai;
           font-weight: 400;
           font-size: 14px;
           line-height: 16px;
@@ -108,7 +108,7 @@
 
           @include desktop {
             font-size: vwD(14);
-            line-height: vwD(16);
+            line-height: 140%;
           }
         }
 

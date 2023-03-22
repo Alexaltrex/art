@@ -7,7 +7,7 @@ import {useStore} from "../../store/useStore";
 
 export const Feedback = observer(() => {
     //const {ref, dark} = useScroll();
-    const {setPopupForm} = useStore();
+    const { setPopupForm } = useStore();
 
     return (
         <div className={clsx({
@@ -17,19 +17,26 @@ export const Feedback = observer(() => {
              //ref={ref}
         >
             <div className={style.inner}>
-                <TitleWrapper step="04" label="Feedback" black={false}/>
+                <TitleWrapper step="05" label="Feedback" black={false}/>
                 <p className={style.title} data-aos="fade-up">
-                    A headline that is two lines long, <span>feedback</span>
+                    Want To Be Our Next <span>Success</span> Story?
                 </p>
                 <p className={style.description}>
-                    Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante.
+                    Have an idea? Discuss your project with our team today! Lay down your requirements and venture into a successful partnership with Demyanchuk Art
                 </p>
 
-                <PrimaryButton label="Submit"
-                               white={true}
-                               className={style.submitBtn}
-                               onClick={() => setPopupForm(true)}
-                />
+                <a href="https://t.me/Anatoliy099"
+                   className={style.tgLink}
+                   target="_blank"
+                   rel="noreferrer nofollow noopener"
+
+                >
+                    <PrimaryButton label="Contact me by Telegram"
+                                   white={true}
+                                   className={style.submitBtn}
+
+                    />
+                </a>
 
             </div>
             <img src="/png/ring_mobile.png" alt="" className={style.ring_mobile}/>

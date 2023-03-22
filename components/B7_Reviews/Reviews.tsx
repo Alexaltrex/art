@@ -71,7 +71,7 @@ export const Reviews = () => {
 
             <div className={style.top}>
                 <div className={style.inner}>
-                    <TitleWrapper step="03" label="Reviews" black={false}/>
+                    <TitleWrapper step="08" label="Reviews" black={false}/>
                 </div>
             </div>
 

@@ -2,10 +2,15 @@ import style from "./BurgerMenu.module.scss"
 import {observer} from "mobx-react-lite";
 import {useStore} from "../../store/useStore";
 import clsx from "clsx";
-import {links} from "../A0_Header/Header";
 import Link from "next/link";
+import {ICategory} from "../../types/category.type";
+import {FC} from "react";
 
-export const BurgerMenu = observer(() => {
+interface IBurgerMenu {
+    categories: ICategory[]
+}
+
+export const BurgerMenu: FC<IBurgerMenu> = observer(({categories}) => {
     const {burgerMenu} = useStore();
 
     return (
@@ -15,12 +20,11 @@ export const BurgerMenu = observer(() => {
         })}>
             <nav className={style.links}>
                 {
-                    links.map(({href, label}, index) => (
-                        <Link href={href}
-                              key={index}
-                              className={style.link}
+                    categories.map(({id, name}, index) => (
+                        <Link key={index}
+                              href={`/branding/${id}`} className={style.link}
                         >
-                            {label}
+                            {name}
                         </Link>
                     ))
                 }

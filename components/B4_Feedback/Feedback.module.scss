@@ -54,7 +54,7 @@
 
     .description {
       margin-top: 20px;
-      @include Almarai;
+      //@include Almarai;
       font-weight: 400;
       font-size: 14px;
       line-height: 16px;
@@ -63,17 +63,22 @@
 
       @include desktop {
         margin-top: vwD(24);
-        font-size: vwD(14);
-        line-height: vwD(16);
-        width: 320px;
+        font-size: vwD(16);
+        line-height: 140%;
+        width: vwD(717);
       }
     }
 
-    .submitBtn {
-      margin-top: 40px;
+    .tgLink {
+      text-decoration: none;
+      display: block;
 
-      @include desktop {
-        width: vwD(255);
+      .submitBtn {
+        margin-top: 40px;
+
+        @include desktop {
+          width: vwD(255);
+        }
       }
     }
   }

@@ -8,7 +8,6 @@ import clsx from "clsx";
 import {PrimaryButton} from "../X_common/ButtonPrimary/PrimaryButton";
 import {SelectCustom} from "../X_common/SelectCustom/SelectCustom";
 import {mailAPI} from "../../api/mail.api";
-import {FormikHelpers} from "formik/dist/types";
 
 interface IValues {
     name: string
@@ -159,7 +158,7 @@ export const LetsTalk = () => {
              }}
         >
             <div className={style.inner}>
-                <TitleWrapper step="07" label="Let's talk!"/>
+                <TitleWrapper step="09" label="Let's talk!"/>
 
                 <p className={style.title} data-aos="fade-up">
                     Hello, Demyanchuk Art studio!
