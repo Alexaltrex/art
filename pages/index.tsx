@@ -38,7 +38,7 @@ const HomePage: NextPage<IHomePage> = ({
             <div className={style.twoBlocksWrapper}>
                 <FirstBlock/>
                 <OurServices/>
-                <ModelBlock/>
+                {/*<ModelBlock/>*/}
             </div>
 
             <AboutUs/>

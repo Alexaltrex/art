@@ -1,4 +1,4 @@
-import {FC, ReactNode, useEffect, useRef, useState} from "react";
+import {FC, ReactNode, useEffect, useRef} from "react";
 import style from "./MainLayout.module.scss"
 import Head from "next/head";
 import {Header} from "../../components/A0_Header/Header";
