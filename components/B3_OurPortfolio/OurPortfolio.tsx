@@ -48,43 +48,12 @@ export const OurPortfolio: FC<IOurPortfolio> = ({
 
                     <div className={style.itemsDesktop}>
                         {
-                            [
-                                {
-                                    big: portfoliosSorted[0],
-                                    square: [
-                                        portfoliosSorted[1],
-                                        portfoliosSorted[2],
-                                        portfoliosSorted[3],
-                                        portfoliosSorted[4],
-                                    ]
-                                },
-                                {
-                                    big: portfoliosSorted[5],
-                                    square: [
-                                        portfoliosSorted[6],
-                                        portfoliosSorted[7],
-                                        portfoliosSorted[8],
-                                        portfoliosSorted[9],
-                                    ]
-                                },
-                                {
-                                    big: portfoliosSorted[10],
-                                    square: [
-                                        portfoliosSorted[11],
-                                        portfoliosSorted[12],
-                                        portfoliosSorted[13],
-                                        portfoliosSorted[14],
-                                    ]
-                                },
-                            ].map(({big: {name, year, img}, square}, key) => (
-                                <div key={key}
-                                     className={clsx({
-                                         [style.itemWrapper]: true,
-                                         [style.itemWrapper_2n]: (key + 1) % 2 === 0,
-                                     })}
-                                >
-                                    <a className={style.bigItem}
-                                       href="https://www.behance.net/gallery/147201249/Jigen-Hypebeast-Crypto-Nft-Metaverse"
+                            portfoliosSorted
+                                .slice(0, 6)
+                                .map(({id, img, name, year, url}) => (
+                                    <a key={id}
+                                       className={style.bigItem}
+                                       href={url}
                                        target="_blank"
                                        rel="noopener nofollow noreferrer"
                                     >
@@ -94,30 +63,81 @@ export const OurPortfolio: FC<IOurPortfolio> = ({
                                             <p>{year}</p>
                                         </div>
                                     </a>
-
-                                    <div className={style.square}>
-                                        {
-                                            square.map(({year, name, img}, key) => (
-                                                <a className={style.smallItem}
-                                                   key={key}
-                                                   href="https://www.behance.net/gallery/147201249/Jigen-Hypebeast-Crypto-Nft-Metaverse"
-                                                   target="_blank"
-                                                   rel="noopener nofollow noreferrer"
-                                                >
-                                                    <img src={img} alt=""/>
-                                                    <div className={style.info}>
-                                                        <p>{name}</p>
-                                                        <p>{year}</p>
-                                                    </div>
-                                                </a>
-                                            ))
-                                        }
-                                    </div>
-
-
-                                </div>
-                            ))
+                                ))
                         }
+
+
+                        {/*{*/}
+                        {/*    [*/}
+                        {/*        {*/}
+                        {/*            big: portfoliosSorted[0],*/}
+                        {/*            square: [*/}
+                        {/*                portfoliosSorted[1],*/}
+                        {/*                portfoliosSorted[2],*/}
+                        {/*                portfoliosSorted[3],*/}
+                        {/*                portfoliosSorted[4],*/}
+                        {/*            ]*/}
+                        {/*        },*/}
+                        {/*        {*/}
+                        {/*            big: portfoliosSorted[5],*/}
+                        {/*            square: [*/}
+                        {/*                portfoliosSorted[6],*/}
+                        {/*                portfoliosSorted[7],*/}
+                        {/*                portfoliosSorted[8],*/}
+                        {/*                portfoliosSorted[9],*/}
+                        {/*            ]*/}
+                        {/*        },*/}
+                        {/*        {*/}
+                        {/*            big: portfoliosSorted[10],*/}
+                        {/*            square: [*/}
+                        {/*                portfoliosSorted[11],*/}
+                        {/*                portfoliosSorted[12],*/}
+                        {/*                portfoliosSorted[13],*/}
+                        {/*                portfoliosSorted[14],*/}
+                        {/*            ]*/}
+                        {/*        },*/}
+                        {/*    ].map(({big: {name, year, img}, square}, key) => (*/}
+                        {/*        <div key={key}*/}
+                        {/*             className={clsx({*/}
+                        {/*                 [style.itemWrapper]: true,*/}
+                        {/*                 //[style.itemWrapper_2n]: (key + 1) % 2 === 0,*/}
+                        {/*             })}*/}
+                        {/*        >*/}
+                        {/*            <a className={style.bigItem}*/}
+                        {/*               href="https://www.behance.net/gallery/147201249/Jigen-Hypebeast-Crypto-Nft-Metaverse"*/}
+                        {/*               target="_blank"*/}
+                        {/*               rel="noopener nofollow noreferrer"*/}
+                        {/*            >*/}
+                        {/*                <img src={img} alt=""/>*/}
+                        {/*                <div className={style.info}>*/}
+                        {/*                    <p>{name}</p>*/}
+                        {/*                    <p>{year}</p>*/}
+                        {/*                </div>*/}
+                        {/*            </a>*/}
+
+                        {/*            <div className={style.square}>*/}
+                        {/*                {*/}
+                        {/*                    square.map(({year, name, img}, key) => (*/}
+                        {/*                        <a className={style.smallItem}*/}
+                        {/*                           key={key}*/}
+                        {/*                           href="https://www.behance.net/gallery/147201249/Jigen-Hypebeast-Crypto-Nft-Metaverse"*/}
+                        {/*                           target="_blank"*/}
+                        {/*                           rel="noopener nofollow noreferrer"*/}
+                        {/*                        >*/}
+                        {/*                            <img src={img} alt=""/>*/}
+                        {/*                            <div className={style.info}>*/}
+                        {/*                                <p>{name}</p>*/}
+                        {/*                                <p>{year}</p>*/}
+                        {/*                            </div>*/}
+                        {/*                        </a>*/}
+                        {/*                    ))*/}
+                        {/*                }*/}
+                        {/*            </div>*/}
+
+
+                        {/*        </div>*/}
+                        {/*    ))*/}
+                        {/*}*/}
                     </div>
                 </div>
             </div>
