@@ -96,7 +96,7 @@
         @include onlyDesktop(grid);
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(3, 1fr);
-        grid-column-gap: vwD(4);
+        grid-gap: vwD(4);
 
         .bigItem {
           text-decoration: none;

@@ -10,6 +10,7 @@ import {PrimaryButton} from "../X_common/ButtonPrimary/PrimaryButton";
 import {IPortfolio} from "../../types/portfolio.type";
 import {ICategory} from "../../types/category.type";
 import {sortOrderedItemByOrder} from "../../helpers/helpers";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 interface IOtherWorks {
     portfolios: IPortfolio[]
@@ -24,6 +25,9 @@ export const OtherWorks: FC<IOtherWorks> = ({
     const [selectedCategoryId, setSelectedCategoryId] = useState(""); // "" === all work
 
     //const {ref, dark} = useScroll();
+
+    const matchesDesktop = useMediaQuery('(min-width:1400px)');
+    //const [expand, setExpand] = useState(false)
 
     return (
         <div className={clsx({
@@ -67,6 +71,7 @@ export const OtherWorks: FC<IOtherWorks> = ({
                         .filter(portfolio => selectedCategoryId === ""
                             ? true
                             : portfolio.category.id === selectedCategoryId)
+                        //.slice(0, matchesDesktop ? 10 : 7)
                         .map(({year, name, tag}, key) => (
                         <AnimatedLink key={key} className={style.animatedLink}>
                             <a className={style.work}
@@ -106,6 +111,7 @@ export const OtherWorks: FC<IOtherWorks> = ({
                     <PrimaryButton label="All work"
                                    white={false}
                                    className={style.allWorksBtn}
+                                   onClick={() => setSelectedCategoryId("")}
                     />
 
                     <div className={style.socialIcons}>

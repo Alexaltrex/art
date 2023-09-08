@@ -148,30 +148,30 @@ export const FooterNew: FC<{ categories: ICategory[] }> = ({categories}) => {
                         </div>
 
                         <div className={style.siteLinks}>
-                            {
-                                siteLinks.map((group, key) => (
-                                    <div className={style.group} key={key}>
-                                        {/*<p className={style.groupLabel}>*/}
-                                        {/*    {group.groupLabel}*/}
-                                        {/*</p>*/}
-                                        <div className={style.links}>
-                                            {
-                                                group.links.map(({id, name}) => (
-                                                    <AnimatedLink className={style.linkWrapper}
-                                                                  key={id}>
-                                                        <Link href={`/branding/${id}`}
-                                                              className={style.link}
-                                                        >
-                                                            {name}
-                                                        </Link>
-                                                    </AnimatedLink>
+                            {/*{*/}
+                            {/*    siteLinks.map((group, key) => (*/}
+                            {/*        <div className={style.group} key={key}>*/}
+                            {/*            /!*<p className={style.groupLabel}>*!/*/}
+                            {/*            /!*    {group.groupLabel}*!/*/}
+                            {/*            /!*</p>*!/*/}
+                            {/*            <div className={style.links}>*/}
+                            {/*                {*/}
+                            {/*                    group.links.map(({id, name}) => (*/}
+                            {/*                        <AnimatedLink className={style.linkWrapper}*/}
+                            {/*                                      key={id}>*/}
+                            {/*                            <Link href={`/branding/${id}`}*/}
+                            {/*                                  className={style.link}*/}
+                            {/*                            >*/}
+                            {/*                                {name}*/}
+                            {/*                            </Link>*/}
+                            {/*                        </AnimatedLink>*/}
 
-                                                ))
-                                            }
-                                        </div>
-                                    </div>
-                                ))
-                            }
+                            {/*                    ))*/}
+                            {/*                }*/}
+                            {/*            </div>*/}
+                            {/*        </div>*/}
+                            {/*    ))*/}
+                            {/*}*/}
                         </div>
                     </div>
                 </div>

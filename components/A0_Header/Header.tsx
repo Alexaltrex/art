@@ -76,20 +76,20 @@ export const Header: FC<IHeader> = observer(({categories}) => {
                         </div>
                     </Link>
 
-                    {/*<nav className={style.links}>*/}
-                    {/*    {*/}
-                    {/*        categories.map(({id, name}, key) => (*/}
-                    {/*            <AnimatedLink className={style.linkWrapper} key={key}>*/}
-                    {/*                <Link href={`/branding/${id}`}*/}
-                    {/*                      className={style.link}*/}
-                    {/*                >*/}
-                    {/*                    {name}*/}
-                    {/*                </Link>*/}
-                    {/*            </AnimatedLink>*/}
+                    <nav className={style.links}>
+                        {
+                            categories.map(({id, name}, key) => (
+                                <AnimatedLink className={style.linkWrapper} key={key}>
+                                    <Link href={`/branding/${id}`}
+                                          className={style.link}
+                                    >
+                                        {name}
+                                    </Link>
+                                </AnimatedLink>
 
-                    {/*        ))*/}
-                    {/*    }*/}
-                    {/*</nav>*/}
+                            ))
+                        }
+                    </nav>
 
                 </div>
 
