@@ -56,14 +56,14 @@
       @include inner;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(2, 1fr);
+      grid-template-rows: repeat(4, 1fr);
       grid-gap: vwD(4);
     }
   }
 
   .navigate {
-    margin-top: 32px;
     @include onlyMobile(flex);
+    margin-top: 32px;
     align-items: center;
     justify-content: center;
 
@@ -127,7 +127,7 @@
     height: 417px;
     position: relative;
     overflow: hidden;
-    background: #FFF;
+    //background: #FFF;
     border-radius: 32px;
     padding-top: 30px;
     padding-left: 24px;

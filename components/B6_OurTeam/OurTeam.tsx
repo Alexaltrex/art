@@ -11,6 +11,7 @@ import {useScroll} from "../../hooks/useScroll";
 import clsx from "clsx";
 import {IMember} from "../../types/member.type";
 import {sortOrderedItemByOrder} from "../../helpers/helpers";
+import {JoinCard} from "./JoinCard/JoinCard";
 
 interface IOurTeam {
     members: IMember[]
@@ -54,19 +55,22 @@ export const OurTeam: FC<IOurTeam> = ({members}) => {
                         [...members]
                             .sort(sortOrderedItemByOrder)
                             .map(({id, order, position, name, img}) => (
-                            <SwiperSlide className={style.slideWrapper} key={id}>
-                                <div className={style.slide}>
-                                    <img src={img} alt="" className={style.back}/>
-                                    {/*<img src={src} alt="" className={style.avatar}/>*/}
-                                    <p className={style.position}>{position}</p>
-                                    <p className={style.name}>{name}</p>
-                                </div>
-                            </SwiperSlide>
-                        ))
+                                <SwiperSlide className={style.slideWrapper} key={id}>
+                                    <div className={style.slide}>
+                                        <img src={img} alt="" className={style.back}/>
+                                        {/*<img src={src} alt="" className={style.avatar}/>*/}
+                                        <p className={style.position}>{position}</p>
+                                        <p className={style.name}>{name}</p>
+                                    </div>
+                                </SwiperSlide>
+                            ))
                     }
+                    <SwiperSlide className={style.slideWrapper}>
+                        <JoinCard/>
+                    </SwiperSlide>
+
                 </Swiper>
             </div>
-
 
             <div className={style.slidesDesktop}>
                 <div className={style.inner}>
@@ -74,14 +78,16 @@ export const OurTeam: FC<IOurTeam> = ({members}) => {
                         [...members]
                             .sort(sortOrderedItemByOrder)
                             .map(({id, order, position, name, img}) => (
-                            <div className={style.slide} key={id}>
-                                <img src={img} alt="" className={style.back}/>
-                                {/*<img src={src} alt="" className={style.avatar}/>*/}
-                                <p className={style.position}>{position}</p>
-                                <p className={style.name}>{name}</p>
-                            </div>
-                        ))
+                                <div className={style.slide}
+                                     key={id}
+                                >
+                                    <img src={img} alt="" className={style.back}/>
+                                    <p className={style.position}>{position}</p>
+                                    <p className={style.name}>{name}</p>
+                                </div>
+                            ))
                     }
+                    <JoinCard/>
                 </div>
             </div>
 
@@ -94,13 +100,13 @@ export const OurTeam: FC<IOurTeam> = ({members}) => {
                 </button>
 
                 <div className={style.center}>
-                    <p>{index + 1}</p><p>{`/${slides.length}`}</p>
+                    <p>{index + 1}</p><p>{`/${slides.length + 1}`}</p>
                 </div>
 
 
                 <button onClick={() => swiper?.slideNext()}
                         className={style.nextBtn}
-                        disabled={index === slides.length - 1}
+                        disabled={index === slides.length}
                 >
                     {svgIcons.arrow_left}
                 </button>
