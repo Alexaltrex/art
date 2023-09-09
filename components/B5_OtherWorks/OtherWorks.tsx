@@ -1,6 +1,6 @@
 import style from "./OtherWorks.module.scss"
 import {TitleWrapper} from "../X_common/TitleWrapper/TitleWrapper";
-import {FC, useState} from "react";
+import {FC, useRef, useState} from "react";
 import clsx from "clsx";
 import {buttons, socialIcons, works} from "./constant";
 import {svgIcons} from "../../assets/svgIcons";
@@ -11,6 +11,7 @@ import {IPortfolio} from "../../types/portfolio.type";
 import {ICategory} from "../../types/category.type";
 import {sortOrderedItemByOrder} from "../../helpers/helpers";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import {Collapse, Grow} from "@mui/material";
 
 interface IOtherWorks {
     portfolios: IPortfolio[]
@@ -21,20 +22,32 @@ export const OtherWorks: FC<IOtherWorks> = ({
                                                 portfolios,
                                                 categories,
                                             }) => {
+    const otherWorks = [...portfolios].slice(6);
+    console.log(otherWorks)
 
     const [selectedCategoryId, setSelectedCategoryId] = useState(""); // "" === all work
 
     //const {ref, dark} = useScroll();
 
     const matchesDesktop = useMediaQuery('(min-width:1400px)');
-    //const [expand, setExpand] = useState(false)
+    const [showMore, setShowMore] = useState(false);
+    const worksRef = useRef<HTMLDivElement>(null!);
+    const onShowHandler = () => {
+        if (showMore) {
+            worksRef.current.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            })
+        }
+        setShowMore(!showMore);
+    };
 
     return (
         <div className={clsx({
             [style.otherWorks]: true,
             [style.otherWorks_dark]: true,
         })}
-             //ref={ref}
+             ref={worksRef}
         >
             <div className={style.top}>
                 <div className={style.inner}>
@@ -66,52 +79,39 @@ export const OtherWorks: FC<IOtherWorks> = ({
 
             <div className={style.works}>
                 {
-                    [...portfolios]
+                    [...otherWorks]
                         .sort(sortOrderedItemByOrder)
                         .filter(portfolio => selectedCategoryId === ""
                             ? true
                             : portfolio.category.id === selectedCategoryId)
-                        //.slice(0, matchesDesktop ? 10 : 7)
-                        .map(({year, name, tag}, key) => (
-                        <AnimatedLink key={key} className={style.animatedLink}>
-                            <a className={style.work}
-                               href="https://www.behance.net/gallery/147201249/Jigen-Hypebeast-Crypto-Nft-Metaverse"
-                               target="_blank"
-                               rel="noopener nofollow noreferrer"
-                            >
-                                <div className={style.borderTop}
-                                     data-aos="zoom-in-left"
-                                     data-aos-offset="100"
-                                     data-aos-duration="1000"
-                                />
-
-
-                                <div className={style.inner} data-aos="fade-up">
-                                    <div className={style.left}>
-                                        <p className={style.year}>{year}</p>
-                                        <p className={style.name}>{name}</p>
-                                        <p className={style.label}>{tag}</p>
-                                    </div>
-                                    <div className={style.arrowWrapper}>
-                                        {svgIcons.arrow_up_right}
-                                    </div>
-
-                                </div>
-
-                            </a>
-                        </AnimatedLink>
-
-                    ))
+                        .slice(0, matchesDesktop ? 10 : 7)
+                        .map(item => (
+                            <WorkItem key={item.id} {...item} />
+                        ))
                 }
+
+                <Collapse in={showMore}>
+                    {
+                        [...otherWorks]
+                            .sort(sortOrderedItemByOrder)
+                            .filter(portfolio => selectedCategoryId === ""
+                                ? true
+                                : portfolio.category.id === selectedCategoryId)
+                            .slice(matchesDesktop ? 10 : 7)
+                            .map(item => (
+                                <WorkItem key={item.id} {...item} />
+                            ))
+                    }
+                </Collapse>
             </div>
 
             <div className={style.bottom}>
                 <div className={style.inner}>
 
-                    <PrimaryButton label="All work"
+                    <PrimaryButton label={showMore ? "Show less" : "Show more"}
                                    white={false}
                                    className={style.allWorksBtn}
-                                   onClick={() => setSelectedCategoryId("")}
+                                   onClick={onShowHandler}
                     />
 
                     <div className={style.socialIcons}>
@@ -129,5 +129,29 @@ export const OtherWorks: FC<IOtherWorks> = ({
                 </div>
             </div>
         </div>
+    )
+}
+
+//========= WORK ITEM =========//
+const WorkItem: FC<IPortfolio> = ({url, year, name, tag}) => {
+    return (
+        <AnimatedLink className={style.animatedLink}>
+            <a className={style.work}
+               href={url}
+               target="_blank"
+               rel="noopener nofollow noreferrer"
+            >
+                <div className={style.inner} data-aos="fade-up">
+                    <div className={style.left}>
+                        <p className={style.year}>{year}</p>
+                        <p className={style.name}>{name}</p>
+                        <p className={style.label}>{tag}</p>
+                    </div>
+                    <div className={style.arrowWrapper}>
+                        {svgIcons.arrow_up_right}
+                    </div>
+                </div>
+            </a>
+        </AnimatedLink>
     )
 }

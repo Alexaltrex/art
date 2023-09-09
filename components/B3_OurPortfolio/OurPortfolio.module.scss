@@ -26,323 +26,88 @@
 
     .items {
       margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
       @include desktop {
         margin-top: vwD(60);
-      }
-
-      .itemsMobile {
-        @include onlyMobile();
-
-        .item {
-          //width: 100%;
-          text-decoration: none;
-          height: 270px;
-          //background: #CBD6CD;
-          border-radius: 34.7875px;
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
-          position: relative;
-          overflow: hidden;
-          padding: 4px;
-          box-sizing: border-box;
-
-
-          &:not(:first-child) {
-            margin-top: 4px;
-          }
-
-          img {
-            position: absolute;
-            z-index: 1;
-            //top: 33px;
-            //left: 50%;
-            //transform: translateX(-50%);
-            //width: 136px;
-            //height: auto;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
-
-          .info {
-            position: relative;
-            z-index: 2;
-            background: rgba(255, 255, 255, 0.6);
-            border: 1.08711px solid #000000;
-            backdrop-filter: blur(10.8711px);
-            border-radius: 34.7875px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 18px;
-
-            p {
-              font-weight: 400;
-              font-size: 17.3937px;
-              line-height: 140%;
-            }
-
-          }
-
-        }
-      }
-
-      .itemsDesktop {
-        @include onlyDesktop(grid);
+        display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(3, 1fr);
         grid-gap: vwD(4);
+      }
 
-        .bigItem {
-          text-decoration: none;
+      .item {
+        text-decoration: none;
+        width: 312px;
+        height: 270px;
+        border-radius: 35px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        position: relative;
+        overflow: hidden;
+        padding: 4px;
+        box-sizing: border-box;
+
+        @include desktop {
           height: vwD(500);
           width: vwD(578);
-          //background: #B0BB90;
           border-radius: vwD(32);
-          overflow: hidden;
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
           padding: vwD(4);
-          box-sizing: border-box;
+        }
 
-          img {
-            position: absolute;
-            z-index: 1;
-            //width: vwD(560);
-            //height: vwD(476);
-            //top: vwD(25);
-            //left: vwD(57);
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
+        &:not(:first-child) {
+          margin-top: 4px;
 
-          .info {
-            position: relative;
-            z-index: 2;
-            height: vwD(56);
-            background: #000000;
-            border-radius: vwD(32);
-            padding: 0 vwD(16);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            p {
-              font-weight: 400;
-              font-size: vwD(16);
-              line-height: 140%;
-              color: #FFF;
-            }
+          @include desktop {
+            margin-top: 0;
           }
         }
 
+        img {
+          position: absolute;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
 
-        //.itemWrapper {
-        //  display: grid;
-        //  grid-template-columns: repeat(2, 1fr);
-        //  grid-column-gap: vwD(4);
-        //
-        //  &:not(:first-child) {
-        //    margin-top: vwD(4);
-        //  }
-        //
-        //  .bigItem {
-        //    text-decoration: none;
-        //    height: vwD(500);
-        //    //background: #B0BB90;
-        //    border-radius: vwD(32);
-        //    overflow: hidden;
-        //    position: relative;
-        //    display: flex;
-        //    flex-direction: column;
-        //    justify-content: flex-end;
-        //    padding: vwD(4);
-        //    box-sizing: border-box;
-        //
-        //    img {
-        //      position: absolute;
-        //      z-index: 1;
-        //      //width: vwD(560);
-        //      //height: vwD(476);
-        //      //top: vwD(25);
-        //      //left: vwD(57);
-        //      top: 0;
-        //      left: 0;
-        //      width: 100%;
-        //      height: 100%;
-        //      object-fit: cover;
-        //    }
-        //
-        //    .info {
-        //      position: relative;
-        //      z-index: 2;
-        //      height: vwD(56);
-        //      background: #000000;
-        //      border-radius: vwD(32);
-        //      padding: 0 vwD(16);
-        //      display: flex;
-        //      align-items: center;
-        //      justify-content: space-between;
-        //
-        //      p {
-        //        font-weight: 400;
-        //        font-size: vwD(16);
-        //        line-height: 140%;
-        //        color: #FFF;
-        //      }
-        //    }
-        //  }
-        //
-        //  .square {
-        //    height: 500px;
-        //    display: grid;
-        //    grid-template-columns: repeat(2, 1fr);
-        //    grid-template-rows: repeat(2, 1fr);
-        //    grid-gap: 4px;
-        //
-        //    @include desktop {
-        //      height: vwD(500);
-        //      grid-gap: vwD(4);
-        //    }
-        //
-        //    .smallItem {
-        //      text-decoration: none;
-        //      overflow: hidden;
-        //      position: relative;
-        //      border-radius: 32px;
-        //      background: #FFF;
-        //      display: flex;
-        //      flex-direction: column;
-        //      justify-content: flex-end;
-        //      padding: 4px;
-        //      box-sizing: border-box;
-        //
-        //      @include desktop {
-        //        border-radius: vwD(32);
-        //        padding: vwD(4);
-        //      }
-        //
-        //      &:nth-child(1) {
-        //        background: #90BB99;
-        //      }
-        //
-        //      &:nth-child(2) {
-        //        background: #CBD6CD;
-        //      }
-        //
-        //      &:nth-child(3) {
-        //        background: #B4B2BE;
-        //      }
-        //
-        //      &:nth-child(4) {
-        //        background: #9091BB;
-        //      }
-        //
-        //      img {
-        //        position: absolute;
-        //        z-index: 1;
-        //        //width: 136px;
-        //        //height: auto;
-        //        //top: 31px;
-        //        //left: 50%;
-        //        //transform: translateX(-50%);
-        //        top: 0;
-        //        left: 0;
-        //        width: 100%;
-        //        height: 100%;
-        //        object-fit: cover;
-        //
-        //        //@include desktop {
-        //        //  width: vwD(136);
-        //        //  top: vwD(31);
-        //        //}
-        //      }
-        //
-        //      .info {
-        //        position: relative;
-        //        z-index: 2;
-        //        height: 56px;
-        //        background: rgba(255, 255, 255, 0.6);
-        //        border: 1px solid #000000;
-        //        backdrop-filter: blur(10px);
-        //        border-radius: 32px;
-        //        display: flex;
-        //        align-items: center;
-        //        justify-content: space-between;
-        //        padding: 0 16px;
-        //
-        //        @include desktop {
-        //          height: vwD(56);
-        //          border-radius: vwD(32);
-        //          padding: 0 vwD(16);
-        //        }
-        //
-        //        p {
-        //          font-weight: 400;
-        //          font-size: 16px;
-        //          line-height: 140%;
-        //
-        //          @include desktop {
-        //            font-size: vwD(16);
-        //          }
-        //        }
-        //      }
-        //    }
-        //  }
-        //
-        //  &_2n {
-        //    .bigItem {
-        //      order: 1;
-        //
-        //      .info {
-        //        background: rgba(255, 255, 255, 0.6);
-        //        border: 1px solid #000000;
-        //        backdrop-filter: blur(20px);
-        //        box-sizing: border-box;
-        //
-        //        p {
-        //          color: #000;
-        //        }
-        //      }
-        //    }
-        //
-        //    .square {
-        //      .smallItem {
-        //        &:nth-child(1) {
-        //          background: #D6B8AF;
-        //        }
-        //
-        //        &:nth-child(2) {
-        //          background: #C8BCC2;
-        //        }
-        //
-        //        &:nth-child(3) {
-        //          background: #C6C8BC;
-        //        }
-        //
-        //        &:nth-child(4) {
-        //          background: #B4B2BE;
-        //        }
-        //      }
-        //    }
-        //  }
-        //}
+        .info {
+          position: relative;
+          z-index: 2;
+          background: rgba(255, 255, 255, 0.6);
+          border: 1px solid #000000;
+          backdrop-filter: blur(10px);
+          border-radius: 999px;
+          height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 18px;
 
+          @include desktop {
+            height: vwD(56);
+            backdrop-filter: blur(20px);
+            box-sizing: border-box;
+            border-radius: vwD(32);
+            padding: 0 vwD(16);
+          }
 
+          p {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 140%;
+
+            @include desktop {
+              font-size: vwD(16);
+            }
+          }
+        }
       }
-
     }
-
-
   }
 }
