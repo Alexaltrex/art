@@ -23,7 +23,7 @@ export const OtherWorks: FC<IOtherWorks> = ({
                                                 categories,
                                             }) => {
     const otherWorks = [...portfolios].slice(6);
-    console.log(otherWorks)
+    //console.log(otherWorks)
 
     const [selectedCategoryId, setSelectedCategoryId] = useState(""); // "" === all work
 

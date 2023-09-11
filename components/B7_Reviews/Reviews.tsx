@@ -3,12 +3,14 @@ import {TitleWrapper} from "../X_common/TitleWrapper/TitleWrapper";
 import {Swiper, SwiperSlide} from "swiper/react";
 import "swiper/css";
 import SwiperClass from 'swiper/types/swiper-class';
-import {useState} from "react";
+import {FC, useLayoutEffect, useRef, useState} from "react";
 import * as React from "react";
 import {svgIcons} from "../../assets/svgIcons";
 import {Zoom} from "@mui/material";
 import clsx from "clsx";
 import {PrimaryButton} from "../X_common/ButtonPrimary/PrimaryButton";
+import gsap from "gsap";
+
 
 const items = [
     {
@@ -51,13 +53,47 @@ export const Reviews = () => {
     const [enter, setEnter] = useState(false);
     const [click, setClick] = useState(false);
 
+    const appRef = useRef<HTMLDivElement>(null!);
+    const duration = 16;
+
+    useLayoutEffect(() => {
+
+        const ctx = gsap.context(() => {
+
+            gsap.timeline({repeat: -1})
+                .to(".row-to-left1", {xPercent: -100, duration, ease: "none"})
+                .set(".row-to-left1", {xPercent: 100})
+                .to(".row-to-left1", {xPercent: 0, duration, ease: "none"})
+
+            gsap.timeline({repeat: -1})
+                .set(".row-to-left2", {xPercent: 100})
+                .to(".row-to-left2", {xPercent: -100, duration: 2 * duration, ease: "none"})
+
+            gsap.timeline({repeat: -1})
+                .to(".row-to-left3", {xPercent: 100, duration, ease: "none"})
+                .set(".row-to-left3", {xPercent: -100})
+                .to(".row-to-left3", {xPercent: 0, duration, ease: "none"})
+
+            gsap.timeline({repeat: -1})
+                .set(".row-to-left4", {xPercent: -100})
+                .to(".row-to-left4", {xPercent: 100, duration: 2 * duration, ease: "none"})
+
+
+        }, appRef)
+
+        return () => ctx.revert();
+    }, [])
+
+
     return (
-        <div className={style.reviews}>
+        <div className={style.reviews}
+             ref={appRef}
+        >
 
             <div className={style.popup}
                  style={{
-                     left: `calc(${x}px - ${60/14}vw)`,
-                     top: `calc(${y}px - ${60/14}vw)`,
+                     left: `calc(${x}px - ${60 / 14}vw)`,
+                     top: `calc(${y}px - ${60 / 14}vw)`,
                  }}
             >
                 <Zoom in={enter && !click}>
@@ -141,32 +177,33 @@ export const Reviews = () => {
             </div>
 
             <div className={style.blocks}>
-                <div className={clsx(
-                    style.row,
-                    "line-to-left"
-                )}>
-                    {
-                        makeArray(100).map((el, index) => (
-                            <div className={style[`block${index % 4}`]}
-                                 key={index}
-                            >
-                                <img src={`/png/logo${index % 9}.png`} alt=""/>
-                            </div>
-                        ))
-                    }
+                <div className={style.rowWrapper}>
+                    <RowAnimated className="row-to-left1"/>
+                    <RowAnimated className="row-to-left2"/>
                 </div>
-                <div className={clsx(style.row, "line-to-right")}>
-                    {
-                        makeArray(100).map((el, index) => (
-                            <div className={style[`block${index % 4}`]}
-                                 key={index}
-                            >
-                                <img src={`/png/logo${index % 9}.png`} alt=""/>
-                            </div>
-                        ))
-                    }
+
+                <div className={style.rowWrapper}>
+                    <RowAnimated className="row-to-left3"/>
+                    <RowAnimated className="row-to-left4"/>
                 </div>
             </div>
+        </div>
+    )
+}
+
+//========= ROW ANIMATED =========//
+const RowAnimated: FC<{ className: string }> = ({className}) => {
+    return (
+        <div className={clsx(style.rowAnimated, className)}>
+            {
+                makeArray(9).map((el, index) => (
+                    <div className={style[`block${index % 4}`]}
+                         key={index}
+                    >
+                        <img src={`/png/logo${index % 9}.png`} alt=""/>
+                    </div>
+                ))
+            }
         </div>
     )
 }
