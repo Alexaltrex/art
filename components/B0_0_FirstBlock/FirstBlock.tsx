@@ -1,8 +1,6 @@
 import {format} from "date-fns";
 import style from "./FirstBlock.module.scss";
 import * as React from "react";
-import ReactPlayer from "react-player";
-
 
 const items = [
     {label: "Instagram", href: "#"},
@@ -18,16 +16,15 @@ export const FirstBlock = () => {
         <div className={style.firstBlock}>
 
             <div className={style.videoWrapper}>
-                <ReactPlayer url="video/first_block.mp4"
-                             playsinline={true}
-                             muted={true}
-                             width="100%"
-                             height="100%"
-                             playing={true}
-                             loop={true}
+                <video src="video/first_block.mp4"
+                       playsInline={true}
+                       muted={true}
+                       width="100%"
+                       height="100%"
+                       autoPlay={true}
+                       loop={true}
                 />
             </div>
-
 
             <div className={style.inner}>
 

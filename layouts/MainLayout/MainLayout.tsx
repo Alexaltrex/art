@@ -55,8 +55,6 @@ export const MainLayout: FC<IMainLayout> = observer(({
         );
     }, [pageYOffset]);
 
-
-
     return (
         <div className={clsx({
             [style.mainLayout]: true,
@@ -77,7 +75,7 @@ export const MainLayout: FC<IMainLayout> = observer(({
                 </title>
             </Head>
 
-            <Preloader/>
+            {/*<Preloader/>*/}
 
             <Header categories={categories}/>
             <BurgerMenu categories={categories}/>

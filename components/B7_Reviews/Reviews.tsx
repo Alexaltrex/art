@@ -11,7 +11,6 @@ import clsx from "clsx";
 import {PrimaryButton} from "../X_common/ButtonPrimary/PrimaryButton";
 import gsap from "gsap";
 
-
 const items = [
     {
         el: <p>1 I have been working with Anatoly and his team for over 3 years. <span>Implemented 3 projects</span>.

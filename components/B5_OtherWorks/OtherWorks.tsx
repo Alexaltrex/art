@@ -1,17 +1,23 @@
 import style from "./OtherWorks.module.scss"
 import {TitleWrapper} from "../X_common/TitleWrapper/TitleWrapper";
-import {FC, useRef, useState} from "react";
+import {FC, useLayoutEffect, useRef, useState} from "react";
 import clsx from "clsx";
-import {buttons, socialIcons, works} from "./constant";
+import {socialIcons} from "./constant";
 import {svgIcons} from "../../assets/svgIcons";
 import {AnimatedLink} from "../X_common/AnimatedLink/AnimatedLink";
-import {useScroll} from "../../hooks/useScroll";
 import {PrimaryButton} from "../X_common/ButtonPrimary/PrimaryButton";
 import {IPortfolio} from "../../types/portfolio.type";
 import {ICategory} from "../../types/category.type";
 import {sortOrderedItemByOrder} from "../../helpers/helpers";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import {Collapse, Grow} from "@mui/material";
+import {Collapse} from "@mui/material";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import TweenTarget = gsap.TweenTarget;
+
+if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger);
+}
 
 interface IOtherWorks {
     portfolios: IPortfolio[]
@@ -27,14 +33,12 @@ export const OtherWorks: FC<IOtherWorks> = ({
 
     const [selectedCategoryId, setSelectedCategoryId] = useState(""); // "" === all work
 
-    //const {ref, dark} = useScroll();
-
     const matchesDesktop = useMediaQuery('(min-width:1400px)');
     const [showMore, setShowMore] = useState(false);
-    const worksRef = useRef<HTMLDivElement>(null!);
+    const appRef = useRef<HTMLDivElement>(null!);
     const onShowHandler = () => {
         if (showMore) {
-            worksRef.current.scrollIntoView({
+            appRef.current.scrollIntoView({
                 behavior: "smooth",
                 block: "start"
             })
@@ -42,32 +46,83 @@ export const OtherWorks: FC<IOtherWorks> = ({
         setShowMore(!showMore);
     };
 
+    useLayoutEffect(() => {
+        const ctx = gsap.context((self) => {
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".category-buttons",
+                    markers: true,
+                    start: "top bottom-=20%",
+                    end: "top bottom-=20%",
+                    toggleActions: "play none reverse none"
+                }
+            });
+
+            // @ts-ignore
+            const btns = self.selector(".category-button") as TweenTarget[];
+
+            //console.log(btns)
+
+            btns.forEach((btn, index) => {
+                tl.fromTo(btn, {
+                    opacity: 0,
+                    yPercent: 200,
+                }, {
+                    opacity: 1,
+                    yPercent: 0,
+                    duration: 0.3,
+                    ease: "power3.out",
+                },  index === 0 ? "<" : "<0.1")
+            })
+
+            // gsap.from(".category-button", {
+            //     duration: 0.2,
+            //     opacity: 0,
+            //     yPercent: 100,
+            //     //y: 200,
+            //     stagger: 0.25,
+            //     scrollTrigger: {
+            //         trigger: ".category-buttons",
+            //         markers: true,
+            //         start: "top bottom-=200px",
+            //         end: "top bottom-=200px",
+            //         toggleActions: "play none reverse none"
+            //     }
+            // })
+
+        }, appRef);
+
+        return () => ctx.revert();
+    }, [])
+
     return (
         <div className={clsx({
             [style.otherWorks]: true,
             [style.otherWorks_dark]: true,
         })}
-             ref={worksRef}
+             ref={appRef}
         >
             <div className={style.top}>
                 <div className={style.inner}>
                     <TitleWrapper step="06" label="Other works"/>
 
-                    <div className={style.buttons}
-                         data-aos="fade-up"
-                    >
+                    <div className={clsx(style.buttons, "category-buttons")}>
                         {
                             [
                                 {id: "", name: "All works"},
                                 ...categories
-                            ].map(({id, name}, key) => (
+                            ].map((
+                                    {id, name},
+                                    key
+                                ) => (
                                 <button key={key}
                                         className={clsx({
+                                            "category-button": true,
                                             [style.btn]: true,
                                             [style.btn_selected]: id === selectedCategoryId,
                                         })}
                                         onClick={() => setSelectedCategoryId(id)}
-
                                 >
                                     {name}
                                 </button>
