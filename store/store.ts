@@ -5,7 +5,7 @@ enableStaticRendering(typeof window === 'undefined');
 
 export class Store {
     burgerMenu = false
-    preloader: boolean = false;
+    preloader: boolean = true;
     bottom: number = 0
     pageYOffset: number = 0
     scrollDown: boolean = true
