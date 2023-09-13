@@ -52,7 +52,7 @@ export const OtherWorks: FC<IOtherWorks> = ({
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: ".category-buttons",
-                    markers: true,
+                    //markers: true,
                     start: "top bottom-=20%",
                     end: "top bottom-=20%",
                     toggleActions: "play none reverse none"

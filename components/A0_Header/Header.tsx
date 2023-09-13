@@ -64,7 +64,7 @@ export const Header: FC<IHeader> = observer(({categories}) => {
                 <ReactAudioPlayer
                     ref={el => setPlayerRef(el)}
                     src="/mp3/music.mp3"
-                    autoPlay
+                    //autoPlay
                     //controls
                     volume={1}
                 />
