@@ -67,12 +67,12 @@ export const OtherWorks: FC<IOtherWorks> = ({
             btns.forEach((btn, index) => {
                 tl.fromTo(btn, {
                     opacity: 0,
-                    yPercent: 200,
+                    yPercent: 100,
                 }, {
                     opacity: 1,
                     yPercent: 0,
                     duration: 0.3,
-                    ease: "power3.out",
+                    //ease: "power3.out",
                 },  index === 0 ? "<" : "<0.1")
             })
 
