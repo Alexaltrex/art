@@ -1,6 +1,8 @@
 import {format} from "date-fns";
 import style from "./FirstBlock.module.scss";
 import * as React from "react";
+import {useEffect, useState} from "react";
+import moment from 'moment-timezone';
 
 const items = [
     {label: "Instagram", href: "#"},
@@ -12,6 +14,16 @@ const items = [
 
 
 export const FirstBlock = () => {
+
+    const [time, setTime] = useState("");
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setTime(moment().tz("Europe/Kyiv").format("hh:mm A"))
+        }, 1000);
+        return () => clearInterval(timer);
+    }, [])
+
     return (
         <div className={style.firstBlock}>
 
@@ -36,7 +48,10 @@ export const FirstBlock = () => {
                     <div className={style.right}>
                         <div>
                             <p>Kiev, Ukrainian Local</p>
-                            <p>Local Time → {format(new Date(), 'hh:mm aa')}</p>
+                            <p>Time → {
+                                //format(new Date(), 'hh:mm aa')
+                                time
+                            }</p>
                         </div>
                         <div>
                             <p>{format(new Date(), 'cccc')}</p>

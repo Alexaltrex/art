@@ -20,7 +20,7 @@ interface IValues {
 const budgets = [
     {label: "< $10k", value: 0},
     {label: "$10k — 25k", value: 1},
-    {label: "$10k — 50k", value: 2},
+    {label: "$25k — 50k", value: 2},
     {label: "$50k+", value: 3},
 ];
 
